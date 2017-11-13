@@ -1,2 +1,4 @@
 <h1>Sprout</h1>
 <p>Find the perfect plant.</p>
+
+<%= render partial: 'components/plant',collection: @artworks, as: :artwork, locals: {height: "350px", bstp: "3"} %>
