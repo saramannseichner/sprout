@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113184232) do
+ActiveRecord::Schema.define(version: 20171113200421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,37 @@ ActiveRecord::Schema.define(version: 20171113184232) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "plant_id"
+    t.bigint "order_id"
+    t.integer "quantity"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["plant_id"], name: "index_order_items_on_plant_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id"
+    t.string "date"
+    t.decimal "subtotal", precision: 6, scale: 2
+    t.decimal "tax", precision: 6, scale: 2
+    t.decimal "shipping", precision: 6, scale: 2
+    t.decimal "total", precision: 6, scale: 2
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.integer "water_level"
+    t.integer "sun_level"
+    t.integer "care_level"
+    t.text "special_care"
+    t.decimal "price", precision: 5, scale: 2
+    t.text "description"
+    t.decimal "height", precision: 5, scale: 2
+    t.string "common_name"
+    t.string "scientific_name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,8 +74,18 @@ ActiveRecord::Schema.define(version: 20171113184232) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street_address"
+    t.string "city"
+    t.string "country"
+    t.string "postal_code"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "plants"
+  add_foreign_key "orders", "users"
 end
