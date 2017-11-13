@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113195506) do
+ActiveRecord::Schema.define(version: 20171113200008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20171113195506) do
     t.decimal "shipping", precision: 6, scale: 2
     t.decimal "total", precision: 6, scale: 2
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.integer "water_level"
+    t.integer "sun_level"
+    t.integer "care_level"
+    t.text "special_care"
+    t.decimal "price", precision: 5, scale: 2
+    t.text "description"
+    t.decimal "height", precision: 5, scale: 2
+    t.string "common_name"
+    t.string "scientific_name"
   end
 
   create_table "users", force: :cascade do |t|
