@@ -1,5 +1,6 @@
 class Plant < ApplicationRecord
   has_many :order_items
+  has_attachment :photo
 
   validates :sun_level, presence: true
   validates :water_level, presence: true
