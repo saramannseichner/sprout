@@ -9,3 +9,4 @@ class AddFieldToAddress < ActiveRecord::Migration[5.1]
     add_column :addresses, :phone_number, :string
   end
 end
+
