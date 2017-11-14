@@ -2,13 +2,17 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def home
+    if params[:plants].nil?
+      @results = Plant.all
+    else
+      @results = params[:plants]
+    end
   end
 
   def journey
-    num = convert_to_num([:params])
-    @results = Plant.journey_search(num)
+    @results = Plant.journey_search(params[:sun].to_i, params[:care].to_i)
     respond_to do |format|
-      format.html { render 'journey_results', results: @results }
+      format.html { render root(plants: @results) }
       format.js
     end
   end

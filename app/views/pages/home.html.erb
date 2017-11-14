@@ -2,8 +2,11 @@
 <p>Find the perfect plant.</p>
 <button class="btn btn-success" id="journey">Journey</button>
 <div class="partial-container default-hidden" id="partial">
-  <%= render "journey/form" %>
-  <%= render "journey/journey_results" %>
+  <%= render partial: "journey/form" %>
+</div>
+
+<div id="results">
+
 </div>
 
 <script>

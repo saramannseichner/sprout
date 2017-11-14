@@ -1,27 +1,27 @@
-<%= form_with scope: :post, url: journey_path do |f| %>
+<%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="sun">
-  Sun:  <%= radio_button_tag(:sun, "full") %>
+  Sun:  <%= radio_button_tag(:sun, 3) %>
         <%= label_tag(:sun_full, "Full Sun") %>
-        <%= radio_button_tag(:sun, "partial") %>
+        <%= radio_button_tag(:sun, 2) %>
         <%= label_tag(:sun_partial, "Partial Sun") %>
-        <%= radio_button_tag(:sun, "none") %>
+        <%= radio_button_tag(:sun, 1) %>
         <%= label_tag(:sun_none, "Full Shade") %>
-  <button class="btn next">Next</button>
+  <div class="next">Next</div>
 </div>
 <div class="care default-hidden">
-  Care: <%= radio_button_tag(:care, "easy") %>
+  Care: <%= radio_button_tag(:care, 1) %>
         <%= label_tag(:care_easy, "Easy") %>
-        <%= radio_button_tag(:care, "medium") %>
+        <%= radio_button_tag(:care, 2) %>
         <%= label_tag(:care_medium, "Medium") %>
-        <%= radio_button_tag(:care, "hard") %>
+        <%= radio_button_tag(:care, 3) %>
         <%= label_tag(:care_hard, "Hard") %>
   <%= f.submit "Submit", class: "next btn" %>
 </div>
 <% end %>
 
 <!-- We need to render results  -->
-<div class="results">
-  <%= render partial: 'components/plant',collection: @results, as: :plant, locals: { height: "360px" } %>
+<div id="results">
+
 </div>
 
 <script>
