@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: :index do
-    resources :orders, only: [:show] do # Order-items are within the order, does not need own path
-      resources :order_items, only: [:create, :update, :destroy]
-    end
+    resources :orders, only: [:show] # Order-items are within the order, does not need own path
+    resources :order_items, only: [:create, :update, :destroy]
   end
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
