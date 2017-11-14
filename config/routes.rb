@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    resources :order_items, only: [:create, :update, :destroy]
+  end
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
 
