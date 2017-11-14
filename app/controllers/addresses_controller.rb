@@ -1,10 +1,20 @@
 class AddressesController < ApplicationController
+  def index
+    @addresses = Address.all
+  end
+
+  def new
+    @address = Address.new
+  end
 
   def create
     @address = Address.new(address_params)
-    @user = current_user
-    @address.user_id = @user.id
 
+    if @address.save
+      redirect_to @address
+    else
+      render 'new'
+    end
   end
 
   private
