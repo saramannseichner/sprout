@@ -1,0 +1,12 @@
+<%= simple_form_for @address do |f| %>
+  <%= f.error_notification %>
+      <%= f.input :first_name, placeholder: 'First Name' %>
+      <%= f.input :last_name, placeholder: 'Last Name' %>
+      <%= f.input :street_address, placeholder: 'Address' %>
+      <%= f.input :city, placeholder: 'City' %>
+      <%= f.input :country, placeholder: 'Country' %>
+      <%= f.input :postal_code, placeholder: 'Postal Code'%>
+      <%= f.input :phone_number, placeholder: 'Phone Number' %>
+      <%= f.button :submit %>
+
+  <% end %>
