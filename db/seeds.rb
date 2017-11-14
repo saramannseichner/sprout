@@ -101,15 +101,15 @@ attributes = [
     [{
       common_name: "Suspended Glass Tear Drop",
       description: "Embellish your windows with this lovely suspended terrarium! The glass tear drop contains a variety of tiny succulents. These plants prefer good light with a soil that you will let dry between waterings.",
-      height: 22,
-      price: 14,
+      height: 9,
+      price: 35,
       sun_level: 3,
       water_level: 1,
       care_level: 2,
       size: 2,
       suspended: 1
     },
-    "https://cdn.monpanierdachat.com/1821/manipulated/ver_plante_07_shoot_3_2017_0a7b4982-c12a-4a42-a619-a51a67f99280_680X680cropresize.jpg" ],
+    "https://cdn.monpanierdachat.com/1821/manipulated/ver_plante_08_shoot_3_2017_2241b7c0-728e-41df-983f-3d41e984cc95_680X680cropresize.jpg" ],
     [{
       common_name: "Bowl of Succulents",
       description: "This large bowl (14 inches in diameter) is made of grey colored resin and is filled with adorable succulents! These plants prefer good lighting. Let the soil dry between waterings.",
