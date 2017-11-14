@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
 
-  post 'journey', to: 'pages#home'
+  post 'journey', to: 'pages#journey'
 
   resources :orders, only: [:show]
   # Order-items are within the order, does not need own path

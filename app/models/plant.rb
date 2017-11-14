@@ -38,29 +38,6 @@ class Plant < ApplicationRecord
     end
   end
 
-
-  def sun_to_num
-    case self[:params]
-    when "Full Shade"
-      1
-    when "Full Sun"
-      3
-    else
-      2
-    end
-  end
-
-  def care_to_num
-    case self[:params]
-    when "Hard"
-      3
-    when "Easy"
-      1
-    else
-      2
-    end
-  end
-
   def show_care_level
     case self[:care_level]
     when 1
@@ -95,19 +72,7 @@ class Plant < ApplicationRecord
     self[:suspended] == 1
   end
 
-  def convert_to_num
-    case self[:params]
-    when sun
-      sun_to_num
-    when care
-      care_to_num
-    else
-      return
-    end
-  end
-
-
-  def self.journey_search(args = {})
-    where("sun_level = ? AND care_level = ?", :sun, :care).limit(3)
+  def self.journey_search(sun, care)
+    where("sun_level = ? AND care_level = ?", sun, care).limit(3)
   end
 end

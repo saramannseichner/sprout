@@ -1,0 +1,3 @@
+const cont = document.getElementById('results');
+cont.innerHTML = "";
+cont.insertAdjacentHTML("beforeend", "<%= j render partial: 'components/plant', collection: @results, as: :plant, locals: { height: '360px' } %>");
