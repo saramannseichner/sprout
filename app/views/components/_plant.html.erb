@@ -1,12 +1,12 @@
 <div class="card-container">
   <%= link_to plant_path(plant) do %>
-    <div class="card-img" style="background-image: url('<%= cl_image_path plant.photo && plant.photo.path || '/' %>'); height: <%= height %>;">
+    <div class="card-img" style="background-image: url('<%= cl_image_path plant.photo.path, crop: :fill, gravity: "south"; %>'); height: <%= height %>;">
       <div class="card-content">
         <div class="card-item card-name ">
           <h2><%= plant.common_name %></h2>
         </div>
         <div class="card-item card-price">
-          <p><%= plant.price %></p>
+          <p>$<%= plant.price.to_i %></p>
         </div>
         <div class="card-item card-info">
           <ul>
