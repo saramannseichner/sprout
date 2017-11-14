@@ -1,24 +1,30 @@
 class OrderItemsController < ApplicationController
-  def new
-    # if current_user.orders
-    #  @order_item = OrderItem.new
-    #  @order_item.order_id =
-    # else
-    #   @order = Order.new
-    #   @order
-  end
 
   def create
-    @order_item = OrderItem.new(order_item_params)
+    @order = current_order
+    @order_item = @order.order_items.new(order_item_params)
+    @order.save
+    session[:order_id] = @order.id
+  end
+
+  def update
+    @order = current_order
+    @order_item = @order.order_items.find(params[:id])
+    @order_item.update_attributes(order_item_params)
+    @order_items = @order.order_items
+  end
+
+
+  def destroy
+    @order = current_order
+    @order_item = @order.order_items.find(params[:id])
+    @order_item.destroy
+    @order_items = @order.order_items
   end
 
   private
 
-  def set_order_item
-    @order_item = OrderItem.find(params[:id])
-  end
-
   def order_item_params
-    params.require(:order_item).permit(:quantity, :order_id)
+    params.require(:order_item).permit(:quantity, :plant_id)
   end
 end
