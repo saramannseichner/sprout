@@ -1,0 +1,50 @@
+<table id="cart-table" class="item-list">
+  <thead>
+    <tr>
+      <th class="section-header th-delete"></th>
+      <th class="section-header th-img"></th>
+      <th class="section-header">PLANT</th>
+      <th class="section-header">PRICE</th>
+      <th class="section-header">QTY</th>
+      <th class="section-header">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% order_items.each do |oi| %>
+      <tr class="cart-row">
+        <td class="item-details">
+          <div class="item-delete">
+            <%= link_to plant_order_item_path(oi.plant, oi), method: :delete do %>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </td>
+        <td class="item-details">
+          <div class="item-image">
+            <%= cl_image_tag oi.plant.photo.path, width: 200, height: 300, crop: :fill %>
+          </div>
+        </td>
+        <td class="item-details">
+          <div class="item-name">
+            <%= oi.plant.common_name %>
+          </div>
+        </td>
+        <td class="item-details">
+          <div class="item-price">
+            $ <%= oi.unit_price %>
+          </div>
+        </td>
+        <td class="item-details">
+          <div class="item-qty">
+            <%= oi.quantity %>
+          </div>
+        </td>
+        <td class="item-details">
+          <div class="item-total">
+            $ <%= oi.total_price %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
