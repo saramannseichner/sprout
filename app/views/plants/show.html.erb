@@ -1,0 +1,8 @@
+<div class="plant-name">
+  <h1>
+    <strong><%= @plant.common_name %></strong>
+    <% if @plant.scientific_name %>
+      <em>(<%= @plant.scientific_name %>)</em>
+    <% end %>
+  </h1>
+</div>
