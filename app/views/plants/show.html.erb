@@ -27,4 +27,8 @@
     <h4>Watering</h4>
     <%= @plant.show_water_level %>
   </div>
+  <% if @plant.special_care %>
+    <h4>Special care instructions</h4>
+    <%= @plant.special_care %>
+  <% end %>
 </div>
