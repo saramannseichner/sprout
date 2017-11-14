@@ -39,8 +39,8 @@ class Plant < ApplicationRecord
   end
 
 
-  def sun_to_num
-    case self[:params]
+  def sun_to_num(arg)
+    case arg
     when "Full Shade"
       1
     when "Full Sun"
@@ -50,8 +50,8 @@ class Plant < ApplicationRecord
     end
   end
 
-  def care_to_num
-    case self[:params]
+  def care_to_num(arg)
+    case arg
     when "Hard"
       3
     when "Easy"
@@ -95,15 +95,15 @@ class Plant < ApplicationRecord
     self[:suspended] == 1
   end
 
-  def convert_to_num
-    case self[:params]
-    when sun
-      sun_to_num
-    when care
-      care_to_num
-    else
-      return
+  def convert_to_num(args = {})
+    if [:sun].present?
+      args[:sun] = sun_to_num(:sun)
     end
+    if args[:care].present?
+      [:care] = care_to_num(:care)
+    end
+
+    return args
   end
 
 

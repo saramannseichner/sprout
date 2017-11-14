@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
 
   def journey
-    @results = Plants.convert_to_num.journey_search([:params])
+    num = convert_to_num([:params])
+    @results = Plant.journey_search(num)
     respond_to do |format|
       format.html { render 'journey_results', results: @results }
       format.js
