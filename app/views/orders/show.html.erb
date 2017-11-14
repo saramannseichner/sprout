@@ -1,3 +1,11 @@
-<% @order_items.each do |oi| %>
-  <%= oi.quantity %>
-<% end %>
+<h2>Your Order</h2>
+<%= render 'cart_table', order_items: @order_items %>
+<div class="cart-footer">
+  <div class="cart-order-totals">
+    <%= render 'order_totals_table', order: current_order %>
+  </div>
+</div>
+
+
+
+
