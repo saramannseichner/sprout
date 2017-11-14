@@ -6,6 +6,11 @@ class Order < ApplicationRecord
   before_create :set_order_status
   before_save :update_subtotal
 
+  # def add_order_item(plant_id)
+  #   order_item = order_items.find_or_create_by_plant_id(plant_id)
+  #   order_item.quantity += 1
+  #   order_item.save
+  # end
 
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
@@ -39,4 +44,8 @@ class Order < ApplicationRecord
   def update_subtotal
     self[:subtotal] = subtotal
   end
+
+  # def find_or_create_by_plant_id(plant_id)
+  #   if order
+  # end
 end
