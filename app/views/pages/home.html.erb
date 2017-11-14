@@ -1,5 +1,15 @@
-<h1>sprout</h1>
-<p>Find the perfect plant.</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(175, 175, 175,0.6) 0%, rgba(61,61, 61, 0.6) 70%), url('<%= image_path('sprout-banner.jpg') %>;">
+  <div class="banner-content">
+    <div class="col-sm-4">
+      <h1 class="align-left">Be a part</h1>
+    </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <h1 class="align-right">of local art</h1>
+    </div>
+  </div>
+</div>
 <button class="btn btn-success" id="journey">Journey</button>
 <div class="partial-container default-hidden" id="partial">
   <%= render "journey/form" %>
