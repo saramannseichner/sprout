@@ -21,7 +21,7 @@
         </td>
         <td class="item-details">
           <div class="item-price">
-            $<%= oi.unit_price %>
+            $ <%= oi.unit_price %>
           </div>
         </td>
         <td class="item-details">
@@ -31,13 +31,18 @@
         </td>
         <td class="item-details">
           <div class="item-total">
-            $<%= oi.total_price %>
+            $ <%= oi.total_price %>
           </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div class="cart-footer">
+  <div class="cart-order-totals">
+    <%= render 'order_totals_table', order: current_order %>
+  </div>
+</div>
 
 
 

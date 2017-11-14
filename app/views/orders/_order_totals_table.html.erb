@@ -1,0 +1,32 @@
+<table class="order-totals-table">
+  <tbody>
+    <tr class="order-subtotal">
+      <td>Subtotal</td>
+      <td>$ <%= order.subtotal %></td>
+    </tr>
+    <tr class="order-shipping">
+      <td>Shipping</td>
+      <td>
+        <% if order.shipping %>
+          $ <%= order.shipping %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+    </tr>
+    <tr class="order-sales-tax">
+      <td>Estimated sales tax</td>
+      <td>
+       <% if order.shipping %>
+          $ <%= order.tax %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+    </tr>
+    <tr class="order-total">
+      <td>Estimated total</td>
+      <td class="order-value">$<%= order.total %></td>
+    </tr>
+  </tbody>
+</table>

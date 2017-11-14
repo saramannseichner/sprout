@@ -14,11 +14,17 @@ class Order < ApplicationRecord
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
+  def shipping
+  end
+
   def tax
   end
 
-  def shipping
+  def total
+    order_items.collect { |oi| oi.valid? ? oi.total_price : 0 }.sum
   end
+
+
 
   def show_status
     case self[:status]
