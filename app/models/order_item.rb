@@ -3,8 +3,8 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :product_present
-  validates :order_present
+  validate :product_present
+  validate :order_present
 
   before_save :finalize
 
@@ -23,8 +23,8 @@ class OrderItem < ApplicationRecord
   private
 
   def product_present
-    if product.nil?
-      errors.add(:product, "is not valid or is not active.")
+    if plant.nil?
+      errors.add(:plant, "is not valid or is not active.")
     end
   end
 

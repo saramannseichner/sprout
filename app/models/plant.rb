@@ -26,11 +26,13 @@ class Plant < ApplicationRecord
   def show_water_level
     case self[:water_level]
     when 1
-      "Dry between watering"
+      "Every 12 to 15 days"
     when 2
-      "Well Drained"
+      "Every 7 to 10 days"
     when 3
-      "Slightly Damp"
+      "Once a week"
+    when 4
+      "Two times a week"
     else
       errors.add(:plant, "is not a valid water level")
     end
