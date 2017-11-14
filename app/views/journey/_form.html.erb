@@ -1,15 +1,15 @@
-<%= simple_form_for :journey do |f| %>
+<%= simple_form_for :journey,  do |f| %>
 <div class="sun">
   <%= f.input :sun, label: 'How sunny is your space?', collection: 1..3 %>
-  <%= f.button :button, "Next",  id: "next"  %>
+  <button id="next">Next</button>
 </div>
 <div class="care default-hidden">
   <%= f.input :care, label: 'How easy to care for?', collection: 1..3 %>
-  <%= f.button :button, "Next",  id: "next" %>
+  <button id="next">Next</button>
 </div>
 <div class="room default-hidden">
   <%= f.input :room, label: 'Which room will it be in?', required: false, collection: 1..3 %>
-  <%= f.button :button, "Next",  id: "next" %>
+  <button id="next">Next</button>
 </div>
 <div class="other default-hidden">
   <%= f.input :care, label: 'How easy to care for?', collection: 1..3 %>
