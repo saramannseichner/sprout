@@ -1,11 +1,14 @@
-<div class="content">
+<div class="plant-image-lg">
+    <%= cl_image_tag @plant.photo.path, width: 422, height: 680, crop: :fill %>
+</div>
+<div class="plant-content">
   <div class="content-name">
-    <h1>
+    <h2>
       <strong><%= @plant.common_name %></strong>
       <% if @plant.scientific_name %>
         <em>(<%= @plant.scientific_name %>)</em>
       <% end %>
-    </h1>
+    </h2>
   </div>
   <div class="content-price">
     $<%= @plant.price.to_i %>
