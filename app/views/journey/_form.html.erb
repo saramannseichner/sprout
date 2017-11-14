@@ -18,6 +18,8 @@
   <%= f.submit "Submit", class: "next btn" %>
 </div>
 <% end %>
+
+<!-- We need to render results  -->
 <div class="results">
   <%= render partial: 'components/plant',collection: @results, as: :plant, locals: { height: "360px" } %>
 </div>
