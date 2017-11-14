@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
 
-  resources :orders, only: [:show] # Order-items are within the order, does not need own path
+
+  post 'journey', to: 'pages#home'
+
+  resources :orders, only: [:show]
+  # Order-items are within the order, does not need own path
   resources :plants, only: [:index, :show] do
     resources :order_items, only: [:create, :update, :destroy]
   end

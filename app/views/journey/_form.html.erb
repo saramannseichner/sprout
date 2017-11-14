@@ -1,0 +1,36 @@
+<%= form_with url: journey_path do |f| %>
+<div class="sun">
+  Sun:  <%= radio_button_tag(:sun, "full") %>
+        <%= label_tag(:sun_full, "Full Sun") %>
+        <%= radio_button_tag(:sun, "partial") %>
+        <%= label_tag(:sun_partial, "Partial Sun") %>
+        <%= radio_button_tag(:sun, "none") %>
+        <%= label_tag(:sun_none, "Full Shade") %>
+  <button class="btn next">Next</button>
+</div>
+<div class="care default-hidden">
+  Care: <%= radio_button_tag(:care, "easy") %>
+        <%= label_tag(:care_easy, "Easy") %>
+        <%= radio_button_tag(:care, "medium") %>
+        <%= label_tag(:care_medium, "Medium") %>
+        <%= radio_button_tag(:care, "hard") %>
+        <%= label_tag(:care_hard, "Hard") %>
+  <%= f.submit "Submit", class: "next btn" %>
+</div>
+<% end %>
+
+<!-- We need to render results  -->
+<div class="results">
+  <%= render partial: 'components/plant',collection: @results, as: :plant, locals: { height: "360px" } %>
+</div>
+
+<script>
+  const buttons = document.body.querySelectorAll('.next');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', (event) => {
+      console.log("hey");
+      $(event.currentTarget).parent().hide();
+      $(event.currentTarget).parent().next().show();
+      });
+    }
+</script>
