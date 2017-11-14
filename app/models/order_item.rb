@@ -23,8 +23,8 @@ class OrderItem < ApplicationRecord
   private
 
   def product_present
-    if product.nil?
-      errors.add(:product, "is not valid or is not active.")
+    if plant.nil?
+      errors.add(:plant, "is not valid or is not active.")
     end
   end
 
