@@ -14,6 +14,9 @@
     $<%= @plant.price.to_i %>
   </div>
   <hr>
+  <div class="content-add-to-cart-form">
+    <%= render "order_items/form", %>
+  </div>
   <div class="content-description">
     <h4>Description</h4>
     <%= @plant.description %>
