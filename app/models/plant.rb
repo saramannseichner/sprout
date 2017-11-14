@@ -106,6 +106,6 @@ class Plant < ApplicationRecord
 
 
   def self.journey_search(args = {})
-    where("sun_level = ? AND care_level = ?", :sun, :care))
+    where("sun_level = ? AND care_level = ?", :sun, :care).limit(3)
   end
 end
