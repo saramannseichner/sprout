@@ -1,0 +1,38 @@
+.sprout-btn  {
+  border-radius: 1px;
+  padding: 8px 25px;
+  border: solid;
+  border-width: 1.5px;
+  font-size: 18px;
+  background: none;
+}
+
+.sprout-primary {
+  border-color: $sprout;
+  color: $sprout;
+}
+
+.sprout-primary:hover {
+  transform: scale(1.05);
+  border-color: $sprout;
+  color: $sprout;
+  background: none;
+}
+
+.sprout-primary:focus {
+  transform: scale(1.00);
+  border-color: $sprout;
+  color: $sprout;
+  background: none;
+}
+
+.sprout-primary:visited {
+  border-color: $sprout;
+  color: $sprout;
+  background: none;
+}
+
+.sprout-primary:active {
+  background: none;
+  border-color: $sprout;
+}
