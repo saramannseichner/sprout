@@ -20,11 +20,14 @@
 
 <div class="sun default-hidden">
   Sun:  <%= radio_button_tag(:sun, 3) %>
-        <%= label_tag(:sun_full, "Full Sun") %>
+        <%= label_tag(:sun_full, "Lots of sun!") %>
+        <%= image_tag "sun.png"%>
         <%= radio_button_tag(:sun, 2) %>
-        <%= label_tag(:sun_partial, "Partial Sun") %>
+        <%= label_tag(:sun_partial, "A bit of sun.") %>
+        <%= image_tag "sun-and-cloud.png"%>
         <%= radio_button_tag(:sun, 1) %>
-        <%= label_tag(:sun_none, "Full Shade") %>
+        <%= label_tag(:sun_none, "No sun") %>
+        <%= image_tag "cloud.png"%>
       <%= f.submit "Next", class: "next btn" %>
 </div>
 <div class="care default-hidden">
@@ -34,6 +37,9 @@
         <%= label_tag(:care_medium, "Medium") %>
         <%= radio_button_tag(:care, 3) %>
         <%= label_tag(:care_hard, "Hard") %>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div>
   <%= f.submit "Submit", class: "next btn" %>
 </div>
 <% end %>
