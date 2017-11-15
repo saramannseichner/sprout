@@ -7,7 +7,7 @@
     <tr class="order-shipping">
       <td>Shipping</td>
       <td>
-        <% if current_user.address_id %>
+        <% if current_order.address_id %>
           $ <%= order.shipping %>
         <% else %>
           -
@@ -17,7 +17,7 @@
     <tr class="order-sales-tax">
       <td>Estimated sales tax</td>
       <td>
-       <% if current_user.address_id %>
+       <% if current_order.address_id %>
           $ <%= order.tax %>
         <% else %>
           -

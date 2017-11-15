@@ -9,10 +9,11 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-
+    @address.user = current_user
     if @address.save
-      redirect_to payment_order_path
+      redirect_to new_order_path
     else
+      raise
       render 'new'
     end
   end
@@ -24,6 +25,10 @@ class AddressesController < ApplicationController
   # end
 
   def address_params
-    params.require(:address).permit(:street_address, :city, :country, :postal_code, :phone_number)
+    params.require(:address).permit(:street_address, :city, :country, :postal_code, :phone_number, :first_name, :last_name)
+  end
+
+  def assign_user_params_to_address
+
   end
 end
