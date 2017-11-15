@@ -4,29 +4,42 @@
   </div>
   <div class="row">
     <div class="checkout-container">
-      <div class="checkout-form">
+      <div class="checkout-forms">
         <div class="checkout-steps">
-          <div class="step-1 active">
+          <div class="checkout-step active" id="step-1">
             <h4>Shipping</h4>
           </div>
-          <div class="step-2 inactive">
+          <div class="checkout-step" id="step-2">
             <h4>Payment</h4>
           </div>
         </div>
-        <div class="address-form">
+        <div class="checkout-form" id="address-form">
           <h3>Enter Shipping Address</h3>
           <%= render "addresses/form", address: @address, order: current_order %>
           <button class="sprout-btn" id="payment-btn">Continue to Payment</button>
         </div>
-        <div class="payment-form">
+        <div class="checkout-form hidden" id="payment-form">
           <h3>Enter Payment Information</h3>
           <%= render "payment_form" %>
         </div>
       </div>
-
       <div class="order-summary">
         <%= render 'order_totals_table', order: current_order %>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  paymentBtn = document.getElementById("payment-btn");
+  addressForm = document.getElementById("address-form");
+  paymentForm = document.getElementById("payment-form");
+  step1 = document.getElementById("step-1");
+  step2 = document.getElementById("step-2");
+  paymentBtn.addEventListener('click', (event) => {
+    addressForm.classList.add("hidden");
+    paymentForm.classList.remove("hidden");
+    step1.classList.remove("active");
+    step2.classList.add("active");
+  });
+<% end %>
