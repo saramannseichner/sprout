@@ -10,7 +10,15 @@ class PagesController < ApplicationController
   end
 
   def journey
-    @results = Plant.journey_search(params[:sun].to_i, params[:care].to_i)
+    options = {}
+    options[:sun] = params[:sun].to_i
+    options[:care] = params[:care].to_i
+    if params[:size] == "nil"
+      options[:size] = nil
+    else
+      options[:size] = params[:size].to_i
+    end
+    @results = Plant.journey_search(options)
     respond_to do |format|
       format.html { render root(plants: @results) }
       format.js
