@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114160707) do
+ActiveRecord::Schema.define(version: 20171115200909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171114160707) do
     t.string "country"
     t.string "postal_code"
     t.string "phone_number"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "attachinary_files", id: :serial, force: :cascade do |t|
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(version: 20171114160707) do
     t.decimal "tax", precision: 6, scale: 2
     t.decimal "shipping", precision: 6, scale: 2
     t.decimal "total", precision: 6, scale: 2
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -91,19 +95,18 @@ ActiveRecord::Schema.define(version: 20171114160707) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "address_id"
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.index ["address_id"], name: "index_users_on_address_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "plants"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "users"
-  add_foreign_key "users", "addresses"
 end

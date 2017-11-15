@@ -7,11 +7,17 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <% if current_order.num_of_items > 0  %>
+      <%= link_to order_path(current_order) do %>
+        <div class="navbar-sprout-item navbar-sprout-link"><%= current_order.num_of_items %> <i class='fa fa-shopping-cart'></i></div>
+      <% end %>
+    <% else %>
+      <%= link_to order_path(current_order) do %>
+        <div class= "navbar-wagon-item navbar-wagon-link"><i class='fa fa-shopping-cart'></i></div>
+      <% end %>
+    <% end %>
+
     <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "#{current_order.num_of_items} Items in Cart ( #{number_to_currency current_order.subtotal} )", order_path(current_order), class: "navbar-wagon-item navbar-wagon-link" %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">

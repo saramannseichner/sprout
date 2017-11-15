@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
-  has_many :order_items
   belongs_to :user
+  has_many :order_items
   has_many :plants, through: :order_items
+  has_one :address, through: :user
 
   before_create :set_order_status
   before_save :update_subtotal
@@ -15,9 +16,11 @@ class Order < ApplicationRecord
   end
 
   def shipping
+    15 # 15$ shipping for all orders
   end
 
   def tax
+    subtotal * 0.15
   end
 
   def total
@@ -48,8 +51,4 @@ class Order < ApplicationRecord
   def update_subtotal
     self[:subtotal] = subtotal
   end
-
-  # def find_or_create_by_plant_id(plant_id)
-  #   if order
-  # end
 end

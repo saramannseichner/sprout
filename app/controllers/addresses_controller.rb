@@ -1,29 +1,13 @@
 class AddressesController < ApplicationController
-  def index
-    @addresses = Address.all
-  end
-
-  def new
-    @address = Address.new
-  end
-
   def create
     @address = Address.new(address_params)
-
-    if @address.save
-      redirect_to @address
-    else
-      render 'new'
-    end
+    @address.user = current_user
+    @address.save
   end
 
   private
 
-  def set_address
-     @address = Address.find(params[:id])
-  end
-
   def address_params
-    params.require(:address).permit(:street_address, :city, :country, :postal_code, :phone_number)
+    params.require(:address).permit(:street_address, :city, :country, :postal_code, :phone_number, :first_name, :last_name)
   end
 end
