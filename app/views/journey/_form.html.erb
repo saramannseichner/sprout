@@ -10,6 +10,8 @@
         <%= label_tag(:suspended, "Hung?") %>
         <%= radio_button_tag(:size, 0) %>
         <%= label_tag(:no_pref, "No Preference") %>
+      <%= f.submit "Next", class: "next btn" %>
+
   <div class="next">Next</div>
 </div>
 <div class="sun default-hidden">
@@ -19,7 +21,7 @@
         <%= label_tag(:sun_partial, "Partial Sun") %>
         <%= radio_button_tag(:sun, 1) %>
         <%= label_tag(:sun_none, "Full Shade") %>
-  <div class="next">Next</div>
+      <%= f.submit "Next", class: "next btn" %>
 </div>
 <div class="care default-hidden">
   Care: <%= radio_button_tag(:care, 1) %>
