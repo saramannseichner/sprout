@@ -38,11 +38,20 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 20px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  color: $green;
+  text-decoration: none !important;
+}
+
+.navbar-sprout-link {
+  color: $green;
+  font-size: 20px;
+}
+.navbar-sprout-link:hover {
+  transform: scale(1.2);
+  text-decoration: none !important;
 }
 
 /* Dropdown menu */

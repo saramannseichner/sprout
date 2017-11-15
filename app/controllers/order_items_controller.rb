@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def create
     @order_item = OrderItem.new(order_item_params)
