@@ -51,8 +51,4 @@ class Order < ApplicationRecord
   def update_subtotal
     self[:subtotal] = subtotal
   end
-
-  # def find_or_create_by_plant_id(plant_id)
-  #   if order
-  # end
 end
