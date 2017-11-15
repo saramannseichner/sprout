@@ -42,15 +42,10 @@ class ApplicationController < ActionController::Base
   private
 
    def logging_in
-    guest_orders_items = guest_users.order_items.all
-    guest_orders = guest_users.order.all
+    guest_orders_items = guest_user.order_items.all
     guest_orders_items.each do |order_item|
       order_item.user_id = current_user.id
       order_item.save!
-    end
-    guest_orders.each do |order|
-      order.user_id = current_user.id
-      order.save!
     end
   end
 
