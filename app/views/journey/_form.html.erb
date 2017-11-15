@@ -1,21 +1,35 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="size">
-  Size:  <%= radio_button_tag(:size, 4) %>
+  <span class= "title">  <h1>What size of plant are you looking for? </h1> </span>
+</div>
+      <div class = "size-content">
+        <%= radio_button_tag(:size, 4) %>
         <%= label_tag(:size_large, "Large") %>
-        <%= image_tag "floor_lamp.png"%>
+        <%= image_tag "floor_lamp.png", :class => "size-image"%>
+      </div>
+      <div class = "size-content">
         <%= radio_button_tag(:size, 3) %>
         <%= label_tag(:size_medium, "Medium") %>
-        <%= image_tag "shelf .png"%>
+        <%= image_tag "shelf .png", :class => "size-image"%>
+      </div>
+      <div class = "size-content">
         <%= radio_button_tag(:size, 2) %>
         <%= label_tag(:size_small, "Small") %>
-        <%= image_tag "desk.png"%>
+        <%= image_tag "desk.png", :class => "size-image"%>
+      </div>
+      <div class = "size-content">
         <%= radio_button_tag(:size, "nil") %>
         <%= label_tag(:suspended, "Hanging") %>
-        <%= image_tag "hanging_plant.png"%>
+        <%= image_tag "hanging_plant.png", :class => "size-image"%>
+      </div>
+      <div class = "size-content">
         <%= radio_button_tag(:size, 0) %>
         <%= label_tag(:no_pref, "Don't Care") %>
-        <%= image_tag "homepage-question.png"%>
+        <%= image_tag "homepage-question.png", :class => "size-image"%>
+      </div>
+      <div class = "size-content">
       <%= f.submit "Next", class: "next btn" %>
+    </div>
 </div>
 
 <div class="sun default-hidden">
@@ -57,5 +71,14 @@
       $(event.currentTarget).parent().hide();
       $(event.currentTarget).parent().next().show();
       });
+    }
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
     }
 </script>
