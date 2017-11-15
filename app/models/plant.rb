@@ -72,7 +72,18 @@ class Plant < ApplicationRecord
     self[:suspended] == 1
   end
 
-  def self.journey_search(sun, care)
-    where("sun_level = ? AND care_level = ?", sun, care).limit(3)
+  def self.journey_search(args = {})
+    case args[:size]
+    when nil
+      where("sun_level = ? AND care_level = ? AND suspended = 1", args[:sun], args[:care]).limit(3)
+    when 2
+      where("sun_level = ? AND care_level = ? AND ( size = 1 OR size = 2 )", args[:sun], args[:care]).limit(3)
+    when 3
+      where("sun_level = ? AND care_level = ? AND size = 3", args[:sun], args[:care]).limit(3)
+    when 4
+      where("sun_level = ? AND care_level = ? AND ( size = 4 OR size = 5 )", args[:sun], args[:care]).limit(3)
+    else
+      where("sun_level = ? AND care_level = ?", args[:sun], args[:care]).limit(3)
+    end
   end
 end
