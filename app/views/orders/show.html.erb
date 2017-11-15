@@ -1,4 +1,5 @@
 <h2>Your Order</h2>
+<%= link_to "Checkout", new_order_path %>
 <%= render 'cart_table', order_items: @order_items %>
 <div class="cart-footer">
   <div class="cart-order-totals">
