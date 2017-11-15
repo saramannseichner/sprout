@@ -13,6 +13,9 @@ class OrdersController < ApplicationController
     # assign order status
   end
 
+  def payment
+  end
+
   private
 
   def order_params

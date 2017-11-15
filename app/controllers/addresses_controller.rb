@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
 
     if @address.save
-      redirect_to @address
+      redirect_to payment_order_path
     else
       render 'new'
     end
