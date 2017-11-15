@@ -32,14 +32,16 @@
   left: 0px;
   right: 0px;
   opacity: 0;
-
+  h2 {
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: .2em;
+    color: $gray;
+    text-transform: uppercase;
+  }
 }
 
-h2 {
-  font-weight: lighter;
-  font-size: 24px;
-  color: $gray;
-}
+
 
 
 .card-row {
