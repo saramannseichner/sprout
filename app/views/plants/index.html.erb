@@ -1,1 +1,16 @@
-<%= render partial: 'components/plant',collection: @plants, as: :plant, locals: { height: "360px" } %>
+<div class="container">
+  <div class="title"></div>
+    <% @plants.each_slice(2) do |plants| %>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 no-gutter" >
+          <% plants.each do |plant| %>
+          <%= render partial: 'components/plant', locals: { plant: plant, height: "400px" } %>
+          <% end %>
+        </div>
+      <div class="w-100"></div>
+    <% end %>
+  </div>
+</div>
+
+
+
