@@ -1,15 +1,15 @@
 <div class="container">
   <div class="title"></div>
-    <% @plants.each_slice(2) do |plants| %>
-      <div class="row">
+  <% @plants.each_slice(2) do |plants| %>
+    <div class="row">
+      <% plants.each do |plant| %>
         <div class="col-xs-12 col-md-6 no-gutter" >
-          <% plants.each do |plant| %>
           <%= render partial: 'components/plant', locals: { plant: plant, height: "400px" } %>
-          <% end %>
         </div>
+       <% end %>
       <div class="w-100"></div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 
