@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   post 'journey', to: 'pages#journey'
 
-  resources :orders, only: [:show, :new, :create]
+  resources :orders, only: [:show, :new, :create] do
+    resources :addresses, only: [:new, :create]
+  end
   # Order-items are within the order, does not need own path
   resources :plants, only: [:index, :show] do
     resources :order_items, only: [:create, :update, :destroy]

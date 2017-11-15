@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = current_order
+    @address = Address.new
   end
 
   def create

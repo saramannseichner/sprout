@@ -1,3 +1,10 @@
-<h1>Checkout</h1>
+<div class="container-checkout">
+  <h1>Checkout</h1>
+  <div class="checkout-form">
+    <%= render "addresses/form", address: @address, order: current_order %>
+  </div>
 
-<%= @order.subtotal %>
+  <div class="order-summary">
+    <%= render 'order_totals_table', order: current_order %>
+  </div>
+</div>
