@@ -1,0 +1,40 @@
+.card-container {
+  height: 120%;
+  position: relative;
+  margin-bottom: 30px;
+  &:hover {
+    .card-content{
+      transform: translateY(-20px);
+      opacity: 1;
+      transition: opacity .5s ease;
+      transition: transform .5s ease;
+    }
+  }
+}
+
+.card-img {
+  background: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.card-content {
+  text-align: center;
+  position: absolute;
+  bottom: -40px;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+
+}
+
+h2 {
+  font-weight: lighter;
+  font-size: 24px;
+  color: $gray;
+}
