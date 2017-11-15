@@ -1,19 +1,23 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="size">
   Size:  <%= radio_button_tag(:size, 4) %>
-        <%= label_tag(:size_large, "Grande") %>
+        <%= label_tag(:size_large, "Large") %>
+        <%= image_tag "floor_lamp.png"%>
         <%= radio_button_tag(:size, 3) %>
-        <%= label_tag(:size_medium, "Tall") %>
+        <%= label_tag(:size_medium, "Medium") %>
+        <%= image_tag "shelf .png"%>
         <%= radio_button_tag(:size, 2) %>
-        <%= label_tag(:size_small, "Short") %>
+        <%= label_tag(:size_small, "Small") %>
+        <%= image_tag "desk.png"%>
         <%= radio_button_tag(:size, "nil") %>
-        <%= label_tag(:suspended, "Hung?") %>
+        <%= label_tag(:suspended, "Hanging") %>
+        <%= image_tag "hanging_plant.png"%>
         <%= radio_button_tag(:size, 0) %>
-        <%= label_tag(:no_pref, "No Preference") %>
+        <%= label_tag(:no_pref, "Don't Care") %>
+        <%= image_tag "homepage-question.png"%>
       <%= f.submit "Next", class: "next btn" %>
-
-  <div class="next">Next</div>
 </div>
+
 <div class="sun default-hidden">
   Sun:  <%= radio_button_tag(:sun, 3) %>
         <%= label_tag(:sun_full, "Full Sun") %>
