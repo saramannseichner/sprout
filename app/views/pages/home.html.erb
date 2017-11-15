@@ -1,9 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(120, 120, 120,0.4) 0%, rgba(61,61, 61, 0.6) 70%), url('<%= image_path('sprout-banner.jpg') %>;">
   <div class="banner-content">
     <h1>sprout</h1>
+    <h2>Find your perfect Plant</h2>
+    <button class="sprout-btn sprout-cta" id="journey">DISCOVER</button>
+    <% link_to 'All', plants_path, {class: "sprout-btn sprout-secondary"} %>
   </div>
 </div>
-<button class="btn btn-success" id="journey">Journey</button>
 <div class="partial-container default-hidden" id="partial">
   <%= render partial: "journey/form" %>
 </div>

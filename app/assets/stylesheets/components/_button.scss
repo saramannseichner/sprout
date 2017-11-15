@@ -1,38 +1,60 @@
 .sprout-btn  {
   border-radius: 1px;
-  padding: 8px 25px;
+  padding: 10px 24px;
   border: solid;
   border-width: 1.5px;
   font-size: 18px;
-  background: none;
+  color: $light-gray;
 }
 
-.sprout-primary {
-  border-color: $sprout;
-  color: $sprout;
+.sprout-cta {
+  border-color: $green;
+  background-color: $green;
 }
 
-.sprout-primary:hover {
+.sprout-cta:hover {
   transform: scale(1.05);
-  border-color: $sprout;
-  color: $sprout;
+  border-color: $green;
+  color: $green;
   background: none;
 }
 
-.sprout-primary:focus {
+.sprout-cta:focus {
   transform: scale(1.00);
-  border-color: $sprout;
-  color: $sprout;
+  border-color: $green;
+  color: $green;
   background: none;
 }
 
-.sprout-primary:visited {
-  border-color: $sprout;
-  color: $sprout;
+.sprout-cta:visited {
+  border-color: $green;
+  color: $green;
   background: none;
 }
 
-.sprout-primary:active {
+.sprout-cta:active {
   background: none;
-  border-color: $sprout;
+  border-color: $green;
+}
+
+.sprout-secondary {
+  border-color: $light-gray;
+  background: none;
+  color: black;
+}
+
+.sprout-secondary:hover {
+  background: white;
+}
+
+.sprout-secondary:focus {
+  background: white;
+}
+
+.sprout-secondary:visited {
+  background: white;
+}
+
+.sprout-secondary:active {
+  background: white;
 }
