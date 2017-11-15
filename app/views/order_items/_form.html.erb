@@ -1,5 +1,32 @@
 <%= simple_form_for([plant, order_item]) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :quantity %>
-  <%= f.button :submit, value: "add to cart" %>
+  <div class="add-qty">
+    <%= f.error_notification %>
+    <div id="quantity">
+      <div id="input-qty">
+        <%= f.input :quantity, input_html: {value: f.object.quantity || '1'}, label: false %>
+      </div>
+      <div id="qty-num">
+        <div id="plus-one" class="text-center">+</div>
+        <div id="minus-one" class="text-center">-</div>
+      </div>
+    </div>
+    <%= f.button :submit, value: "add to cart", id: "cartItem_add" %>
+  </div>
+<% end %>
+
+<%= javascript_tag do %>
+  cartItemQty = document.getElementById("order_item_quantity");
+  value = parseInt(cartItemQty.value);
+  plus = document.getElementById("plus-one");
+  minus = document.getElementById("minus-one");
+  plus.addEventListener("click", (event) => {
+    value += 1;
+    cartItemQty.value = value.toString();
+  });
+  minus.addEventListener("click", (event) => {
+    if (value > 1) {
+      value -= 1;
+    }
+    cartItemQty.value = value.toString();
+  });
 <% end %>
