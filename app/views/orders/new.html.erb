@@ -1,26 +1,32 @@
-<div class="container-checkout">
-  <h1>Checkout</h1>
-  <div class="checkout-form">
-    <div class="checkout-steps">
-      <div class="step-1 active">
-        <h4>Shipping</h4>
-      </div>
-      <div class="step-2 inactive">
-        <h4>Payment</h4>
-      </div>
-    </div>
-    <div class="address-form">
-      <h3>Enter Shipping Address</h3>
-      <%= render "addresses/form", address: @address, order: current_order %>
-      <button class="sprout-btn" id="payment-btn">Continue to Payment</button>
-    </div>
-    <div class="payment-form">
-      <h3>Enter Payment Information</h3>
-      <%= render "payment_form" %>
-    </div>
+<div class="container">
+  <div class="row">
+    <h1>Checkout</h1>
   </div>
+  <div class="row">
+    <div class="checkout-container">
+      <div class="checkout-form">
+        <div class="checkout-steps">
+          <div class="step-1 active">
+            <h4>Shipping</h4>
+          </div>
+          <div class="step-2 inactive">
+            <h4>Payment</h4>
+          </div>
+        </div>
+        <div class="address-form">
+          <h3>Enter Shipping Address</h3>
+          <%= render "addresses/form", address: @address, order: current_order %>
+          <button class="sprout-btn" id="payment-btn">Continue to Payment</button>
+        </div>
+        <div class="payment-form">
+          <h3>Enter Payment Information</h3>
+          <%= render "payment_form" %>
+        </div>
+      </div>
 
-  <div class="order-summary">
-    <%= render 'order_totals_table', order: current_order %>
+      <div class="order-summary">
+        <%= render 'order_totals_table', order: current_order %>
+      </div>
+    </div>
   </div>
 </div>
