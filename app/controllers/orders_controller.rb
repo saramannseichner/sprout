@@ -8,17 +8,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(current_order)
     # assign user id
     # assign order status
   end
 
-  def payment
-  end
+  # def payment
+  # end
 
   private
 
-  def order_params
-    params.require(:order).permit(:subtotal, :shipping, :tax, :total)
-  end
+  # def order_params
+  #   params.require(:order).permit(:subtotal, :shipping, :tax, :total)
+  # end
 end

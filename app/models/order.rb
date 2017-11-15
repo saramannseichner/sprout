@@ -15,9 +15,11 @@ class Order < ApplicationRecord
   end
 
   def shipping
+    15 # 15$ shipping for all orders
   end
 
   def tax
+    subtotal * 0.15
   end
 
   def total

@@ -21,6 +21,7 @@
         <div class="checkout-form hidden" id="payment-form">
           <h3>Enter Payment Information</h3>
           <%= render "payment_form" %>
+          <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
         </div>
       </div>
       <div class="order-summary">

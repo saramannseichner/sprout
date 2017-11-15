@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114160707) do
+ActiveRecord::Schema.define(version: 20171115192022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20171114160707) do
     t.decimal "tax", precision: 6, scale: 2
     t.decimal "shipping", precision: 6, scale: 2
     t.decimal "total", precision: 6, scale: 2
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20171114160707) do
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "plants"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "users"
   add_foreign_key "users", "addresses"
 end
