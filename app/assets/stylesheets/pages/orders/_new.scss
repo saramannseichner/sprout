@@ -1,0 +1,17 @@
+.checkout-container {
+  display: flex;
+}
+
+.checkout-steps {
+  display: flex;
+  .checkout-step {
+    padding: 0 20px;
+  }
+  .active {
+    border-bottom: solid 3px black;
+  }
+}
+
+.hidden {
+  display: none;
+}
