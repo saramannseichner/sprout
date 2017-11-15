@@ -2,6 +2,8 @@
   height: 120%;
   position: relative;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   &:hover {
     .card-content{
       transform: translateY(-20px);
@@ -37,4 +39,11 @@ h2 {
   font-weight: lighter;
   font-size: 24px;
   color: $gray;
+}
+
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-content: bottom;
 }
