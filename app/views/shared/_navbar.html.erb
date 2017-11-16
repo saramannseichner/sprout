@@ -36,8 +36,7 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <!-- shopping cart logo -->
-    <%= render "components/shopping_cart" %>
-
+    <%= render "components/shopping_cart", cart_id: 'shopping-cart-closed', hidden: "", on_click: "" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -53,22 +52,25 @@
   </div>
   <!-- cart summary appear -->
   <div class="navbar-cart-summary hidden", id="cart-summary">
+    <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     <%= render "orders/mini_cart", order_items: current_order.order_items %>
   </div>
 </div>
 
 
 <%= javascript_tag do %>
-  shoppingCart = document.getElementById("shopping-cart");
+  shoppingCartClosed = document.getElementById("shopping-cart-closed");
+  shoppingCartOpened = document.getElementById("shopping-cart-opened");
   cartSummary = document.getElementById("cart-summary");
-  shoppingCart.addEventListener("click", (event) => {
-    event.preventDefault();
-    hidden = cartSummary.classList.contains("hidden");
-    if(hidden) {
+  shoppingCartClosed.addEventListener("click", (event) => {
+      shoppingCartClosed.classList.add("hidden");
       cartSummary.classList.remove("hidden");
-    } else {
+      shoppingCartOpened.classList.remove("hidden");
+  });
+  shoppingCartOpened.addEventListener("click", (event) => {
+      shoppingCartClosed.classList.remove("hidden");
       cartSummary.classList.add("hidden");
-    }
+      shoppingCartOpened.classList.add("hidden");
   });
 <% end %>
 
