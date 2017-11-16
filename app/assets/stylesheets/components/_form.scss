@@ -1,0 +1,65 @@
+.selectors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  label {
+    border: 1px solid rgba(darken($light-gray, 50%),.15);
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1vh;
+    cursor: pointer;
+    opacity: .5;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex: 0;
+    justify-content: center;
+    align-items: center;
+    &:hover, &:focus, &:active {
+      border: 1px solid rgba(black,.5);
+    }
+    div {
+      width: 100%;
+    }
+
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  input[type="radio"]:active ~ label {
+    opacity: 1;
+  }
+
+  input[type="radio"]:checked ~ label {
+    opacity: 1;
+    border: 1px solid black;
+  }
+}
+
+.selector {
+  margin: 1vw;
+  height: 110px;
+  width: 110px;
+  img {
+    display: block;
+    max-height: 90px;
+    max-width: 90px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.form-section {
+  width: 100%;
+}
+
+.test-hide {
+  display:none;
+}
