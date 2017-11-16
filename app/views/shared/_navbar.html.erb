@@ -37,11 +37,11 @@
     <% end %>
 
     <% if current_order.num_of_items > 0  %>
-      <%= link_to order_path(current_order) do %>
+      <%= link_to order_path(current_order), id: "shopping-cart" do %>
         <div class="navbar-sprout-item navbar-sprout-link"><%= current_order.num_of_items %> <i class='fa fa-shopping-cart'></i></div>
       <% end %>
     <% else %>
-      <%= link_to order_path(current_order) do %>
+      <%= link_to order_path(current_order), id: "shopping-cart" do %>
         <div class= "navbar-wagon-item navbar-wagon-link"><i class='fa fa-shopping-cart'></i></div>
       <% end %>
     <% end %>
@@ -59,5 +59,10 @@
       </ul>
     </div>
   </div>
+</div>
+
+<!-- cart summary appear -->
+<div class="navbar-cart-summary">
+  <%= render "orders/mini_cart", order_items: current_order.order_items %>
 </div>
 
