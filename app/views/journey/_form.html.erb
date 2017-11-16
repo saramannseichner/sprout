@@ -89,11 +89,12 @@
     <%= radio_button_tag(:care, 3) %>
     <%= label_tag(:care_3, "Hard") %> -->
 
-        <div id="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-        </div>
-    </div>
-  <%= f.submit "Submit", class: "next btn" %>
+  <div id="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  </div>
+    <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
+  </div>
+
 </div>
 <% end %>
 

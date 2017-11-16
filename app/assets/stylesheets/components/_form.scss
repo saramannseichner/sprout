@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   label {
     border: 1px solid rgba(darken($light-gray, 50%),.15);
     box-sizing: border-box;
@@ -42,14 +43,23 @@
   }
 }
 
+.next {
+  margin-left: 50%;
+}
+
+.title {
+  color: $dark-gray;
+  font-weight: 200px;
+}
+
 .selector {
   margin: 1vw;
-  height: 110px;
-  width: 110px;
+  height: 200px;
+  width: 200px;
   img {
     display: block;
-    max-height: 90px;
-    max-width: 90px;
+    max-height: 160px;
+    max-width: 160px;
     width: auto;
     height: auto;
     margin: 0 auto;
@@ -60,6 +70,3 @@
   width: 100%;
 }
 
-.test-hide {
-  display:none;
-}
