@@ -7,6 +7,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @pos = params[:pos]
     @order_item = current_order.order_items.new
   end
 
