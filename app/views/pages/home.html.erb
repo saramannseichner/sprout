@@ -1,13 +1,28 @@
+<<<<<<< HEAD
 <div class="banner" style="background-image: url('<%= image_path('sprout-banner.jpg') %>;">
+=======
+<div class="banner" style="background-image: url('<%= image_path('banner-background.jpg') %>;">
+>>>>>>> 6a401b28445194477372578eed1ff0ae8feac8b0
   <div class="banner-content">
-    <h1>sprout</h1>
+    <div class="banner-text">
+      <h1>FIND</h1>
+      <h1>YOUR</h1>
+      <h1 class="fade-out">PERFECT</h1>
+      <h1>PLANT</h1>
+    </div>
+    <br>
+
+    <div class="banner-buttons">
+      <button type="button" class="sprout-btn sprout-cta" id="journey">DISCOVER</button>
+
+      <%= link_to '<button type="button" class="sprout-btn sprout-secondary">PLANTS</button>'.html_safe, plants_path %>
+    </div>
   </div>
 </div>
-<button class="btn btn-success" id="journey">Journey</button>
-<div class="partial-container default-hidden" id="partial">
-  <%= render partial: "journey/form" %>
-</div>
 
+  <div class="partial-container default-hidden" id="partial">
+    <%= render partial: "journey/form" %>
+  </div>
 <div id="results">
 
 </div>
