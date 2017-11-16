@@ -12,14 +12,16 @@
         </div>
       <% end %>
     </div>
+
     <div class = "selector">
       <%= radio_button_tag(:size, 3) %>
       <%= label_tag(:size_3, "Medium") do %>
         <div>
-          <%= image_tag "shelf .png"  %>
+          <%= image_tag "shelf.png"  %>
         </div>
       <% end %>
     </div>
+
     <div class = "selector">
       <%= radio_button_tag(:size, 2) %>
       <%= label_tag(:size_2, "Small") do %>
@@ -28,6 +30,7 @@
         </div>
       <% end %>
     </div>
+
     <div class = "selector">
       <%= radio_button_tag(:size, "nil") %>
       <%= label_tag(:size_nil, "Hanging") do %>
@@ -36,6 +39,7 @@
         </div>
       <% end %>
     </div>
+
     <div class = "selector">
       <%= radio_button_tag(:size, 0) %>
       <%= label_tag(:size_0, "Don't Care") do %>
