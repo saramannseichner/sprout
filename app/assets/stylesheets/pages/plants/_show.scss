@@ -60,11 +60,22 @@
   padding-left: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
-  padding-right: 15px;
-  width: 110%;
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-template-rows: min-content;
   box-shadow: 1px 2px 16px rgba(0,0,0,0.3);
   border-bottom: 3px darken($light-gray, 10%);
+}
+
+.right-card-container {
+  .plant-content-background {
+  padding-right: 15px;
+  width: 110%;
+  }
+}
+
+.left-card-container {
+  .plant-content-background {
+  padding-left: 25px;
+  }
 }
