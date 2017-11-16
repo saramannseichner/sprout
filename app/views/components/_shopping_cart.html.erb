@@ -1,0 +1,9 @@
+<% if current_order.num_of_items > 0  %>
+  <%= link_to order_path(current_order), id: "shopping-cart" do %>
+    <div class="navbar-sprout-item navbar-sprout-link"><i class='fa fa-shopping-cart fa-flip-horizontal'></i> <%= current_order.num_of_items %></div>
+  <% end %>
+<% else %>
+  <%= link_to order_path(current_order), id: "shopping-cart" do %>
+    <div class= "navbar-wagon-item navbar-wagon-link"><i class='fa fa-shopping-cart'></i></div>
+  <% end %>
+<% end %>
