@@ -16,6 +16,7 @@
 .navbar-title {
   color: $green;
   letter-spacing: .1em;
+  position: relative;
 }
 
 /* Logo */
@@ -55,11 +56,14 @@
 
 .navbar-sprout-link {
   color: $green;
-  font-size: 20px;
-}
-.navbar-sprout-link:hover {
-  transform: scale(1.2);
-  text-decoration: none !important;
+  font-size: 14px;
+  i {
+    font-size: 22px;
+  }
+  &:hover {
+    // transform: scale(1.2);
+    text-decoration: none !important;
+  }
 }
 
 /* Dropdown menu */

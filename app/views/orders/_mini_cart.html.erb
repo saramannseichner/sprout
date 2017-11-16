@@ -1,19 +1,15 @@
-<% order_item.each do |oi| %>
+<% order_items.each do |oi| %>
   <div class="mini-cart">
     <div class="mini-cart-image">
-      <%= cl_image_tag oi.plant.photo.path, height: 100, crop: :fill %>
+      <%= cl_image_tag oi.plant.photo.path, height: 150, crop: :fill %>
     </div>
-    <div class="mini-cart-name">
-      <%= oi.plant.common_name %>
-    </div>
-    <div class="mini-cart-qty">
-      <%= oi.quantity %>
-    </div>
-    <div class="mini-cart-times">
-      x
-    </div>
-    <div class="mini-cart-price">
-      $ <%= oi.unit_price %>
+    <div class="mini-cart-content">
+      <h3><%= oi.plant.common_name.upcase %></h3>
+      <p>QTY: <%= oi.quantity %></p>
+      <%= link_to plant_order_item_path(oi.plant, oi), method: :delete do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      <% end %>
+      <h4>$ <%= oi.unit_price %></h4>
     </div>
   </div>
 <% end %>

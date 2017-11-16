@@ -26,7 +26,7 @@
       </div>
       <div class="order-summary">
         <h4 class="order-header">Order Summary</h4>
-        <%= render 'mini_cart', order_item: current_order.order_items %>
+        <%= render 'mini_cart', order_items: current_order.order_items %>
         <%= render 'order_totals_table', order: current_order %>
       </div>
     </div>
