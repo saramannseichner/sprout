@@ -54,6 +54,10 @@
   <div class="navbar-cart-summary hidden", id="cart-summary">
     <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     <%= render "orders/mini_cart", order_items: current_order.order_items %>
+    <div class="navbar-cart-footer">
+      SUB-TOTAL
+      <span>$ <%= current_order.subtotal %></span>
+    </div>
   </div>
 </div>
 

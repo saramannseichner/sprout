@@ -95,10 +95,20 @@
   top: 0;
   right: 0;
   background-color: $light-gray;
+  z-index: 999;
 }
 
 .on-click {
   float: right;
   padding-right: 30px;
   padding-top: 22px;
+}
+
+.navbar-cart-footer {
+  background-color: white;
+  padding: 25px;
+  font-size: 14px;
+  span {
+    float: right;
+  }
 }
