@@ -1,34 +1,22 @@
 // Specific CSS for your home-page
-.default-hidden {
-  display: none;
-}
-
-#slidecontainer {
-    width: 80%; /* Width of the outside container */
+.container {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 23%;
+  margin: 20px 1% 20px 0;
+  height: 180px;
+  vertical-align: top;
+  font-size: 22px;
+  text-align: center;
 }
 
 .title {
   text-align: center;
 }
 
-.size-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-  margin: 60px 200px;
-}
-
 .size-image {
   flex: 0 0 auto;
 }
-
-#label_tag {
-  display: none;
-}
-
-
 
 .slider {
     -webkit-appearance: none;
@@ -59,5 +47,6 @@
     background: #4CAF50;
     cursor: pointer;
 }
+
 
 
