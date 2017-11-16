@@ -1,36 +1,118 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
-<div class="size">
-  Size: <%= radio_button_tag(:size, 4) %>
-        <%= label_tag(:size_large, "Grande") %>
-        <%= radio_button_tag(:size, 3) %>
-        <%= label_tag(:size_medium, "Tall") %>
-        <%= radio_button_tag(:size, 2) %>
-        <%= label_tag(:size_small, "Short") %>
-        <%= radio_button_tag(:size, "nil") %>
-        <%= label_tag(:suspended, "Hung?") %>
-        <%= radio_button_tag(:size, 0) %>
-        <%= label_tag(:no_pref, "No Preference") %>
-  <div class="next">Next</div>
+<div class="size form-section">
+  <h1 class= "title">Which plant best suits your needs? </h1>
+  <div class="selectors">
+    <div class = "selector">
+      <%= radio_button_tag(:size, 4) %>
+      <%= label_tag(:size_4, "Large") do %>
+        <div>
+          <%= image_tag "floor_lamp.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "selector">
+      <%= radio_button_tag(:size, 3) %>
+      <%= label_tag(:size_3, "Medium") do %>
+        <div>
+          <%= image_tag "shelf.png"  %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "selector">
+      <%= radio_button_tag(:size, 2) %>
+      <%= label_tag(:size_2, "Small") do %>
+        <div>
+          <%= image_tag "desk.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "selector">
+      <%= radio_button_tag(:size, "nil") %>
+      <%= label_tag(:size_nil, "Hanging") do %>
+        <div>
+          <%= image_tag "hanging_plant.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "selector">
+      <%= radio_button_tag(:size, 0) %>
+      <%= label_tag(:size_0, "Don't Care") do %>
+        <div>
+          <%= image_tag "homepage-question.png" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class = "next sprout-btn sprout-secondary"> Next </div>
 </div>
-<div class="sun default-hidden">
-  Sun:  <%= radio_button_tag(:sun, 3) %>
-        <%= label_tag(:sun_full, "Full Sun") %>
-        <%= radio_button_tag(:sun, 2) %>
-        <%= label_tag(:sun_partial, "Partial Sun") %>
-        <%= radio_button_tag(:sun, 1) %>
-        <%= label_tag(:sun_none, "Full Shade") %>
-  <div class="next">Next</div>
+
+<div class="sun form-section default-hidden">
+  <h1 class="title">How much sunlight does your space get? </h1>
+
+  <div class="selectors">
+    <div class="selector">
+      <%= radio_button_tag(:sun, 3) %>
+      <%= label_tag(:sun_3, "Lots of sun!") do %>
+      <div>
+        <%= image_tag "sun.png"%>
+      </div>
+      <% end %>
+    </div>
+    <div class="selector">
+      <%= radio_button_tag(:sun, 2) %>
+      <%= label_tag(:sun_2, "A bit of sun.") do %>
+      <div>
+        <%= image_tag "sun-and-cloud.png"%>
+      </div>
+      <% end %>
+    </div>
+    <div class="selector">
+      <%= radio_button_tag(:sun, 1) %>
+      <%= label_tag(:sun_1, "No sun") do %>
+      <div>
+        <%= image_tag "cloud.png"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+    <div class = "next sprout-btn sprout-secondary"> Next </div>
 </div>
-<div class="care default-hidden">
-  Care: <%= radio_button_tag(:care, 1) %>
-        <%= label_tag(:care_easy, "Easy") %>
-        <%= radio_button_tag(:care, 2) %>
-        <%= label_tag(:care_medium, "Medium") %>
-        <%= radio_button_tag(:care, 3) %>
-        <%= label_tag(:care_hard, "Hard") %>
-  <%= f.submit "Submit", class: "next btn" %>
+
+<div class="care form-section default-hidden">
+  <h1 class="title">Rate how good you are at taking care of your plants</h1>
+
+<!--   <div class="selectors">
+    <%= radio_button_tag(:care, 1) %>
+    <%= label_tag(:care_1, "Easy") %>
+    <%= radio_button_tag(:care, 2) %>
+    <%= label_tag(:care_2, "Medium") %>
+    <%= radio_button_tag(:care, 3) %>
+    <%= label_tag(:care_3, "Hard") %> -->
+
+  <div class="selectors">
+    <div class= "selector">
+      <div>
+       <%= image_tag "knife.png" %>
+        <%= label_tag "Plant Killer" %>
+      </div>
+    </div>
+    <div id="slidecontainer">
+      <input name="slider" type="range" min="1" max="100" value="50" class="slider" id="†">
+    </div>
+    <div class= "selector">
+      <div>
+        <%= image_tag "heart.png" %>
+        <%= label_tag "Plant Lover" %>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div>
+      <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
+    <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
 
 <!-- We need to render results  -->
 <div id="results">
@@ -45,5 +127,14 @@
       $(event.currentTarget).parent().hide();
       $(event.currentTarget).parent().next().show();
       });
+    }
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
     }
 </script>
