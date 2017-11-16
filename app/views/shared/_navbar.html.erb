@@ -62,7 +62,18 @@
 </div>
 
 <!-- cart summary appear -->
-<div class="navbar-cart-summary">
+<div class="navbar-cart-summary hidden", id="cart-summary">
   <%= render "orders/mini_cart", order_items: current_order.order_items %>
 </div>
+
+<%= javascript_tag do %>
+  shoppingCart = document.getElementById("shopping-cart");
+  cartSummary = document.getElementById("cart-summary");
+  shoppingCart.addEventListener("click", (event) => {
+    event.preventDefault();
+    cartSummary.classList.remove("hidden");
+  });
+<% end %>
+
+
 
