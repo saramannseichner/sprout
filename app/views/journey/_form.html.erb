@@ -79,7 +79,7 @@
 </div>
 
 <div class="care form-section default-hidden">
-  <h1 class="title">Rate how good you are at taking care of your plants: </h1>
+  <h1 class="title">Rate how good you are at taking care of your plants</h1>
 
 <!--   <div class="selectors">
     <%= radio_button_tag(:care, 1) %>
@@ -88,15 +88,22 @@
     <%= label_tag(:care_2, "Medium") %>
     <%= radio_button_tag(:care, 3) %>
     <%= label_tag(:care_3, "Hard") %> -->
-
-  <div id="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <div class="selectors">
+    <div class= "selector">
+      <div>
+       <%= image_tag "knife.png" %>
+      </div>
+      <div id="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+      <div>
+        <%= image_tag "heart.png" %>
+      </div>
+        <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
+      </div>
+    <% end %>
   </div>
-    <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
-  </div>
-
 </div>
-<% end %>
 
 <!-- We need to render results  -->
 <div id="results">
