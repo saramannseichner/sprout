@@ -1,4 +1,4 @@
-<%= link_to plant_path(plant) do %>
+<%= link_to plant_path(plant, pos: pos) do %>
   <div class="card-container" style="height:<%= height %>">
     <div class="card-img" id="img" style="background-image: url('<%= cl_image_path plant.photo.path, crop: :fill %>'); height: <%= height %>">
     </div>
