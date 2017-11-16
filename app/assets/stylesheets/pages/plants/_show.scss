@@ -1,6 +1,81 @@
 .plant-container {
-  max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
+  overflow: hidden;
+}
+
+.plant-content {
+  padding-top: 5%;
+  max-height: 70vh;
+}
+
+.plant-content-name {
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  margin: 0;
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.plant-content-price {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-description {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  text-align: justify;
+}
+
+.content-descriptors {
+  grid-row: 4 / span 2;
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.content-add-to-cart-form {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#sci-name {
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  margin-top: -10px;
+}
+
+.plant-content-background {
+  background-color: white;
+  height: 90%;
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: min-content;
+  box-shadow: 1px 2px 16px rgba(0,0,0,0.3);
+  border-bottom: 3px darken($light-gray, 10%);
+}
+
+.right-card-container {
+  .plant-content-background {
+  padding-right: 15px;
+  width: 110%;
+  }
+}
+
+.left-card-container {
+  .plant-content-background {
+  padding-left: 25px;
+  }
 }
