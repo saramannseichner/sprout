@@ -2,14 +2,16 @@
   <div class="cards">
     <% @plants.each_slice(2) do |plants| %>
       <div class="card-row">
-        <% plants.each do |plant| %>
           <div class="col-xs-12 col-md-6 no-gutter" >
-            <%= render partial: 'components/plant', locals: { plant: plant, height: "700px" } %>
+            <%= render partial: 'components/plant', locals: { plant: plants.first, height: "700px", pos: "1" } %>
           </div>
-         <% end %>
+          <div class="col-xs-12 col-md-6 no-gutter" >
+            <%= render partial: 'components/plant', locals: { plant: plants.last, height: "700px", pos: "2" } %>
+          </div>
         <div class="w-100"></div>
       </div>
     <% end %>
   </div>
 </div>
+
 
