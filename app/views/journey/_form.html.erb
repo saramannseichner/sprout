@@ -1,7 +1,5 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
-<<<<<<< HEAD
 <div class="size form-section">
-
   <h1 class= "title">Which plant best suits your needs? </h1>
 
   <div class="selectors">
@@ -47,20 +45,6 @@
     </div>
   </div>
   <div class = "next"> Next </div>
-=======
-<div class="size">
-  Size: <%= radio_button_tag(:size, 4) %>
-        <%= label_tag(:size_large, "Grande") %>
-        <%= radio_button_tag(:size, 3) %>
-        <%= label_tag(:size_medium, "Tall") %>
-        <%= radio_button_tag(:size, 2) %>
-        <%= label_tag(:size_small, "Short") %>
-        <%= radio_button_tag(:size, "nil") %>
-        <%= label_tag(:suspended, "Hung?") %>
-        <%= radio_button_tag(:size, 0) %>
-        <%= label_tag(:no_pref, "No Preference") %>
-  <div class="next">Next</div>
->>>>>>> 6a401b28445194477372578eed1ff0ae8feac8b0
 </div>
 
 <div class="sun form-section default-hidden">
