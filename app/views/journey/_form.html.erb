@@ -1,8 +1,6 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
-<div class="size form-section">
-
+<div class="size form-section default-hidden">
   <h1 class= "title">Which plant best suits your needs? </h1>
-
   <div class="selectors">
     <div class = "selector">
       <%= radio_button_tag(:size, 4) %>
@@ -12,7 +10,6 @@
         </div>
       <% end %>
     </div>
-
     <div class = "selector">
       <%= radio_button_tag(:size, 3) %>
       <%= label_tag(:size_3, "Medium") do %>
@@ -21,7 +18,6 @@
         </div>
       <% end %>
     </div>
-
     <div class = "selector">
       <%= radio_button_tag(:size, 2) %>
       <%= label_tag(:size_2, "Small") do %>
@@ -30,7 +26,6 @@
         </div>
       <% end %>
     </div>
-
     <div class = "selector">
       <%= radio_button_tag(:size, "nil") %>
       <%= label_tag(:size_nil, "Hanging") do %>
@@ -39,7 +34,6 @@
         </div>
       <% end %>
     </div>
-
     <div class = "selector">
       <%= radio_button_tag(:size, 0) %>
       <%= label_tag(:size_0, "Don't Care") do %>
@@ -53,7 +47,7 @@
 </div>
 
 <div class="sun form-section default-hidden">
-  <h1 class="title">Sun:</h1>
+  <h1 class="title">How much sunlight does your space get? </h1>
 
   <div class="selectors">
     <div class="selector">
@@ -64,19 +58,15 @@
       </div>
       <% end %>
     </div>
-
-    <div class="selectors">
-      <div class="selector">
+    <div class="selector">
       <%= radio_button_tag(:sun, 2) %>
       <%= label_tag(:sun_2, "A bit of sun.") do %>
       <div>
         <%= image_tag "sun-and-cloud.png"%>
       </div>
-    </div>
       <% end %>
     </div>
-
-    <div class="selectors">
+    <div class="selector">
       <%= radio_button_tag(:sun, 1) %>
       <%= label_tag(:sun_1, "No sun") do %>
       <div>
@@ -85,22 +75,19 @@
       <% end %>
     </div>
   </div>
-
-  <div class = "next"> Next </div>
+    <div class = "next"> Next </div>
 </div>
 
 <div class="care form-section default-hidden">
-  <h1 class="title">Care:</h1>
+  <h1 class="title">Rate how good you are at taking care of your plants: </h1>
 
-  <div class="test-hide">
+<!--   <div class="selectors">
     <%= radio_button_tag(:care, 1) %>
     <%= label_tag(:care_1, "Easy") %>
     <%= radio_button_tag(:care, 2) %>
     <%= label_tag(:care_2, "Medium") %>
     <%= radio_button_tag(:care, 3) %>
-    <%= label_tag(:care_3, "Hard") %>
-
-
+    <%= label_tag(:care_3, "Hard") %> -->
 
         <div id="slidecontainer">
           <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
