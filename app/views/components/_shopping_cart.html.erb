@@ -1,0 +1,10 @@
+<% if current_order.num_of_items > 0  %>
+    <div class="navbar-sprout-item navbar-sprout-link <%= hidden %> <%= on_click %>" id=<%= cart_id %> >
+      <i class='fa fa-shopping-cart fa-flip-horizontal'>
+      </i> <%= current_order.num_of_items %>
+    </div>
+<% else %>
+    <div class= "navbar-wagon-item navbar-wagon-link <%= hidden %> <%= on_click %>" id=<%= cart_id %> >
+        <i class='fa fa-shopping-cart'></i>
+    </div>
+<% end %>
