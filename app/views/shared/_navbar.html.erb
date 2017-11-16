@@ -52,17 +52,24 @@
   </div>
   <!-- cart summary appear -->
   <div class="navbar-cart-summary hidden", id="cart-summary">
-    <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
-    <%= render "orders/mini_cart", order_items: current_order.order_items %>
+    <div class="shopping-cart-icon">
+      <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
+    </div>
+    <div class="navbar-cart-content">
+      <div class="navbar-cart-scroll">
+        <%= render "orders/mini_cart", order_items: current_order.order_items %>
+      </div>
+    </div>
     <div class="navbar-cart-footer">
       SUB-TOTAL
       <span>$ <%= current_order.subtotal %></span>
     </div>
+    <%= link_to "CHECKOUT", new_order_path, class: "checkout-btn" %>
   </div>
 </div>
 
 
-<%= javascript_tag do %>
+<script>
   shoppingCartClosed = document.getElementById("shopping-cart-closed");
   shoppingCartOpened = document.getElementById("shopping-cart-opened");
   cartSummary = document.getElementById("cart-summary");
@@ -76,7 +83,7 @@
       cartSummary.classList.add("hidden");
       shoppingCartOpened.classList.add("hidden");
   });
-<% end %>
+</script>
 
 
 
