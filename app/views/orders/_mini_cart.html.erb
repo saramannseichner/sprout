@@ -1,5 +1,19 @@
 <% order_item.each do |oi| %>
-  <div class="item-image">
-    <%= cl_image_tag oi.plant.photo.path, width: 70, height: 100, crop: :fill %>
+  <div class="mini-cart">
+    <div class="mini-cart-image">
+      <%= cl_image_tag oi.plant.photo.path, height: 100, crop: :fill %>
+    </div>
+    <div class="mini-cart-name">
+      <%= oi.plant.common_name %>
+    </div>
+    <div class="mini-cart-qty">
+      <%= oi.quantity %>
+    </div>
+    <div class="mini-cart-times">
+      x
+    </div>
+    <div class="mini-cart-price">
+      $ <%= oi.unit_price %>
+    </div>
   </div>
 <% end %>
