@@ -1,11 +1,19 @@
 .sprout-btn  {
-  border-radius: 2px;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 144px;
   padding: 6px 24px;
   border: solid;
-  border-width: 1.5px;
+  border-width: 1.0px;
   font-size: 18px;
   color: $light-gray;
+  font-weight: 300;
+  letter-spacing: .08em;
+  body {
+    margin: 0;
+  }
 }
+
 
 .sprout-cta {
   border-color: $green;
@@ -38,7 +46,7 @@
 .sprout-secondary {
   border-color: white;
   background: none;
-  color: black;
+  color: white;
   transition: background-color .45s ease;
 }
 
