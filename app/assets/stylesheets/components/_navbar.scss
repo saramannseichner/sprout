@@ -50,7 +50,7 @@
   color: $green;
   font-size: 14px;
   i {
-    font-size: 24px;
+    font-size: 22px;
   }
   &:hover {
     // transform: scale(1.2);
@@ -87,73 +87,4 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
-}
-
-.navbar-cart-summary {
-  display: block;
-  position: fixed;
-  width: 280px;
-  height: 100%;
-  transition: all .5s cubic-bezier(.645,.045,.355,1);
-  background: $light-gray;
-  top: 0;
-  right: 0;
-  letter-spacing: .1875rem;
-  min-height: 500px;
-  z-index: 99;
-  margin-top: 0!important;
-}
-
-.on-click {
-  float: right;
-  padding-right: 30px;
-  padding-top: 22px;
-}
-
-.navbar-cart-content {
-  position: absolute;
-  top: 48px;
-  // height: calc(100vh - 104px);
-}
-
-.navbar-cart-scroll {
-  height: calc(100vh - 152px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: absolute;
-  bottom: 108px;
-  top: 0;
-}
-
-.navbar-cart-footer {
-  background-color: white;
-  padding: 17px 25px;
-  font-size: 14px;
-  position: absolute;
-  bottom: 54px;
-  width: 281px;
-  height: 54px;
-  span {
-    float: right;
-  }
-}
-
-.shopping-cart-icon {
-  height: 48px;
-  background-color: $light-gray;
-}
-
-.checkout-btn {
-  position: absolute;
-  bottom: 0;
-  background-color: $green;
-  color: white;
-  width: 100%;
-  height: 54px;
-  text-align: center;
-  letter-spacing: .1875rem;
-  line-height: 54px;
-  &:hover {
-    color: black;
-  }
 }
