@@ -44,7 +44,8 @@
 }
 
 .next {
-  margin-left: 50%;
+  margin-left: 50% !important;
+  text-align: center !important;
   font-weight: lighter;
   color: $dark-gray;
   &:hover {
