@@ -1,6 +1,6 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="size">
-  Size:  <%= radio_button_tag(:size, 4) %>
+  Size: <%= radio_button_tag(:size, 4) %>
         <%= label_tag(:size_large, "Grande") %>
         <%= radio_button_tag(:size, 3) %>
         <%= label_tag(:size_medium, "Tall") %>
