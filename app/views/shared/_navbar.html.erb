@@ -71,7 +71,12 @@
   cartSummary = document.getElementById("cart-summary");
   shoppingCart.addEventListener("click", (event) => {
     event.preventDefault();
-    cartSummary.classList.remove("hidden");
+    hidden = cartSummary.classList.contains("hidden");
+    if(hidden) {
+      cartSummary.classList.remove("hidden");
+    } else {
+      cartSummary.classList.add("hidden");
+    }
   });
 <% end %>
 
