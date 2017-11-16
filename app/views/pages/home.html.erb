@@ -1,10 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(120, 120, 120,0.4) 0%, rgba(61,61, 61, 0.6) 70%), url('<%= image_path('sprout-banner.jpg') %>;">
+<div class="banner" style="background-image: url('<%= image_path('banner-background.jpg') %>;">
   <div class="banner-content">
-    <h1>sprout</h1>
-    <div class="banner-button">
-      <button type="button" class="sprout-btn sprout-cta" id="journey">DISCOVER</button>
+    <div class="banner-text">
+      <h1>FIND</h1>
+      <h1>YOUR</h1>
+      <h1 class="fade-out">PERFECT</h1>
+      <h1>PLANT</h1>
     </div>
-    <div class="banner-button">
+    <br>
+
+    <div class="banner-buttons">
+      <button type="button" class="sprout-btn sprout-cta" id="journey">DISCOVER</button>
+
       <%= link_to '<button type="button" class="sprout-btn sprout-secondary">PLANTS</button>'.html_safe, plants_path %>
     </div>
   </div>

@@ -1,0 +1,38 @@
+<div class="plant-content">
+  <div class="content-name">
+    <h2>
+      <strong><%= plant.common_name %></strong>
+      <% if plant.scientific_name %>
+        <em>(<%= plant.scientific_name %>)</em>
+      <% end %>
+    </h2>
+  </div>
+  <div class="content-price">
+    $<%= plant.price.to_i %>
+  </div>
+  <hr>
+  <div class="content-add-to-cart-form">
+    <%= render "order_items/form", plant: plant, order_item: order_item %>
+  </div>
+  <hr>
+  <div class="content-description">
+    <h4>Description</h4>
+    <%= plant.description %>
+  </div>
+  <div class="content-height">
+    <h4>Approximate Height</h4>
+    <%= plant.height.to_i %> inches
+  </div>
+  <div class="content-sun">
+    <h4>Sunlight</h4>
+    <%= plant.show_sun_level %>
+  </div>
+  <div class="content-water">
+    <h4>Watering</h4>
+    <%= plant.show_water_level %>
+  </div>
+  <% if plant.special_care %>
+    <h4>Special care instructions</h4>
+    <%= plant.special_care %>
+  <% end %>
+</div>

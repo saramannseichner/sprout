@@ -1,14 +1,16 @@
 .sprout-btn  {
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
-  width: 144px;
-  padding: 6px 24px;
+  width: 184px;
+  height: 44px;
+  padding: 4px 24px;
   border: solid;
   border-width: 1.0px;
-  font-size: 18px;
+  font-size: 24px;
   color: $light-gray;
   font-weight: 300;
   letter-spacing: .08em;
+  margin: 10px;
   body {
     margin: 0;
   }
@@ -17,13 +19,13 @@
 
 .sprout-cta {
   border-color: $green;
+  border-bottom: 2px solid darken($green, 10%);
   background-color: $green;
+  transition: box-shadow .45s ease;
 }
 
 .sprout-cta:hover {
-  border-color: $green;
-  color: $green;
-  background: none;
+  box-shadow:  0 8px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .sprout-cta:focus {
@@ -45,13 +47,14 @@
 
 .sprout-secondary {
   border-color: white;
-  background: none;
-  color: white;
-  transition: background-color .45s ease;
+  border-bottom: 2px solid darken($light-gray, 20%);
+  background: white;
+  color: $green;
+  transition: box-shadow .45s ease;
 }
 
 .sprout-secondary:hover {
-  background: white;
+  box-shadow:  0 8px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .sprout-secondary:focus {
