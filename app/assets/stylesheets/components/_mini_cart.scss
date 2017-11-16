@@ -1,0 +1,28 @@
+.mini-cart {
+  position: relative;
+  border-bottom: solid 1px gray;
+}
+
+.mini-cart-name {
+  position: absolute;
+  top: 1em;
+  left: 80px;
+}
+
+.mini-cart-qty {
+  position: absolute;
+  bottom: 5px;
+  right: 110px;
+}
+
+.mini-cart-times {
+  position: absolute;
+  bottom: 5px;
+  right: 80px;
+}
+
+.mini-cart-price {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
