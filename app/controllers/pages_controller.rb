@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def journey
     options = {}
     options[:sun] = params[:sun].to_i
-    options[:care] = params[:care].to_i
+    options[:care] = params[:slider].to_i
     if params[:size] == "nil"
       options[:size] = nil
     else
