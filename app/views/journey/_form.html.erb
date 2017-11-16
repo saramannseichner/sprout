@@ -88,19 +88,26 @@
     <%= label_tag(:care_2, "Medium") %>
     <%= radio_button_tag(:care, 3) %>
     <%= label_tag(:care_3, "Hard") %> -->
+
   <div class="selectors">
     <div class= "selector">
       <div>
        <%= image_tag "knife.png" %>
+        <%= label_tag "Plant Killer" %>
       </div>
-      <div id="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
+    </div>
+    <div id="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    </div>
+    <div class= "selector">
       <div>
         <%= image_tag "heart.png" %>
+        <%= label_tag "Plant Lover" %>
       </div>
-        <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
-      </div>
+    </div>
+    <div>
+      <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
+    </div>
     <% end %>
   </div>
 </div>
