@@ -7,4 +7,19 @@
   }
 }
 
+.plants-container {
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.card-row {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: space-between;
+  align-content: bottom;
+}
+
 
