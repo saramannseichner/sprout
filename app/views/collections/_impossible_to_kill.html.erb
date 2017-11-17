@@ -1,4 +1,4 @@
-<div class="collection">
+<div class="collection-container">
   <h3>IMPOSSIBLE TO KILL</h3>
   <% results = [] %>
   <% plants.each do |plant| %>
@@ -6,5 +6,7 @@
         <% results << plant %>
     <% end %>
   <% end %>
-  <%= render partial: 'components/plant', collection: results, as: :plant, locals: { card_height: "260px", img_height: 260, pos: "1" } %>
+  <div class="collection-results">
+    <%= render partial: 'components/plant', collection: results[0..3], as: :plant, locals: { card_height: "400px", img_height: 300, pos: "1" } %>
+  </div>
 </div>
