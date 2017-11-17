@@ -1,8 +1,21 @@
 .collection-container {
   width: 80%;
   margin-left: 10%;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
   h3 {
     font-weight: lighter;
+    margin-bottom: 0;
+  }
+  a {
+    align-self: flex-end;
+    color: black;
+    font-weight: lighter;
+    font-size: 12px;
   }
 }
 
