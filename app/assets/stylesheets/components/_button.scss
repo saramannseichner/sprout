@@ -16,7 +16,20 @@
   }
 }
 
-
+.cart-btn {
+  width: 100%;
+  margin: 0 10px;
+  height: 54px;
+  padding: 4px 24px;
+  border-width: 1.0px;
+  color: $light-gray;
+  font-weight: 300;
+  letter-spacing: .08em;
+  border-radius: 3px;
+  border-color: $green;
+  border-bottom: 2px solid darken($green, 10%);
+  background-color: $green;
+}
 .sprout-cta {
   border-color: $green;
   border-bottom: 2px solid darken($green, 10%);
