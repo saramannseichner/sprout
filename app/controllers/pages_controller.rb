@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def home
+    @plants = Plant.all
     if params[:plants].nil?
       @results = Plant.all
     else

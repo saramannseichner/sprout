@@ -17,12 +17,19 @@
   </div>
 </div>
 
-  <div class="partial-container default-hidden" id="partial">
-    <%= render partial: "journey/form" %>
-  </div>
+
+<div class="partial-container default-hidden" id="partial">
+  <%= render partial: "journey/form" %>
+</div>
 <div id="results">
 
 </div>
+
+
+<%= render "collections/easy", plants: @plants %>
+<%= render "collections/xsmall", plants: @plants %>
+<%= render "collections/low_price", plants: @plants %>
+<%= render "collections/large_xlarge", plants: @plants %>
 
 <script>
   const journey = document.getElementById("journey");

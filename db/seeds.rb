@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning database..."
+OrderItem.delete_all
 Plant.delete_all
 
 attributes = [
@@ -147,6 +148,58 @@ attributes = [
       suspended: 1
     },
     "https://cdn.monpanierdachat.com/1821/manipulated/ver_plante_15_shoot_3_2017_0bdec6d5-8120-4b1c-8296-c0eb9fd0d94c_680X680cropresize.jpg" ],
+    [{
+      common_name: "Garden of Plants",
+      description: "This miniature garden of plants is set in a terracotta and blue- grey container, approximately 6 inches in diameter. Succulents prefer good light with a soil that you will let dry between waterings.",
+      height: 6,
+      price: 39,
+      sun_level: 3,
+      water_level: 1,
+      care_level: 2,
+      size: 1,
+      suspended: 0
+    },
+    "https://cdn.monpanierdachat.com/1821/manipulated/ver_plante_03_shoot_3_2017_17fa3a81-ec4f-41a4-ac83-8c4ce6d3aba7_680X680cropresize.jpg" ],
+    [{
+      common_name: "Small Succulent Terrarium",
+      description: "This succulent and cacti garden measures 15.24 cm (6 inches) in diameter. An easy arrangement to maintain: abundant light and watering every four to six weeks.",
+      height: 6,
+      price: 29,
+      sun_level: 3,
+      water_level: 1,
+      care_level: 2,
+      size: 1,
+      suspended: 0,
+      special_care: "Water every 4 to 6 weeks"
+    },
+    "https://cdn.monpanierdachat.com/1821/manipulated/ver_produit_site_10_v3_912c7fc4-a47e-4f8c-8642-aa7dbc0ec029_680X680cropresize.jpg" ],
+    [{
+      common_name: "Cactus in a cactus pot",
+      scientific_name: "Opuntia sp.",
+      description: "This fun plant design consists of a small cactus in a small pot shaped like a cactus. To maintain the plant, place it in abundant light and water it every three to four weeks.",
+      height: 5,
+      price: 23,
+      sun_level: 3,
+      water_level: 1,
+      care_level: 2,
+      size: 1,
+      suspended: 0,
+      special_care: "Water every 3 to 4 weeks"
+    },
+    "https://cdn.monpanierdachat.com/1821/manipulated/ver_produit_site_12_v2_df5f8bbd-83dd-4d21-b9a0-de5cf1aa91e5_680X680cropresize.jpg" ],
+    [{
+      common_name: "Aloe in a small cement pot",
+      scientific_name: "Aloe sp.",
+      description: "This variety of Aloe is a sweet reminder of summer days, the sun and good times… Not bad for such a tiny succulent! The Aloe Plant prefers abundant lighting. Let the soil dry before watering.",
+      height: 4,
+      price: 32,
+      sun_level: 3,
+      water_level: 1,
+      care_level: 2,
+      size: 1,
+      suspended: 0
+    },
+    "https://cdn.monpanierdachat.com/1821/manipulated/ver_produit_site_24_v2_54be16d3-f402-4721-9422-11a349085c64_680X680cropresize.jpg" ],
 ]
 
 puts "Creating plants..."
