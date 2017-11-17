@@ -42,9 +42,11 @@ class ApplicationController < ActionController::Base
   private
 
   def logging_in
-    order = guest_user.orders.last
-    order.user_id = current_user.id
-    order.save!
+    if guest_user.orders.any?
+      order = guest_user.orders.last
+      order.user_id = current_user.id
+      order.save!
+    end
   end
 
   def create_guest_user
