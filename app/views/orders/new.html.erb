@@ -1,36 +1,36 @@
+<div class="leaves-background col-sm-12">
 <div class="container">
   <div class="row">
-    <h1>Checkout</h1>
+    <h1 class="title-1">CHECKOUT</h1>
   </div>
   <div class="row">
     <div class="checkout-container">
-      <div class="checkout-forms">
-        <div class="checkout-steps">
-          <div class="checkout-step active" id="step-1">
-            <h4>Shipping</h4>
-          </div>
-          <div class="checkout-step" id="step-2">
-            <h4>Payment</h4>
-          </div>
+      <div class="checkout-steps">
+        <div class="checkout-step active" id="step-1">
+          <h4 class="title-3">Shipping</h4>
         </div>
-        <div class="checkout-form" id="address-form">
-          <h3>Enter Shipping Address</h3>
-          <%= render "addresses/form", address: @address, order: current_order %>
-          <button class="sprout-btn" id="payment-btn">Continue to Payment</button>
-        </div>
-        <div class="checkout-form hidden" id="payment-form">
-          <h3>Enter Payment Information</h3>
-          <%= render "payment_form" %>
-          <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
+        <div class="checkout-step" id="step-2">
+          <h4 class="title-3">Payment</h4>
         </div>
       </div>
+      <div class="checkout-form form-login" id="address-form">
+        <h3 class="title-2">Enter Shipping Address</h3>
+        <%= render "addresses/form", address: @address, order: current_order %>
+        <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
+      </div>
+      <div class="checkout-form form-login hidden" id="payment-form">
+        <h3>Enter Payment Information</h3>
+        <%= render "payment_form" %>
+        <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
+      </div>
       <div class="order-summary">
-        <h4 class="order-header">Order Summary</h4>
+        <h4 class="order-header title-2">Order Summary</h4>
         <%= render 'mini_cart', order_items: current_order.order_items %>
         <%= render 'order_totals_table', order: current_order %>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <%= javascript_tag do %>

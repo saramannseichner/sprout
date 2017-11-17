@@ -26,3 +26,23 @@ $border-radius-small: 2px;
 a:hover {
   text-decoration: none !important;
 }
+
+.title-1 {
+  font-weight: 400;
+  letter-spacing: .2em;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.title-2 {
+  font-weight: 300;
+  letter-spacing: .2em;
+  font-size: 30px;
+}
+
+.title-3 {
+  font-weight: 200;
+  letter-spacing: .2em;
+  font-size: 20px;
+  text-transform: uppercase;
+}
