@@ -10,32 +10,44 @@
     <br>
 
     <div class="banner-buttons">
-      <button type="button" class="sprout-btn sprout-cta" id="journey">DISCOVER</button>
+      <button type="button" class="sprout-btn sprout-cta" id="journey" data-toggle="modal" data-target="#exampleModal">DISCOVER</button>
 
       <%= link_to '<button type="button" class="sprout-btn sprout-secondary">PLANTS</button>'.html_safe, plants_path %>
     </div>
   </div>
 </div>
 
-
-<div class="partial-container default-hidden" id="partial">
-  <%= render partial: "journey/form" %>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog journey-modal-dialog" role="document">
+    <div class="modal-content journay-modal-content">
+      <div class="modal-header">
+<!--         <h5 class="modal-title" id="exampleModalLabel">Let's find you the perfect plant</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body journey-modal-body">
+        <div class="partial-container" id="partial">
+          <%= render partial: "journey/journey_form" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="results">
-
-</div>
-
 
 <%= render "collections/easy", plants: @plants %>
 <%= render "collections/xsmall", plants: @plants %>
 <%= render "collections/low_price", plants: @plants %>
 <%= render "collections/large_xlarge", plants: @plants %>
 
-<script>
+
+<!-- <script>
   const journey = document.getElementById("journey");
-  const partial = document.getElementById("partial")
+  const partial = document.getElementById("partial");
   journey.addEventListener("click", (event) => {
-    partial.style.display = "inline"
-    console.log("try")
+    partial.style.display = "inline";
   });
-</script>
+</script> -->
