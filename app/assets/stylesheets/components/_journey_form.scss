@@ -2,6 +2,10 @@
   display: none;
 }
 
+.journey-explanation{
+  text-align: center;
+}
+
 .selectors {
   display: flex;
   flex-direction: row;
@@ -16,14 +20,14 @@
     width: 100%;
     padding: 1vh;
     cursor: pointer;
-    opacity: .5;
+    opacity: .8;
     transition: all .5s ease-in-out;
     display: flex;
     flex: 0;
     justify-content: center;
     align-items: center;
     &:hover, &:focus, &:active {
-      border: 1px solid rgba(black,.5);
+      border: 1px solid rgba(black,.8);
     }
     div {
       width: 100%;
@@ -46,20 +50,19 @@
   }
 }
 
-.next {
-  margin-left: 45% !important;
-  text-align: center !important;
-  font-weight: lighter;
-  color: $dark-gray;
-  &:hover {
-    color: $dark-gray;
-  }
-}
+// .next {
+//   margin-left: 45% !important;
+//   text-align: center !important;
+//   font-weight: lighter;
+//   color: $dark-gray;
+//   &:hover {
+//     color: $dark-gray;
+//   }
+// }
 
 .title {
   color: $dark-gray;
-  font-weight: regular;
-
+  font-weight: 500;
 }
 
 .selector {
@@ -74,12 +77,6 @@
     height: auto;
     margin: 0 auto;
   }
-}
-
-.form-section {
-  // width: 90%;
-  // // position: absolute;
-  // background-color: white;
 }
 
 .slider {

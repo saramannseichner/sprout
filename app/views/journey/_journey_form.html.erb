@@ -1,11 +1,12 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="start-journey form-section">
-  <h1 class= "title">Let's find your perfect plant</h1>
-  <p>The first rule to growing healthy houseplants is to place the right indoor plant in the perfect spot. Take this journey to discover which plants are best for your home</p>
-  <div class = "next checkout-btn"> Start Now</div>
+  <h1 class= "title">Looking for the perfect houseplant? Take our quick and easy quiz, and we'll point you in the right direction.</h1>
+  <%= image_tag("plant.png",
+      width: 400, height: 300, crop: :fill) %>
+  <div class = "next checkout-btn">START NOW</div>
 </div>
 <div class="size form-section default-hidden">
-  <h1 class= "title">Which plant best suits your needs? </h1>
+  <h1 class= "title">Which plant best suits your needs?</h1>
   <div class="selectors">
     <div class = "selector">
       <%= radio_button_tag(:size, 4) %>
@@ -48,7 +49,7 @@
       <% end %>
     </div>
   </div>
-  <div class = "next checkout-btn"> Next </div>
+  <div class = "next checkout-btn">NEXT</div>
 </div>
 
 <div class="sun form-section default-hidden">
@@ -80,11 +81,11 @@
       <% end %>
     </div>
   </div>
-    <div class = "next checkout-btn"> Next </div>
+    <div class = "next checkout-btn">NEXT</div>
 </div>
 
 <div class="care form-section default-hidden">
-  <h1 class="title">Rate how good you are at taking care of your plants</h1>
+  <h1 class="title">How good you are at taking care of your plants?</h1>
 
   <div class="selectors">
     <div class= "selector">
@@ -105,7 +106,7 @@
     <br>
     <br>
     <div>
-      <%= f.submit "Submit", class: "next checkout-btn" %>
+      <%= f.submit "SEE OUR RECOMMENDATION(S)", class: "next checkout-btn" %>
     <% end %>
     </div>
   </div>
