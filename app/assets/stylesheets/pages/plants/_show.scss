@@ -11,17 +11,20 @@
 }
 
 .plant-content-back {
-
   grid-column: 3 / span 1;
   grid-row: 1;
   text-align: right;
-  display: flex;
-  align-items: top;
-  justify-content: flex-end;
+  position: relative;
   padding-top: 20px;
   a {
+    position: relative;
+    top: 0;
+    right: 0;
     color: $light-gray;
     font-size: 30px;
+    &:hover {
+      color: $green;
+    }
   }
 }
 .plant-content-name {
@@ -68,11 +71,9 @@
   background-color: white;
   height: 90%;
   border-radius: 1px;
-  padding-left: 5%;
-  padding-top: 5%;
+  padding-top: 2%;
   padding-bottom: 5%;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
   grid-template-rows: min-content;
   // box-shadow: 1px 2px 16px rgba(0,0,0,0.3);
   border-bottom: 3px solid darken($light-gray, 10%);
@@ -80,13 +81,16 @@
 
 .right-card-container {
   .plant-content-background {
+  padding-left: 7%;
   padding-right: 15px;
   width: 110%;
+  grid-template-columns: 30% 30% 30%;
   }
 }
 
 .left-card-container {
   .plant-content-background {
-  padding-left: 25px;
+  padding-left: 30px;
+  grid-template-columns: 31% 31% 31%;
   }
 }
