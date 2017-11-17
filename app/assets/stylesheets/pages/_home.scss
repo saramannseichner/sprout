@@ -1,8 +1,8 @@
 // Specific CSS for your home-page
 
-// .default-hidden {
-//   display: none;
-// }
+.default-hidden {
+  display: none;
+}
 
 .title {
   text-align: center;
@@ -16,9 +16,13 @@
 }
 
 .partial-container {
-  // display: table !important;
-  // height: 100% !important;
-  // width: 100% !important;
-  // background-color: rgba(0, 0, 0, 0.75) !important;
+  overflow: scroll;
 }
 
+.journey-modal-dialog {
+  width: 1000px !important;
+}
+
+.journey-modal-content {
+  width: 1000px !important;
+}
