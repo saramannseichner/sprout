@@ -3,10 +3,10 @@
     <% @plants.each_slice(2) do |plants| %>
       <div class="card-row">
           <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.first, height: "700px", pos: "1" } %>
+            <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
           </div>
           <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.last, height: "700px", pos: "2" } %>
+            <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
           </div>
         <div class="w-100"></div>
       </div>
