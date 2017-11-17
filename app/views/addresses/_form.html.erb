@@ -1,10 +1,22 @@
-<%= simple_form_for([order, address]) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :first_name, placeholder: 'First Name' %>
-  <%= f.input :last_name, placeholder: 'Last Name' %>
-  <%= f.input :street_address, placeholder: 'Address' %>
-  <%= f.input :city, placeholder: 'City' %>
-  <%= f.input :country, collection: ["Canada", "United States"] %>
-  <%= f.input :postal_code, placeholder: 'Postal Code'%>
-  <%= f.input :phone_number, as: :tel, placeholder: 'Phone Number' %>
-<% end %>
+<div>
+  <%= simple_form_for([order, address]) do |f| %>
+    <%= f.error_notification %>
+    <div class="col-sm-6">
+      <%= f.input :first_name, placeholder: 'First Name' %>
+    </div>
+    <div class="col-sm-6 offset-sm-6">
+      <%= f.input :last_name, placeholder: 'Last Name' %>
+    </div>
+    <div class="col-sm-12">
+      <%= f.input :street_address, placeholder: 'Address' %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :city, placeholder: 'City' %>
+      <%= f.input :postal_code, placeholder: 'Postal Code'%>
+    </div>
+    <div class="col-sm-6 offset-sm-6">
+      <%= f.input :country, collection: ["Canada", "United States"] %>
+      <%= f.input :phone_number, as: :tel, placeholder: 'Phone Number' %>
+    </div>
+  <% end %>
+</div>

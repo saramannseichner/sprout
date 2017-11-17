@@ -1,7 +1,7 @@
 .checkout-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px min-content;
+  grid-auto-rows: min-content;
 }
 
 .checkout-steps {
@@ -15,9 +15,19 @@
   }
 }
 
-.checkout-forms {
+.checkout-steps {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.checkout-form {
   grid-column: 1 / span 2;
-  grid-row: 1 /span 2;
+  grid-row: 2;
+}
+
+.order-summary {
+  grid-column: 1 / span 2;
+  grid-row: 3;
 }
 
 .hidden {
@@ -31,7 +41,7 @@
 
 .leaves-background {
   background-image: url("checkout-leaves-1.png");
-  height: 900px;
+  height: 120vh;
   background-repeat: no-repeat;
   background-position: top right;
 }

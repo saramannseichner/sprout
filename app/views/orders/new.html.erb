@@ -5,25 +5,23 @@
   </div>
   <div class="row">
     <div class="checkout-container">
-      <div class="checkout-forms">
-        <div class="checkout-steps">
-          <div class="checkout-step active" id="step-1">
-            <h4 class="title-3">Shipping</h4>
-          </div>
-          <div class="checkout-step" id="step-2">
-            <h4 class="title-3">Payment</h4>
-          </div>
+      <div class="checkout-steps">
+        <div class="checkout-step active" id="step-1">
+          <h4 class="title-3">Shipping</h4>
         </div>
-        <div class="checkout-form" id="address-form">
-          <h3 class="title-2">Enter Shipping Address</h3>
-          <%= render "addresses/form", address: @address, order: current_order %>
-          <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
+        <div class="checkout-step" id="step-2">
+          <h4 class="title-3">Payment</h4>
         </div>
-        <div class="checkout-form hidden" id="payment-form">
-          <h3>Enter Payment Information</h3>
-          <%= render "payment_form" %>
-          <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
-        </div>
+      </div>
+      <div class="checkout-form" id="address-form">
+        <h3 class="title-2">Enter Shipping Address</h3>
+        <%= render "addresses/form", address: @address, order: current_order %>
+        <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
+      </div>
+      <div class="checkout-form hidden" id="payment-form">
+        <h3>Enter Payment Information</h3>
+        <%= render "payment_form" %>
+        <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
       </div>
       <div class="order-summary">
         <h4 class="order-header">Order Summary</h4>
