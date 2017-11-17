@@ -1,5 +1,7 @@
 .mini-cart {
-  border-bottom: 1px solid #DEDFE0;
+  border: 1px solid #DEDFE0;
+  border-radius: 10px;
+
   width: 280px;
   // height: 250px;
   margin: 0;
@@ -8,9 +10,14 @@
 }
 
 .mini-cart-image {
-  width: 281px;
+  background: $light-gray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 280px;
   height: 150px;
   margin: 0;
+  border-bottom: 1px solid #DEDFE0;
+  margin-bottom: 5px;
   padding-bottom: 10px;
   overflow: hidden;
   align: center;
@@ -33,7 +40,7 @@
   p {
     font-weight: lighter;
     font-size: 14px;
-    color: #848484;
+    color: darken(#848484, 30%);
   }
   i {
     color: black;

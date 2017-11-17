@@ -24,9 +24,11 @@
         <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
       </div>
       <div class="order-summary">
-        <h4 class="order-header title-2">Order Summary</h4>
-        <%= render 'mini_cart', order_items: current_order.order_items %>
-        <%= render 'order_totals_table', order: current_order %>
+          <h4 class="order-header title-2">Order Summary</h4>
+        <div class="order-summary-box">
+          <%= render 'mini_cart', order_items: current_order.order_items %>
+          <%= render 'order_totals_table', order: current_order %>
+        </div>
       </div>
     </div>
   </div>

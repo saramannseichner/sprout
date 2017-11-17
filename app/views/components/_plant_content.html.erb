@@ -1,18 +1,21 @@
 <div class="plant-content">
   <div class="plant-content-background">
+    <div class="plant-content-back">
+       <%= link_to ('<i class="fa fa-times-circle"></i>').html_safe, :back %>
+    </div>
     <div class="plant-content-name">
       <h2>
         <% if plant.scientific_name %>
-            <%= plant.common_name %>
+            <span><%= plant.common_name %></span>
             <span id="sci-name"><%= plant.scientific_name %></span>
         <% else %>
-           <%= plant.common_name %>
+           <span><%= plant.common_name %></span>
         <% end %>
+      <div class="plant-content-price">
+        $<%= plant.price.to_i %>
+      </div>
       <hr>
       </h2>
-    </div>
-    <div class="plant-content-price">
-      $<%= plant.price.to_i %>
     </div>
     <hr>
     <div class="content-add-to-cart-form">
