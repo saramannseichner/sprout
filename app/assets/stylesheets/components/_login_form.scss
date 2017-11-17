@@ -1,6 +1,6 @@
 .leaf-background {
-  background: url('background-sign-in.png') no-repeat;
+  background: image-url('background-sign-in.png') no-repeat;
   background-size: cover;
-  height: 600px;
+  min-height: 100vh;
 }
 
