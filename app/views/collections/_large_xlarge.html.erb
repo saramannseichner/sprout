@@ -1,12 +1,12 @@
 <div class="collection-container">
   <% results = [] %>
   <% plants.each do |plant| %>
-    <% if plant.care_level == 1 %>
+    <% if plant.size == 4 || plant.size == 5 %>
         <% results << plant %>
     <% end %>
   <% end %>
   <div class="collection-header">
-    <h3>IMPOSSIBLE TO KILL</h3>
+    <h3>TO FILL THAT EMPTY SPACE</h3>
     <%= link_to  "SEE ALL >", '#'%>
   </div>
   <div class="collection-results">
