@@ -17,12 +17,15 @@
   </div>
 </div>
 
-  <div class="partial-container default-hidden" id="partial">
-    <%= render partial: "journey/form" %>
-  </div>
+
+<div class="partial-container default-hidden" id="partial">
+  <%= render partial: "journey/form" %>
+</div>
 <div id="results">
 
 </div>
+
+<%= render "collections/impossible_to_kill", plants: @plants %>
 
 <script>
   const journey = document.getElementById("journey");
