@@ -1,3 +1,5 @@
 const cont = document.getElementById('results');
 cont.innerHTML = "";
-cont.insertAdjacentHTML("beforeend", "<%= j render partial: 'components/plant', collection: @results, as: :plant, locals: { height: '360px', pos: 1 } %>" );
+cont.insertAdjacentHTML("beforeend",
+  "<%= j render partial: 'components/plant', collection: @results, as: :plant, locals: { card_height: '360px', img_height: 360, pos: '1' } %>"
+);
