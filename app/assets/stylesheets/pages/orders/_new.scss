@@ -25,10 +25,6 @@
   grid-row: 2;
 }
 
-.order-summary {
-  grid-column: 1 / span 2;
-  grid-row: 3 ;
-}
 
 .hidden {
   display: none;
@@ -41,8 +37,25 @@
 
 .leaves-background {
   background-image: url("checkout-leaves-1.png");
-  height: 120vh;
+  min-height: 120vh;
   background-repeat: no-repeat;
   background-position: top right;
 }
 
+.order-summary {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+
+}
+
+.order-summary-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-radius: 1px;
+  border-bottom: 3px solid darken($light-gray, 10%);
+  margin-bottom: 64px;
+  padding: 30px;
+}
