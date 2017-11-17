@@ -1,7 +1,8 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="start-journey form-section">
-  <h1 class= "title">Take the journey to find your perfect plant</h1>
-  <div class = "next sprout-btn sprout-secondary"> Start </div>
+  <h1 class= "title">Let's find your perfect plant</h1>
+  <p>The first rule to growing healthy houseplants is to place the right indoor plant in the perfect spot. Take this journey to discover which plants are best for your home</p>
+  <div class = "next checkout-btn"> Start Now</div>
 </div>
 <div class="size form-section default-hidden">
   <h1 class= "title">Which plant best suits your needs? </h1>
@@ -47,7 +48,7 @@
       <% end %>
     </div>
   </div>
-  <div class = "next sprout-btn sprout-secondary"> Next </div>
+  <div class = "next checkout-btn"> Next </div>
 </div>
 
 <div class="sun form-section default-hidden">
@@ -79,7 +80,7 @@
       <% end %>
     </div>
   </div>
-    <div class = "next sprout-btn sprout-secondary"> Next </div>
+    <div class = "next checkout-btn"> Next </div>
 </div>
 
 <div class="care form-section default-hidden">
@@ -104,7 +105,7 @@
     <br>
     <br>
     <div>
-      <%= f.submit "Submit", class: "next btn sprout-btn sprout-secondary" %>
+      <%= f.submit "Submit", class: "next checkout-btn" %>
     <% end %>
     </div>
   </div>
