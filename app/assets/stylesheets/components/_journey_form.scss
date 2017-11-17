@@ -1,3 +1,11 @@
+.default-hidden {
+  display: none;
+}
+
+.journey-explanation{
+  text-align: center;
+}
+
 .selectors {
   display: flex;
   flex-direction: row;
@@ -12,19 +20,18 @@
     width: 100%;
     padding: 1vh;
     cursor: pointer;
-    opacity: .5;
+    opacity: .8;
     transition: all .5s ease-in-out;
     display: flex;
     flex: 0;
     justify-content: center;
     align-items: center;
     &:hover, &:focus, &:active {
-      border: 1px solid rgba(black,.5);
+      border: 1px solid rgba(black,.8);
     }
     div {
       width: 100%;
     }
-
   }
 
   input[type="radio"] {
@@ -43,21 +50,19 @@
   }
 }
 
-.next {
-  margin-left: 45% !important;
-  text-align: center !important;
-  font-weight: lighter;
-  color: $dark-gray;
-  &:hover {
-    color: $dark-gray;
-  }
-}
-
+// .next {
+//   margin-left: 45% !important;
+//   text-align: center !important;
+//   font-weight: lighter;
+//   color: $dark-gray;
+//   &:hover {
+//     color: $dark-gray;
+//   }
+// }
 
 .title {
   color: $dark-gray;
-  font-weight: lighter;
-
+  font-weight: 500;
 }
 
 .selector {
@@ -74,24 +79,37 @@
   }
 }
 
-.form-section {
-  width: 100%;
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .1s;
+    transition: opacity .1s;
 }
 
-.form-login {
-  background: white;
-  padding: 10px 20px;
-  margin-top: 50px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  h2 {
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  .btn {
-    width: 100%;
-    margin-bottom: 20px
-  }
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: $green;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: $green;
+    cursor: pointer;
+}
+
+#slidecontainer {
+  width: 60%;
+  margin: auto;
 }

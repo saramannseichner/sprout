@@ -16,6 +16,7 @@
   }
 }
 
+
 .cart-btn {
   width: 100%;
   margin: 0 10px;
@@ -30,6 +31,24 @@
   border-bottom: 2px solid darken($green, 10%);
   background-color: $green;
 }
+
+.checkout-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-weight: 500;
+  background-color: $green;
+  color: white;
+  width: 100%;
+  height: 54px;
+  text-align: center;
+  letter-spacing: .1875rem;
+  line-height: 54px;
+  &:hover {
+    color: black;
+  }
+}
+
 .sprout-cta {
   border-color: $green;
   border-bottom: 2px solid darken($green, 10%);
