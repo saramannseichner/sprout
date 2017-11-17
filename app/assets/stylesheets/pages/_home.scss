@@ -1,7 +1,5 @@
 // Specific CSS for your home-page
 
-
-
 .title {
   text-align: center;
   font-weight: 200px;
@@ -23,6 +21,10 @@
 
 .journey-modal-content {
   width: 1000px !important;
+}
+
+.journey-modal-body {
+  min-height: 450px !important;
 }
 
 #results {
