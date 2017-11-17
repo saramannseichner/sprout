@@ -1,5 +1,7 @@
 .checkout-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px min-content;
 }
 
 .checkout-steps {
@@ -8,8 +10,14 @@
     padding: 0 20px;
   }
   .active {
-    border-bottom: solid 3px black;
+    border-bottom:
+    solid 3px black;
   }
+}
+
+.checkout-forms {
+  grid-column: 1 / span 2;
+  grid-row: 1 /span 2;
 }
 
 .hidden {
@@ -20,3 +28,11 @@
   padding: 1em 0;
   border-bottom: solid 1px gray;
 }
+
+.leaves-background {
+  background-image: url("checkout-leaves-1.png");
+  height: 900px;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
