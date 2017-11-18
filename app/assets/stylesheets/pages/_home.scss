@@ -12,7 +12,10 @@
 }
 
 .partial-container {
-  overflow: scroll;
+  overflow: hidden;
+  img {
+    margin: auto;
+  }
 }
 
 .journey-modal-dialog {
@@ -34,3 +37,5 @@
 .modal-footer {
   display: none;
 }
+
+
