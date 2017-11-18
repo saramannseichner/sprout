@@ -34,11 +34,10 @@
       <% end %>
     <% end %>
   <% end %>
-  <div class="collection-header">
+  <div class="similar-collection-header">
     <span>YOU MAY ALSO LIKE</span>
-<!--     <%= link_to  "SEE ALL >", '#'%> -->
   </div>
-  <div class="collection-results">
+  <div class="similar-collection-results">
     <%= render partial: 'components/plant', collection: results.sample(4), as: :plant, locals: { card_height: "400px", img_height: 300, pos: "1" } %>
   </div>
 </div>
