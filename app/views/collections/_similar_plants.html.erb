@@ -27,6 +27,13 @@
       <% end %>
     <% end %>
   <% end %>
+  <% if results.size < 4 %>
+    <% plants.each do |plant| %>
+      <% if (plant.care_level == show_plant.care_level) && !(results.include? plant) %>
+          <% results << plant %>
+      <% end %>
+    <% end %>
+  <% end %>
   <div class="collection-header">
     <h3>YOU MIGHT ALSO LIKE...</h3>
     <%= link_to  "SEE ALL >", '#'%>
