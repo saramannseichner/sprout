@@ -1,0 +1,36 @@
+<div class="collection-container">
+  <% results = [] %>
+  <% plants.each do |plant| %>
+    <% if plant.size == show_plant.size && plant.sun_level == show_plant.sun_level %>
+        <% results << plant %>
+    <% end %>
+  <% end %>
+  <% if results.size < 4 %>
+    <% plants.each do |plant| %>
+      <% if (plant.size + 1 == show_plant.size && plant.sun_level == show_plant.sun_level) && !(results.include? plant) %>
+          <% results << plant %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if results.size < 4 %>
+    <% plants.each do |plant| %>
+      <% if (plant.size - 1 == show_plant.size && plant.sun_level == show_plant.sun_level) && !(results.include? plant) %>
+          <% results << plant %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if results.size < 4 %>
+    <% plants.each do |plant| %>
+      <% if (plant.sun_level == show_plant.sun_level) && !(results.include? plant) %>
+          <% results << plant %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="collection-header">
+    <h3>YOU MIGHT ALSO LIKE...</h3>
+    <%= link_to  "SEE ALL >", '#'%>
+  </div>
+  <div class="collection-results">
+    <%= render partial: 'components/plant', collection: results.sample(4), as: :plant, locals: { card_height: "400px", img_height: 300, pos: "1" } %>
+  </div>
+</div>
