@@ -16,12 +16,8 @@
       <div class="right-card-container col-xs-6 no-gutter">
         <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
       </div>
-      <div class="row">
-        <div class="similar-to-section col-xs-12">
-          <%= render "collections/similar_plants", plants: @plants, show_plant: @plant %>
-        </div>
-      </div>
     <% end %>
   </div>
 </div>
+<%= render "collections/similar_plants", plants: @plants, show_plant: @plant %>
 

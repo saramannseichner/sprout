@@ -1,5 +1,6 @@
 <div class="collection-container">
   <% results = [] %>
+  <% plants = plants - [show_plant] %>
   <% plants.each do |plant| %>
     <% if plant.size == show_plant.size && plant.sun_level == show_plant.sun_level %>
         <% results << plant %>
