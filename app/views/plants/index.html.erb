@@ -1,15 +1,23 @@
 <div class="plants-container">
-  <div class="nav-container col-md-1">
+  <div class="nav-container col-md-1 no-gutters">
     <ul id="navScroll">
       <% @plants.each_slice(2).with_index do |plants, index| %>
-        <li aria-label="<%= index + 1 %>">
-          <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
-          <span><%= index + 1 %></span>
-        </li>
+        <% if plants.count == 2%>
+          <li aria-label="<%= index + 1 %>">
+            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
+            <span><%= index + 1 %></span>
+          </li>
+        <% else %>
+          <li aria-label="<%= index + 1 %>">
+            <%= link_to "#{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <span><%= index + 1 %></span>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
-  <div class="cards col-md-10 offset-md-1">
+  <div class="cards col-md-10 offset-md-1 no-gutters">
     <% @plants.each_slice(2).with_index do |plants, index| %>
       <% if plants.count == 2%>
         <div class="card-row" id="plants_row_<%= index + 1 %>">
@@ -30,7 +38,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-md-1 offset-md-11 ">
+  <div class="col-md-1 offset-md-11 no-gutters">
 
   </div>
 </div>

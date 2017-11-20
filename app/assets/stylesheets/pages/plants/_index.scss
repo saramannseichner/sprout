@@ -27,23 +27,31 @@
 
 #navScroll {
   position: fixed;
-  color: white;
-  top: 74px;
+  color: $green;
+  height: 50vh;
+  bottom: auto;
+  margin-bottom: auto;
+  margin-top: auto;
 }
 
 #navScroll li {
   max-height: 150px;
   min-height: 50px;
   position: relative;
-  padding-left: 50px;
+  padding-left: 10px;
   margin-top: 15px;
   height: 17%;
   vertical-align: baseline;
+  list-style: none;
+}
+
+#navScroll li.active a {
+    padding-left: 23px;
 }
 
 #navScroll li em {
     position: absolute;
-    left: 49px;
+    left: 0px;
     top: 0px;
     width: 4px;
     background: #cca36e;
@@ -56,9 +64,44 @@
     -moz-top: 0;
 }
 
+#navScroll li a {
+    left: 0px;
+    font-size: 10px;
+    font-weight: 400;
+    width: 100px;
+    color: black;
+    display: block;
+    height: 100%;
+    padding: 3px;
+    color: black;
+    position: absolute;
+    border-left: 2px solid rgba($green ,0.8);
+    overflow: hidden;
+}
+
 #navScroll li.active em {
     opacity: 1;
 }
+
+#navScroll li span {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    color: $green;
+    opacity: 1;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    left: -45px;
+    transition: all ease-out 0.3s;
+    transform: rotate(-90deg);
+}
+
+#navScroll li.active span {
+    opacity: 0.2;
+}
+
+
 .nav__item {
   line-height: 1;
   display: block;
