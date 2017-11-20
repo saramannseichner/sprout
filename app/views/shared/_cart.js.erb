@@ -10,13 +10,13 @@ jQuery(document).ready(function($){
     var shadow_layer = $('<div id="shadow-layer">');
     $('body').append(shadow_layer);
     shadow_layer.fadeIn();
-    $('body').css( "margin-right", "280px");
+    $('body').animate({"margin-right": "280px"}, "fast");
     $lateral_cart.fadeIn();
     $cart_opened.fadeIn();
     $cart_trigger.hide();
     shadow_layer.click(function() {
       $(this).fadeOut("fast", function() { $(this).remove(); });
-      $('body').css( "margin-right", "initial")
+      $('body').animate({"margin-right": "0"}, "fast");
       $lateral_cart.fadeOut();
       $cart_opened.fadeOut();
       $cart_trigger.show();
