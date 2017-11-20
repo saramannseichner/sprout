@@ -1,8 +1,8 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
 <div class="start-journey form-section">
-  <h1 class= "title">Looking for the perfect houseplant? Take our quick and easy quiz, and we'll point you in the right direction.</h1>
-  <%= image_tag("plant.png",
-      width: 400, height: 300, crop: :fill) %>
+  <h1 class= "title">Looking for the perfect houseplant? Take this quiz and we'll point you in the right direction!</h1>
+  <%= image_tag("plant-journey.png",
+      width: 200, height: 200, crop: :fill, align: :middle) %>
   <div class = "next checkout-btn">START NOW</div>
 </div>
 <div class="size form-section default-hidden">
@@ -94,7 +94,7 @@
         <%= label_tag "Plant Killer" %>
       </div>
     </div>
-    <div id="slidecontainer">
+    <div id="">
       <input name="slider" type="range" min="1" max="100" value="50" class="slider" id="†">
     </div>
     <div class= "selector">
@@ -106,7 +106,7 @@
     <br>
     <br>
     <div>
-      <%= f.submit "SEE OUR RECOMMENDATION(S)", class: "next checkout-btn" %>
+      <%= f.submit "SEE OUR RECOMMENDATIONS", class: "next checkout-btn" %>
     <% end %>
     </div>
   </div>
