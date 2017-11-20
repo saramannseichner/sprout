@@ -25,12 +25,40 @@
   height: 100vh;
 }
 
-.nav {
-  position: relative;
-  width: 8em;
-  margin: 0 0 0 3em;
+#navScroll {
+  position: fixed;
+  color: white;
+  top: 74px;
 }
 
+#navScroll li {
+  max-height: 150px;
+  min-height: 50px;
+  position: relative;
+  padding-left: 50px;
+  margin-top: 15px;
+  height: 17%;
+  vertical-align: baseline;
+}
+
+#navScroll li em {
+    position: absolute;
+    left: 49px;
+    top: 0px;
+    width: 4px;
+    background: #cca36e;
+    opacity: 0;
+    z-index: 3;
+    max-height: 100% !important;
+    height: 0;
+    transition: height, opacity ease-out 0.3s;
+    -webkit-transition: height, opacity ease-out 0.3s;
+    -moz-top: 0;
+}
+
+#navScroll li.active em {
+    opacity: 1;
+}
 .nav__item {
   line-height: 1;
   display: block;
