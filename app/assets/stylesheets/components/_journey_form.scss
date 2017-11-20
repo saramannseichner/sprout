@@ -50,16 +50,6 @@
   }
 }
 
-// .next {
-//   margin-left: 45% !important;
-//   text-align: center !important;
-//   font-weight: lighter;
-//   color: $dark-gray;
-//   &:hover {
-//     color: $dark-gray;
-//   }
-// }
-
 .title {
   color: $dark-gray;
   font-weight: 500;
@@ -75,7 +65,7 @@
     max-width: 160px;
     width: auto;
     height: auto;
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 }
 
@@ -112,4 +102,8 @@
 #slidecontainer {
   width: 60%;
   margin: auto;
+}
+
+.modal-footer {
+  display: none;
 }

@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon" id="main-nav">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
@@ -52,7 +52,7 @@
     </div>
   </div>
   <!-- cart summary appear -->
-  <div class="navbar-cart-summary hidden", id="cart-summary">
+  <div class="navbar-cart-summary", id="cart-summary">
     <div class="shopping-cart-icon">
       <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     </div>
@@ -69,22 +69,8 @@
   </div>
 </div>
 
-
 <script>
-  shoppingCartClosed = document.getElementById("shopping-cart-closed");
-  shoppingCartOpened = document.getElementById("shopping-cart-opened");
-  cartSummary = document.getElementById("cart-summary");
-  shoppingCartClosed.addEventListener("click", (event) => {
-      shoppingCartClosed.classList.add("hidden");
-      cartSummary.classList.remove("hidden");
-      shoppingCartOpened.classList.remove("hidden");
-  });
-  shoppingCartOpened.addEventListener("click", (event) => {
-      shoppingCartClosed.classList.remove("hidden");
-      cartSummary.classList.add("hidden");
-      shoppingCartOpened.classList.add("hidden");
-  });
+  <%= render 'shared/cart.js.erb' %>
 </script>
-
 
 
