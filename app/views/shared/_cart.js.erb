@@ -1,0 +1,25 @@
+jQuery(document).ready(function($){
+  $menu_navigation = $('#main-nav'),
+  $cart_trigger = $('#shopping-cart-closed'),
+  $cart_opened = $('#shopping-cart-opened'),
+  $lateral_cart = $('#cart-summary'),
+  $shadow_layer = $('<div id="shadow-layer">');
+
+
+  $cart_trigger.click(function() {
+    var shadow_layer = $('<div id="shadow-layer">');
+    $('body').append(shadow_layer);
+    shadow_layer.fadeIn();
+    $('body').css( "margin-right", "280px");
+    $lateral_cart.fadeIn();
+    $cart_opened.fadeIn();
+    $cart_trigger.hide();
+    shadow_layer.click(function() {
+      $(this).fadeOut("fast", function() { $(this).remove(); });
+      $('body').css( "margin-right", "initial")
+      $lateral_cart.fadeOut();
+      $cart_opened.fadeOut();
+      $cart_trigger.show();
+    });
+  });
+});

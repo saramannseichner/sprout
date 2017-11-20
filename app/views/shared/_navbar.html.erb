@@ -52,7 +52,7 @@
     </div>
   </div>
   <!-- cart summary appear -->
-  <div class="navbar-cart-summary hidden", id="cart-summary">
+  <div class="navbar-cart-summary", id="cart-summary">
     <div class="shopping-cart-icon">
       <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     </div>
@@ -69,8 +69,8 @@
   </div>
 </div>
 
-
-
-
+<script>
+  <%= render 'shared/cart.js.erb' %>
+</script>
 
 
