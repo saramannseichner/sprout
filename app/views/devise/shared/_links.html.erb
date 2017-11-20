@@ -19,11 +19,11 @@
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
-  <div class="spacer">
+  <div class="spacer text-center">
     <span>or continue with</span>
-  </div><br />
+  </div>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), id: "fb-btn" do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), id: "fb-btn", class: "btn" do %>
       <i class="fa fa-facebook" aria-hidden="true"></i>
       <%= "Log in with #{OmniAuth::Utils.camelize(provider)}" %>
     <% end %><br />

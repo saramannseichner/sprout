@@ -52,8 +52,9 @@
 #fb-btn {
   background-color: #4568b2;
   color: white;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  i {
+    padding: 0 10px;
+  }
 }
 
 .sprout-cta {
