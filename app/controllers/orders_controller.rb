@@ -11,9 +11,18 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(current_order)
-    # assign user id
-    # assign order status
+    @order.status = "pending"
+    @order.user = current_user
+    @order.address = Address.find_by_user_id(current_user)
+    @order.save!
   end
+
+  # def create
+  #   plant = Plant.find(params[:plant_id])
+  #   order  = Order.create!(amount: plant.price, state: 'pending')
+
+  #   redirect_to new_order_payment_path(order)
+  # end
 
   # def payment
   # end
