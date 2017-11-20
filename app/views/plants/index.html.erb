@@ -2,7 +2,13 @@
   <div class="nav-container col-md-1 no-gutters">
     <ul id="navScroll">
       <% @plants.each_slice(2).with_index do |plants, index| %>
-        <% if plants.count == 2%>
+        <% if index == 0 %>
+           <li class="active" aria-label="<%= index + 1 %>">
+            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
+            <span><%= index + 1 %></span>
+          </li>
+        <% elsif plants.count == 2%>
           <li aria-label="<%= index + 1 %>">
             <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
             <em style="height: 22.9679%;"></em>
@@ -44,3 +50,6 @@
 </div>
 
 
+<script>
+  <%= render 'plants/index.js.erb' %>
+</script>
