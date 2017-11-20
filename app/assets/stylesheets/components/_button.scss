@@ -49,6 +49,14 @@
   }
 }
 
+#fb-btn {
+  background-color: #4568b2;
+  color: white;
+  i {
+    padding: 0 10px;
+  }
+}
+
 .sprout-cta {
   border-color: $green;
   border-bottom: 2px solid darken($green, 10%);
@@ -100,3 +108,4 @@
 .sprout-secondary:active {
   background: white;
 }
+
