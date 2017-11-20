@@ -1,4 +1,4 @@
-<div class="collection-container">
+<div class="similar-collection-container">
   <% results = [] %>
   <% plants = plants - [show_plant] %>
   <% plants.each do |plant| %>
@@ -34,11 +34,10 @@
       <% end %>
     <% end %>
   <% end %>
-  <div class="collection-header">
-    <h3>YOU MIGHT ALSO LIKE...</h3>
-    <%= link_to  "SEE ALL >", '#'%>
+  <div class="similar-collection-header">
+    <span>YOU MAY ALSO LIKE</span>
   </div>
-  <div class="collection-results">
+  <div class="similar-collection-results">
     <%= render partial: 'components/plant', collection: results.sample(4), as: :plant, locals: { card_height: "400px", img_height: 300, pos: "1" } %>
   </div>
 </div>
