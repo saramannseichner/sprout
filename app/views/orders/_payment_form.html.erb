@@ -1,2 +1,19 @@
 <iframe src="https://giphy.com/embed/l0MYJ152lNEhFxwHK" width="480" height="265" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/refinery29gifs-money-michelle-obama-l0MYJ152lNEhFxwHK">via GIPHY</a></p>
 
+<!-- app/views/payments/new.html.erb -->
+<h1>Purchase <%= @order.last %></h1>
+<%= form_tag order_payments_path(@order) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Teddy"
+    data-email="<%= current_user.email %>"
+    data-description="Teddy <%= @order.teddy_sku %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="<%= @order.amount.currency %>"></script>
+<% end %>
