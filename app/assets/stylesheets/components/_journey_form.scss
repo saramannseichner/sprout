@@ -75,7 +75,7 @@
     max-width: 160px;
     width: auto;
     height: auto;
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 }
 
@@ -112,4 +112,8 @@
 #slidecontainer {
   width: 60%;
   margin: auto;
+}
+
+.modal-footer {
+  display: none;
 }
