@@ -8,6 +8,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
   validates :address, presence: true
 
+
   def num_of_items
     order_items.collect { |oi| oi.valid? ? oi.quantity : 0 }.sum
   end

@@ -16,17 +16,9 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.address = Address.find_by_user_id(current_user)
     @order.save!
+
+    redirect_to new_order_payment_path
   end
-
-  # def create
-  #   plant = Plant.find(params[:plant_id])
-  #   order  = Order.create!(amount: plant.price, state: 'pending')
-
-  #   redirect_to new_order_payment_path(order)
-  # end
-
-  # def payment
-  # end
 
   private
 
