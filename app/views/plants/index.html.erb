@@ -1,16 +1,34 @@
 <div class="plants-container">
-  <div class="cards">
+  <div class="nav-container col-md-1">
+    <ul class="nav">
+      <% @plants.each_slice(2).with_index do |plants, index| %>
+        <li class="nav__item nav--xusni" aria-label="<%= index %>"><%= plants.first.common_name %> - <%= plants.last.common_name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="cards col-md-10 offset-md-1">
     <% @plants.each_slice(2) do |plants| %>
-      <div class="card-row">
-          <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
-          </div>
+      <% if plants.count == 2%>
+        <div class="card-row" id="<%=plants.first.common_name%> <%=plants.last.common_name%>">
+            <div class="col-xs-12 col-md-6 no-gutters">
+              <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
+            </div>
+            <div class="col-xs-12 col-md-6 no-gutters" >
+              <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
+            </div>
+          <div class="w-100"></div>
+        </div>
+      <% else %>
+         <div class="card-row" id="<%=plants.last.common_name%>">
           <div class="col-xs-12 col-md-6 no-gutters" >
             <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
           </div>
-        <div class="w-100"></div>
-      </div>
+        </div>
+      <% end %>
     <% end %>
+  </div>
+  <div class="col-md-1 offset-md-11 ">
+
   </div>
 </div>
 
