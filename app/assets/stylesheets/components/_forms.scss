@@ -9,7 +9,7 @@
   box-shadow: 0px 0px 0px rgb(0, 0, 0);
     h2 {
     font-size: 25px;
-    font-weight: lighter;
+    font-weight: 500;
     margin-bottom: 30px;
     letter-spacing: .1em;
   }
@@ -22,11 +22,11 @@
     margin-bottom: 20px
   }
   label {
-    font-weight: lighter;
+    font-weight: 500;
     letter-spacing: .1em;
   }
   input {
-    font-weight: lighter;
+    font-weight: 500;
   }
   a {
     color: $green;
