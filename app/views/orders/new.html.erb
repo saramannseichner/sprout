@@ -19,9 +19,7 @@
         <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
       </div>
       <div class="checkout-form form-login hidden" id="payment-form">
-        <h3>Enter Payment Information</h3>
         <%= render "payment_form", order: current_order %>
-        <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
