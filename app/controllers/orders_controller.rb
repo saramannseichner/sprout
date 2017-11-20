@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     @order.address = Address.find_by_user_id(current_user)
     @order.save!
 
-    redirect_to new_order_payment_path
+    redirect_to new_order_payment_path(order)
   end
 
   private

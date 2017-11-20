@@ -20,7 +20,7 @@
       </div>
       <div class="checkout-form form-login hidden" id="payment-form">
         <h3>Enter Payment Information</h3>
-        <%= render "payments/new", order: current_order %>
+        <%= render "payment_form", order: current_order %>
         <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
       </div>
       <div class="order-summary">

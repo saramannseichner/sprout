@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   before_create :set_order_status
   before_save :update_subtotal
   validates :address, presence: true
+  monetize :amount_cents
 
 
   def num_of_items
