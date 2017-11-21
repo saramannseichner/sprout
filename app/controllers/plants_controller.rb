@@ -3,6 +3,7 @@ class PlantsController < ApplicationController
   before_action :set_plant, only: [:show]
 
   def index
+    # http://a67c1f40.ngrok.io/plants?sun_level=2&care_level=2
     if params[:sun_level] && params[:care_level]
       @plants = Plant.filter(params[:sun_level].to_i, params[:care_level].to_i)
     else
