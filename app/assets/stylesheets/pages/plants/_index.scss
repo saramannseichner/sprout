@@ -105,3 +105,11 @@
     opacity: 0.2;
 }
 
+.filter-message {
+  padding: 50px;
+  a {
+    &:hover{
+      color: $green;
+    }
+  }
+}

@@ -24,39 +24,46 @@
     </ul>
   </div>
   <div class="cards col-md-10 offset-md-1 no-gutters">
-    <% @plants.each_slice(2).with_index do |plants, index| %>
-      <% if plants.count == 2%>
-        <div class="card-row" id="plants_row_<%= index + 1 %>">
-            <div class="col-xs-12 col-md-6 no-gutters">
-              <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
-            </div>
+    <% if @plants.any? %>
+      <% @plants.each_slice(2).with_index do |plants, index| %>
+        <% if plants.count == 2%>
+          <div class="card-row" id="plants_row_<%= index + 1 %>">
+              <div class="col-xs-12 col-md-6 no-gutters">
+                <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
+              </div>
+              <div class="col-xs-12 col-md-6 no-gutters" >
+                <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
+              </div>
+            <div class="w-100"></div>
+          </div>
+        <% else %>
+           <div class="card-row" id="<%=plants.last.common_name%>">
             <div class="col-xs-12 col-md-6 no-gutters" >
               <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
             </div>
-          <div class="w-100"></div>
-        </div>
-      <% else %>
-         <div class="card-row" id="<%=plants.last.common_name%>">
-          <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
           </div>
-        </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <div class="filter-message">
+        <p>Unfortunately, we have no plants that match the filter options entered.</p>
+        <br>
+        <%= link_to "Back", plants_path, class: "sprout-btn sprout-secondary" %>
+      </div>
     <% end %>
   </div>
   <div class="col-md-1 offset-md-11 no-gutters">
-    <%= form_for(@plants, url: plants_path, method: :get ) do |f| %>
-      <%= f.label :size, value: "size" %>
+    <%= form_tag(plants_path, method: :get) do %>
+      <%= label_tag "size" %>
       <%= text_field_tag :size %>
-      <%= f.label :sun_level, value: "sunlight" %>
+      <%= label_tag "sunlight" %>
       <%= text_field_tag :sun_level %>
-      <%= f.label :care_level, value: "care" %>
+      <%= label_tag "care" %>
       <%= text_field_tag :care_level %>
-      <%= submit_tag 'Filter' %>
+      <%= submit_tag 'Filter', class: "sprout-btn sprout-secondary" %>
     <% end %>
   </div>
 </div>
-
 
 <script>
   <%= render 'plants/index.js.erb' %>
