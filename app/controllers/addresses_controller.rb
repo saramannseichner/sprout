@@ -25,10 +25,10 @@ class AddressesController < ApplicationController
 
 
       if @address.save
-        @alert_message = "Great Job"
+        @alert_message = "Valid address submission"
         @alert_message_success = true
       else
-        @alert_message = "You Suck"
+        @alert_message = "Invalid address submission"
         @alert_message_success = false
       end
 
