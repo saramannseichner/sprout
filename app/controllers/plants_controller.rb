@@ -3,7 +3,11 @@ class PlantsController < ApplicationController
   before_action :set_plant, only: [:show]
 
   def index
-    @plants = Plant.all
+    if params[:sun_level] && params[:care_level]
+      @plants = Plant.filter(params[:sun_level].to_i, params[:care_level].to_i)
+    else
+      @plants = Plant.all
+    end
     @rows = (@plants.count/2).round
   end
 

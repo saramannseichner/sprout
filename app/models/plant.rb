@@ -13,7 +13,7 @@ class Plant < ApplicationRecord
   validates :description, presence: true
 
   include PgSearch
-  pg_search_scope :filter_by_sun_level, against: [ :sun_level ]
+  pg_search_scope :filter, against: [ :sun_level, :care_level, :price ]
 
   def show_sun_level
     case self[:sun_level]
@@ -99,4 +99,25 @@ class Plant < ApplicationRecord
       where("sun_level = ? AND care_level = ?", args[:sun], care).limit(3)
     end
   end
+
+  def self.filter(sun_level, care_level)
+    plants = Plant.all
+    results = []
+
+    plants.each do |plant|
+      if sun_level.present? && care_level.present?
+        if plant.sun_level == sun_level && plant.care_level == care_level
+          results << plant
+        end
+      elsif sun_level.present? && care_level.nil?
+        results = plants.where(sun_level: sun_level).to_a
+      elsif sun_level.nil? && care_level.present?
+        results = plants.where(care_level: care_level).to_a
+      end
+    end
+
+    return results
+  end
 end
+
+
