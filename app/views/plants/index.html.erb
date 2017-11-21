@@ -3,20 +3,20 @@
     <ul id="navScroll">
       <% @plants.each_slice(2).with_index do |plants, index| %>
         <% if index == 0 %>
-           <li class="active" aria-label="<%= index + 1 %>">
+           <li aria-label="<%= index + 1 %>" class="active">
             <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
             <em style="height: 22.9679%;"></em>
             <span><%= index + 1 %></span>
           </li>
-        <% elsif plants.count == 2%>
+        <% elsif index == -1%>
           <li aria-label="<%= index + 1 %>">
-            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
-            <em style="height: 22.9679%;"></em>
+            <%= link_to "#{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
             <span><%= index + 1 %></span>
           </li>
         <% else %>
           <li aria-label="<%= index + 1 %>">
-            <%= link_to "#{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
             <span><%= index + 1 %></span>
           </li>
         <% end %>
