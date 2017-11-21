@@ -22,6 +22,9 @@
         <h3>Enter Payment Information</h3>
         <%= render "payment_form", order: current_order %>
       </div>
+      <div class="checkout-form form-login hidden" id="confirmation">
+        <h3>Your Order has been shipped!</h3>
+      </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
         <div class="order-summary-box">
@@ -33,17 +36,26 @@
   </div>
 </div>
 </div>
+<%= content_for(:after_js) do%>
+  <%= javascript_tag do %>
+    paymentBtn = document.getElementById("payment-btn");
+    paymentBtn.addEventListener('click', (event) => {
+    console.log('/orders/<%= current_order.id%>/addresses');
+      let data = { address: {
+                  street_address: $('#address_street_address').val(),
+                  city: $('#address_city').val(),
+                  country: $('#address_country').val(),
+                  postal_code: $('#address_postal_code').val(),
+                  phone_number: $('#address_phone_number').val(),
+                  first_name: $('#address_first_name').val(),
+                  last_name: $('#address_last_name').val()
+                  } }
+        $.ajax({
+         url: '/orders/<%= current_order.id%>/addresses',
+         data,
+         type: 'POST'
+        });
 
-<%= javascript_tag do %>
-  paymentBtn = document.getElementById("payment-btn");
-  addressForm = document.getElementById("address-form");
-  paymentForm = document.getElementById("payment-form");
-  step1 = document.getElementById("step-1");
-  step2 = document.getElementById("step-2");
-  paymentBtn.addEventListener('click', (event) => {
-    addressForm.classList.add("hidden");
-    paymentForm.classList.remove("hidden");
-    step1.classList.remove("active");
-    step2.classList.add("active");
-  });
+    });
+  <% end %>
 <% end %>
