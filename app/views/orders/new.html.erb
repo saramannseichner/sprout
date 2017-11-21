@@ -12,6 +12,9 @@
         <div class="checkout-step" id="step-2">
           <h4 class="title-3">Payment</h4>
         </div>
+        <div class="checkout-step" id="step-3">
+          <h4 class="title-3">Confirmation</h4>
+        </div>
       </div>
       <div class="checkout-form form-login" id="address-form">
         <h3 class="title-2">Enter Shipping Address</h3>
@@ -23,8 +26,9 @@
         <%= render "payment_form", order: current_order %>
         <button class="sprout-btn sprout-cta" id="order-btn">Order</button>
       </div>
-      <div class="checkout-form form-login hidden" id="confirmation">
-        <h3>Your Order has been shipped!</h3>
+      <div class="checkout-form form-login hidden" id="order-form">
+        <h3> Your order has been received! Thanks for shopping with us!</h3>
+        <%= render %>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
@@ -56,10 +60,26 @@
          data,
          type: 'POST'
         });
-    orderBtn = document.getElementById("order-btn");
-    orderBtn.addEventListener('click', (event) => {
-
-  })
+      orderBtn = document.getElementById("order-btn");
+      paymentForm = document.getElementById("payment-form");
+      orderForm = document.getElementById("order-form");
+      step2 = document.getElementById("step-2");
+      step3 = document.getElementById("step-3");
+      orderBtn.addEventListener('click', (event) => {
+        paymentForm.classList.add("hidden");
+        orderForm.classList.remove("hidden");
+        step2.classList.remove("active");
+        step3.classList.add("active");
+      })
     });
   <% end %>
 <% end %>
+
+
+
+
+
+
+
+
+
