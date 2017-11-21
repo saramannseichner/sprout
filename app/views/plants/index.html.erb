@@ -46,6 +46,8 @@
   </div>
   <div class="col-md-1 offset-md-11 no-gutters">
     <%= form_for(@plants, url: plants_path, method: :get ) do |f| %>
+      <%= f.label :size, value: "size" %>
+      <%= text_field_tag :size %>
       <%= f.label :sun_level, value: "sunlight" %>
       <%= text_field_tag :sun_level %>
       <%= f.label :care_level, value: "care" %>

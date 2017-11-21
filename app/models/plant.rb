@@ -100,7 +100,7 @@ class Plant < ApplicationRecord
     end
   end
 
-  def self.filter(sun_level, care_level)
+  def self.filter(sun_level, care_level, size)
     plants = Plant.all
     results = []
 
