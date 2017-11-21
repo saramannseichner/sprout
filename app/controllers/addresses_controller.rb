@@ -4,8 +4,6 @@ class AddressesController < ApplicationController
   def create
 
     if @address
-      puts 'update'
-
       if @address.update(address_params)
         respond_to do |format|
           format.html { redirect_to new_order_path }
@@ -18,7 +16,6 @@ class AddressesController < ApplicationController
         end
       end
     else
-      puts 'create'
       @address = Address.new(address_params)
       @address.user = current_user
 

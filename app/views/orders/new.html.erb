@@ -27,12 +27,12 @@
         <button class="sprout-btn sprout-cta" id="order-btn">Order</button>
       </div>
       <div class="checkout-form form-login hidden" id="order-form">
-        <h3> Thanks for shopping with us, <%= current_user[:first_name] %>! </h3>
-        <h3> Your order will be shipped out ASAP to: </h3>
-        <br>
-        <h5><%= current_order.address[:street_address].titleize %>. </h5>
-        <h5><%= current_order.address[:city].titleize %>, <%= current_order.address[:country].titleize %></h5>
-        <h5><%= current_order.address[:postal_code].upcase %></h5>
+          <h3> Thanks for shopping with us, <%= current_user[:first_name] %>! </h3>
+          <h3> Your order will be shipped out ASAP to: </h3>
+          <br>
+          <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
+          <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
+          <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
@@ -46,7 +46,7 @@
 </div>
 </div>
 <%= content_for(:after_js) do%>
-  <%= javascript_tag do %>
+  <script>
     paymentBtn = document.getElementById("payment-btn");
     paymentBtn.addEventListener('click', (event) => {
     console.log('/orders/<%= current_order.id%>/addresses');
@@ -64,6 +64,11 @@
          data,
          type: 'POST'
         });
+
+      document.getElementById("street").innerHTML = data.address.street_address;
+      document.getElementById("city-country").innerHTML = data.address.city + ", " + data.address.city;
+      document.getElementById("postal").innerHTML = data.address.postal_code.toUpperCase();
+
       orderBtn = document.getElementById("order-btn");
       paymentForm = document.getElementById("payment-form");
       orderForm = document.getElementById("order-form");
@@ -76,7 +81,7 @@
         step3.classList.add("active");
       })
     });
-  <% end %>
+  </script>
 <% end %>
 
 

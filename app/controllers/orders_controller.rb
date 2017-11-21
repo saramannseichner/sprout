@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
     @order.status = "pending"
     @order.user = current_user
     @order.address = current_user.address
+    @order.shipping
+    @order.tax
     @order.save!
 
     redirect_to new_order_payment_path(order)
