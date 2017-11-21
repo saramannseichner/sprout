@@ -1,19 +1,19 @@
 <div class="plant-container">
   <div class="row">
     <% if params[:pos].to_i == 2 %>
-      <div class="left-card-container col-xs-6 no-gutter">
+      <div class="left-card-container col-md-6 col-xs-12 no-gutter">
         <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
       </div>
-      <div class="plant-image-lg col-xs-6 no-gutter">
+      <div class="plant-image-lg col-md-6 col-xs-12 no-gutter">
         <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
         </div>
       </div>
     <% else %>
-      <div class="plant-image-lg col-xs-6 no-gutter">
+      <div class="plant-image-lg col-md-6 col-xs-12 no-gutter">
          <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
         </div>
       </div>
-      <div class="right-card-container col-xs-6 no-gutter">
+      <div class="right-card-container col-md-6 col-xs-12 no-gutter">
         <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
       </div>
     <% end %>
