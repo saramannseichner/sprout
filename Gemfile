@@ -23,7 +23,8 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'omniauth-facebook'
 gem 'pg_search'
-
+gem 'turbolinks', '~> 5.0.0'
+gem 'turbolinks_transitions'
 
 group :development, :test do
   gem 'pry-byebug'
