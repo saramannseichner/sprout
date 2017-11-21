@@ -1,10 +1,17 @@
 class MessengerBotController < ActionController::Base
-  skip_before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :authenticate_user!
+  # skip_before_action :verify_authenticity_token
 
   def message(event, sender)
    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
-    sender.reply({ text: "Reply: #{event['message']['text']}" })
+    # sender.reply({ text: "Reply: #{event['message']['text']}" })
+    msg = event["message"]["text"]
+    quickreply = QuickReplyTemplate.new("Would you like us to remind you when you water your plant?")
+
+    quickreply.add_postback('Yes', 'callback_yes')
+    quickreply.add_postback('No', 'callback_no')
+
+    sender.reply(quickreply.get_message)
   end
 
 
