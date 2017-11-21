@@ -7,5 +7,5 @@
 $(document).ready(function() {
   setTimeout(function() {
     $('.alert').slideUp()
-  }, 5000)
-})
+  }, 5000);
+});

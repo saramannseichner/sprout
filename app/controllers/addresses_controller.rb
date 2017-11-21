@@ -3,21 +3,21 @@ class AddressesController < ApplicationController
 
   def create
 
-    # if @address
-    #   puts 'updapte'
+    if @address
+      puts 'update'
 
-    #   if @address.update(address_params)
-    #     respond_to do |format|
-    #       format.html { redirect_to new_order_path }
-    #       format.js {  flash[:notice] = "Saved !" } # <-- will render `app/views/reviews/create.js.erb`
-    #     end
-    #   else
-    #     respond_to do |format|
-    #       format.html { redirect_to new_order_path }
-    #       format.js  {  flash[:notice] = "Not saved !" }  # <-- will render `app/views/reviews/create.js.erb`
-    #     end
-    #   end
-    # else
+      if @address.update(address_params)
+        respond_to do |format|
+          format.html { redirect_to new_order_path }
+          format.js
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to new_order_path }
+          format.js
+        end
+      end
+    else
       puts 'create'
       @address = Address.new(address_params)
       @address.user = current_user
@@ -36,7 +36,7 @@ class AddressesController < ApplicationController
         format.js
         format.html
       end
-
+    end
   end
 
   private
