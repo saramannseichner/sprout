@@ -27,7 +27,7 @@ class Order < ApplicationRecord
   end
 
   def total
-    order_items.collect { |oi| oi.valid? ? oi.total_price : 0 }.sum
+    order_items.collect { |oi| oi.valid? ? oi.total_price : 0 }.sum + shipping + tax
   end
 
 

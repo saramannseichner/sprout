@@ -7,7 +7,7 @@
     <tr class="order-shipping">
       <td>Shipping</td>
       <td>
-        <% if current_order.address_id %>
+        <% if current_order.address %>
           $ <%= order.shipping %>
         <% else %>
           -
@@ -15,9 +15,9 @@
       </td>
     </tr>
     <tr class="order-sales-tax">
-      <td>Estimated sales tax</td>
+      <td>Tax</td>
       <td>
-       <% if current_order.address_id %>
+       <% if current_order.address %>
           $ <%= order.tax %>
         <% else %>
           -
@@ -25,7 +25,7 @@
       </td>
     </tr>
     <tr class="order-total">
-      <td>Estimated total</td>
+      <td>Total</td>
       <td class="order-value">$<%= order.total %></td>
     </tr>
   </tbody>

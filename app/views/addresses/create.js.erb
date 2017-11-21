@@ -1,0 +1,33 @@
+addressForm = document.getElementById("address-form");
+paymentForm = document.getElementById("payment-form");
+step1 = document.getElementById("step-1");
+step2 = document.getElementById("step-2");
+
+$("#custom-alert-text").html("<%= @alert_message %>");
+
+<% if @alert_message_success %>
+  // Good thing
+  $("#custom-flash").addClass("alert-info");
+  $("#custom-flash").removeClass("alert-warning");
+<% else %>
+  // Bad thing
+  $("#custom-flash").addClass("alert-warning");
+  $("#custom-flash").removeClass("alert-info");
+<% end %>
+
+$("#custom-flash").show();
+
+ setTimeout(function() {
+    $('.alert').slideUp();
+  }, 3000)
+
+  setTimeout(function() {
+    $("#custom-flash").hide();
+  }, 4000)
+
+<% unless @address.errors.any? %>
+  addressForm.classList.add("hidden");
+  paymentForm.classList.remove("hidden");
+  step1.classList.remove("active");
+  step2.classList.add("active");
+<% end %>
