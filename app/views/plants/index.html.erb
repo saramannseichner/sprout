@@ -3,7 +3,7 @@
     <ul id="navScroll">
       <% @plants.each_slice(2).with_index do |plants, index| %>
         <% if index == 0 %>
-           <li aria-label="<%= index + 1 %>" xclass="active">
+           <li aria-label="<%= index + 1 %>" class="active">
             <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
             <em style="height: 22.9679%;"></em>
             <span><%= index + 1 %></span>
