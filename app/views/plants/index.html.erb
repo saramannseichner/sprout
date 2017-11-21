@@ -1,17 +1,70 @@
 <div class="plants-container">
-  <div class="cards">
-    <% @plants.each_slice(2) do |plants| %>
-      <div class="card-row">
-          <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
+  <div class="nav-container col-md-1 no-gutters">
+    <ul id="navScroll">
+      <% @plants.each_slice(2).with_index do |plants, index| %>
+        <% if index == 0 %>
+           <li aria-label="<%= index + 1 %>" class="active">
+            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
+            <span><%= index + 1 %></span>
+          </li>
+        <% elsif index == -1%>
+          <li aria-label="<%= index + 1 %>">
+            <%= link_to "#{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <span><%= index + 1 %></span>
+          </li>
+        <% else %>
+          <li aria-label="<%= index + 1 %>">
+            <%= link_to "#{plants.first.common_name} & #{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
+            <span><%= index + 1 %></span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="cards col-md-10 offset-md-1 no-gutters">
+    <% if @plants.any? %>
+      <% @plants.each_slice(2).with_index do |plants, index| %>
+        <% if plants.count == 2%>
+          <div class="card-row" id="plants_row_<%= index + 1 %>">
+              <div class="col-xs-12 col-md-6 no-gutters">
+                <%= render partial: 'components/plant', locals: { plant: plants.first, card_height: "700px", img_height: 600, pos: "1" } %>
+              </div>
+              <div class="col-xs-12 col-md-6 no-gutters" >
+                <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
+              </div>
+            <div class="w-100"></div>
           </div>
-          <div class="col-xs-12 col-md-6 no-gutters" >
-            <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
+        <% else %>
+           <div class="card-row" id="<%=plants.last.common_name%>">
+            <div class="col-xs-12 col-md-6 no-gutters" >
+              <%= render partial: 'components/plant', locals: { plant: plants.last, card_height: "700px", img_height: 600, pos: "2" } %>
+            </div>
           </div>
-        <div class="w-100"></div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="filter-message">
+        <p>Unfortunately, we have no plants that match the filter options entered.</p>
+        <br>
+        <%= link_to "Back", plants_path, class: "sprout-btn sprout-secondary" %>
       </div>
+    <% end %>
+  </div>
+  <div class="col-md-1 offset-md-11 no-gutters">
+    <%= form_tag(plants_path, method: :get) do %>
+      <%= label_tag "size" %>
+      <%= text_field_tag :size %>
+      <%= label_tag "sunlight" %>
+      <%= text_field_tag :sun_level %>
+      <%= label_tag "care" %>
+      <%= text_field_tag :care_level %>
+      <%= submit_tag 'Filter', class: "sprout-btn sprout-secondary" %>
     <% end %>
   </div>
 </div>
 
-
+<script>
+  <%= render 'plants/index.js.erb' %>
+</script>
