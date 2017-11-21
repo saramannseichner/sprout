@@ -1,0 +1,7 @@
+// delete the order item
+document.querySelector("[data-order-item-id='<%= @order_item.id %>']")
+  .remove();
+
+// update the cart total
+cartTotal = document.getElementById("cart-summary-total");
+cartTotal.innerHTML = "$ <%= current_order.subtotal %>";
