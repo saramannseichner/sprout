@@ -1,0 +1,18 @@
+// update cart item numbers
+const navbarCart = document.getElementById('shopping-cart-closed');
+navbarCart.innerHTML = "<i class='fa fa-shopping-cart fa-flip-horizontal'></i> <%= current_order.num_of_items %>";
+
+if (navbarCart.classList.contains("navbar-wagon-item")) {
+  navbarCart.classList.remove("navbar-wagon-item");
+  navbarCart.classList.remove("navbar-wagon-link");
+  navbarCart.classList.add("navbar-sprout-item");
+  navbarCart.classList.add("navbar-sprout-link");
+}
+
+// update the cart summary content
+cartContent = document.getElementById("cart-summary-content");
+cartContent.innerHTML = "<%= j render 'orders/mini_cart', order_items: current_order.order_items %>"
+
+// update the cart total
+cartTotal = document.getElementById("cart-summary-total");
+cartTotal.innerHTML = "$ <%= current_order.subtotal %>";
