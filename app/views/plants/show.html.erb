@@ -1,28 +1,22 @@
 <div class="plant-container">
-  <div class="row">
-    <% if params[:pos].to_i == 2 %>
-      <div class="left-card-container col-md-6 col-xs-12 no-gutter default-hidden" id="show-cards">
-        <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
+  <% if params[:pos].to_i == 2 %>
+    <div class="inner-plant-container left-content-container col-md-6 col-xs-12 no-gutters">
+      <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
+    </div>
+    <div class="inner-plant-container right-image-container plant-image-lg col-md-6 col-xs-12 no-gutters ">
+      <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
       </div>
-      <div class="plant-image-lg col-md-6 col-xs-12 no-gutter ">
-        <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
-        </div>
+    </div>
+  <% else %>
+    <div class="inner-plant-container left-image-container plant-image-lg col-md-6 col-xs-12 no-gutters" >
+       <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
       </div>
-    <% else %>
-      <div class="plant-image-lg col-md-6 col-xs-12 no-gutter" >
-         <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
-        </div>
-      </div>
-      <div class="right-card-container col-md-6 col-xs-12 no-gutter default-hidden" id="show-cards">
-        <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="inner-plant-container right-content-container col-md-6 col-xs-12 no-gutters">
+      <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
+    </div>
+  <% end %>
 </div>
 <%= render "collections/similar_plants", plants: @plants, show_plant: @plant %>
 
-<script>
-  $(document).ready(function() {
-    $('#show-cards').fadeTo("slow", 1);
-  });
-</script>
+

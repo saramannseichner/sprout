@@ -1,4 +1,4 @@
-<div class="plant-content">
+<div class="plant-content" id="show-cards">
   <div class="plant-content-background">
     <div class="plant-content-back">
        <%= link_to ('<i class="fa fa-times-circle"></i>').html_safe, :back %>
@@ -7,6 +7,7 @@
       <h2>
         <% if plant.scientific_name %>
             <span><%= plant.common_name %></span>
+            <br>
             <span id="sci-name"><%= plant.scientific_name %></span>
         <% else %>
            <span><%= plant.common_name %></span>
@@ -23,22 +24,20 @@
     </div>
     <div class="content-description">
       <hr>
-      <h4>Description</h4>
       <%= plant.description %>
       <hr>
     </div>
     <div class="content-descriptors">
       <div class="content-height">
-        <h4>Height</h4>
-        <%= plant.height.to_i %> inches
+        <h4><i class="fa fa-arrows-v" aria-hidden="true"> <%= plant.height.to_i %> inches</i>
+ </h4>
       </div>
       <div class="content-sun">
-        <h4>Sunlight</h4>
-        <%= plant.show_sun_level %>
+        <h4><i class="fa fa-sun-o" aria-hidden="true"> <%= plant.show_sun_level %></i>
+      </h4>
       </div>
       <div class="content-water">
-        <h4>Water</h4>
-        <%= plant.show_water_level %>
+        <h4><i class="fa fa-tint" aria-hidden="true"> <%= plant.show_water_level %></i> </h4>
       </div>
     </div>
     <% if plant.special_care %>
@@ -47,3 +46,9 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  document.on("turbolinks:load", function() {
+    $('#show-cards').fadeTo("slow", 1);
+})
+</script>
