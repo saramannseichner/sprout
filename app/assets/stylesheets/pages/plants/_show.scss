@@ -128,3 +128,22 @@ hr {
   letter-spacing: 0.15em;
 }
 
+.bounce {
+  position: absolute;
+  left: 0;
+  top: 760px;
+  width:100%;
+  animation: MoveUpDown 4s linear infinite;
+}
+
+@keyframes MoveUpDown {
+  0% {
+    top: 760px;
+  }
+  50% {
+    top: 750px;
+  }
+  100% {
+    top: 760px;
+  }
+}
