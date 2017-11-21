@@ -243,6 +243,11 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.3)
+    turbolinks_transitions (0.0.5)
+      coffee-rails
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -292,6 +297,8 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
+  turbolinks (~> 5.0.0)
+  turbolinks_transitions
   uglifier
   web-console (>= 3.3.0)
 
@@ -299,4 +306,4 @@ RUBY VERSION
    ruby 2.3.5p376
 
 BUNDLED WITH
-   1.16.0.pre.3
+   1.16.0
