@@ -12,6 +12,8 @@ class Plant < ApplicationRecord
   validates :size, presence: true
   validates :description, presence: true
 
+  include PgSearch
+
   def show_sun_level
     case self[:sun_level]
     when 1
