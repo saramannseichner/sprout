@@ -13,6 +13,7 @@ class Plant < ApplicationRecord
   validates :description, presence: true
 
   include PgSearch
+  pg_search_scope :filter_by_sun_level, against: [ :sun_level ]
 
   def show_sun_level
     case self[:sun_level]
