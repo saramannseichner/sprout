@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def show
     @order_items = current_order.order_items
+    @order = Order.where(state: 'paid').find(params[:id])
   end
 
   def new
@@ -11,12 +12,13 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(current_order)
-    # assign user id
-    # assign order status
-  end
+    @order.status = "pending"
+    @order.user = current_user
+    @order.address = Address.find_by_user_id(current_user)
+    @order.save!
 
-  # def payment
-  # end
+    redirect_to new_order_payment_path(order)
+  end
 
   private
 
