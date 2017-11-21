@@ -4,6 +4,7 @@ class PlantsController < ApplicationController
 
   def index
     @plants = Plant.all
+    @rows = (@plants.count/2).round
   end
 
   def show

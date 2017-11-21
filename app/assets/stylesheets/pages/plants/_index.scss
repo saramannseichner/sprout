@@ -20,4 +20,88 @@
   align-content: bottom;
 }
 
+// Navigation Bar
+.nav-container {
+  height: 100vh;
+}
+
+#navScroll {
+  position: fixed;
+  color: $green;
+  top: 20%;
+}
+
+#navScroll li {
+  max-height: 150px;
+  min-height: 50px;
+  position: relative;
+  padding-left: 10px;
+  margin-top: 15px;
+  height: 17%;
+  vertical-align: baseline;
+  list-style: none;
+}
+
+#navScroll li:hover {
+  a {
+    padding-left: 23px;
+    color: rgba(0,0,0,1);
+  }
+}
+#navScroll li em {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 4px;
+    background: white;
+    opacity: 0;
+    z-index: 3;
+    max-height: 100% !important;
+    height: 0;
+    transition: height, opacity ease-out 0.3s;
+}
+
+#navScroll li a {
+  left: 0px;
+  font-size: 10px;
+  font-weight: 400;
+  width: 150px;
+  color: black;
+  display: block;
+  height: 100%;
+  padding: 3px;
+  color: black;
+  position: absolute;
+  border-left: 2px solid rgba($green ,0.8);
+  color: rgba(0,0,0,0);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#navScroll li.active em {
+    opacity: 1;
+  }
+
+*:focus {
+    outline: none;
+}
+
+
+#navScroll li span {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    color: $green;
+    opacity: 0;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    left: -45px;
+    transition: all ease-out 0.3s;
+    transform: rotate(-90deg);
+}
+
+#navScroll li.active span {
+    opacity: 0.2;
+}
 
