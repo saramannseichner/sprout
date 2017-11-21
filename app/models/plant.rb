@@ -89,12 +89,12 @@ class Plant < ApplicationRecord
     case args[:size]
     when nil
       where("sun_level = ? AND care_level = ? AND suspended = 1", args[:sun], care).limit(3)
+    when 1
+      where("sun_level = ? AND care_level = ? AND size = 1", args[:sun], care).limit(3)
     when 2
-      where("sun_level = ? AND care_level = ? AND ( size = 1 OR size = 2 )", args[:sun], care).limit(3)
+      where("sun_level = ? AND care_level = ? AND size = 2", args[:sun], care).limit(3)
     when 3
       where("sun_level = ? AND care_level = ? AND size = 3", args[:sun], care).limit(3)
-    when 4
-      where("sun_level = ? AND care_level = ? AND ( size = 4 OR size = 5 )", args[:sun], care).limit(3)
     else
       where("sun_level = ? AND care_level = ?", args[:sun], care).limit(3)
     end
@@ -105,15 +105,15 @@ class Plant < ApplicationRecord
     results = []
 
     plants.each do |plant|
-      if sun_level.present? && care_level.present?
-        if plant.sun_level == sun_level && plant.care_level == care_level
-          results << plant
-        end
-      elsif sun_level.present? && care_level.nil?
-        results = plants.where(sun_level: sun_level).to_a
-      elsif sun_level.nil? && care_level.present?
-        results = plants.where(care_level: care_level).to_a
+      # if sun_level.present? && care_level.present?
+      if plant.sun_level == sun_level && plant.care_level == care_level && plant.size == size
+        results << plant
       end
+      # elsif sun_level.present? && care_level.nil?
+      #   results = plants.where(sun_level: sun_level).to_a
+      # elsif sun_level.nil? && care_level.present?
+      #   results = plants.where(care_level: care_level).to_a
+      # end
     end
 
     return results
