@@ -21,6 +21,7 @@
       <div class="checkout-form form-login hidden" id="payment-form">
         <h3>Enter Payment Information</h3>
         <%= render "payment_form", order: current_order %>
+        <button class="sprout-btn sprout-cta" id="order-btn">Order</button>
       </div>
       <div class="checkout-form form-login hidden" id="confirmation">
         <h3>Your Order has been shipped!</h3>
@@ -55,7 +56,10 @@
          data,
          type: 'POST'
         });
+    orderBtn = document.getElementById("order-btn");
+    orderBtn.addEventListener('click', (event) => {
 
+  })
     });
   <% end %>
 <% end %>
