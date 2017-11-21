@@ -12,9 +12,6 @@ class Plant < ApplicationRecord
   validates :size, presence: true
   validates :description, presence: true
 
-  include PgSearch
-  pg_search_scope :filter, against: [ :sun_level, :care_level, :price ]
-
   def show_sun_level
     case self[:sun_level]
     when 1
