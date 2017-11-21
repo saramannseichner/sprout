@@ -82,6 +82,10 @@
     opacity: 1;
   }
 
+*:focus {
+    outline: none;
+}
+
 
 #navScroll li span {
     position: absolute;
