@@ -1,0 +1,11 @@
+// delete the order item
+document.querySelector("[data-order-item-id='<%= @order_item.id %>']")
+  .remove();
+
+// update the cart total
+cartTotal = document.getElementById("cart-summary-total");
+cartTotal.innerHTML = "$ <%= current_order.subtotal %>";
+
+// update cart item numbers
+const navbarCart = document.getElementById('shopping-cart-closed');
+navbarCart.innerHTML = "<i class='fa fa-shopping-cart fa-flip-horizontal'></i> <%= current_order.num_of_items %>";
