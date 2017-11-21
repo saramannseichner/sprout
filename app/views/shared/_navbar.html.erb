@@ -37,7 +37,9 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <!-- shopping cart logo -->
-    <%= render "components/shopping_cart", cart_id: 'shopping-cart-closed', hidden: "", on_click: "" %>
+    <div id="navbar-shopping-cart">
+      <%= render "components/shopping_cart", cart_id: 'shopping-cart-closed', hidden: "", on_click: "" %>
+    </div>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -57,13 +59,13 @@
       <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     </div>
     <div class="navbar-cart-content">
-      <div class="navbar-cart-scroll">
+      <div class="navbar-cart-scroll" id="cart-summary-content">
         <%= render "orders/mini_cart", order_items: current_order.order_items %>
       </div>
     </div>
     <div class="navbar-cart-footer">
       SUB-TOTAL
-      <span>$ <%= current_order.subtotal %></span>
+      <span id="cart-summary-total">$ <%= current_order.subtotal %></span>
     </div>
     <%= link_to "CHECKOUT", new_order_path, class: "checkout-btn" %>
   </div>
