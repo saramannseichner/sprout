@@ -25,8 +25,6 @@ gem 'omniauth-facebook'
 gem 'turbolinks', '~> 5.0.0'
 gem 'turbolinks_transitions'
 
-
-
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
