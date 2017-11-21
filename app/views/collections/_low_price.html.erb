@@ -1,7 +1,7 @@
 <div class="collection-container">
   <% results = [] %>
   <% plants.each do |plant| %>
-    <% if plant.price <= 30 %>
+    <% if plant.price.to_i <= 30 %>
         <% results << plant %>
     <% end %>
   <% end %>
