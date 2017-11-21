@@ -29,6 +29,14 @@
 
 #results {
   background-color: $light-gray;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  .card {
+    margin: 0 !important;
+    width: 25% !important;
+    height: 100%;
+  }
 }
 
 .modal-footer {
