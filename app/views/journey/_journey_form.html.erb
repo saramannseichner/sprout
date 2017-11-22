@@ -1,119 +1,116 @@
 <%= form_with scope: :post, remote: true, url: journey_path do |f| %>
-<div class="start-journey form-section">
-  <h1 class= "title">Looking for the perfect houseplant? Take our quick and easy quiz, and we'll point you in the right direction.</h1>
-  <%= image_tag("plant.png",
-      width: 400, height: 300, crop: :fill) %>
-  <div class = "next checkout-btn">START NOW</div>
-</div>
-<div class="size form-section default-hidden">
-  <h1 class= "title">Which plant best suits your needs?</h1>
-  <div class="selectors">
-    <div class = "selector">
-      <%= radio_button_tag(:size, 4) %>
-      <%= label_tag(:size_4, "Large") do %>
-        <div>
-          <%= image_tag "floor_lamp.png" %>
-        </div>
-      <% end %>
-    </div>
-    <div class = "selector">
-      <%= radio_button_tag(:size, 3) %>
-      <%= label_tag(:size_3, "Medium") do %>
-        <div>
-          <%= image_tag "shelf.png"  %>
-        </div>
-      <% end %>
-    </div>
-    <div class = "selector">
-      <%= radio_button_tag(:size, 2) %>
-      <%= label_tag(:size_2, "Small") do %>
-        <div>
-          <%= image_tag "desk.png" %>
-        </div>
-      <% end %>
-    </div>
-    <div class = "selector">
-      <%= radio_button_tag(:size, "nil") %>
-      <%= label_tag(:size_nil, "Hanging") do %>
-        <div>
-          <%= image_tag "hanging_plant.png" %>
-        </div>
-      <% end %>
-    </div>
-    <div class = "selector">
-      <%= radio_button_tag(:size, 0) %>
-      <%= label_tag(:size_0, "Don't Care") do %>
-        <div>
-          <%= image_tag "homepage-question.png" %>
-        </div>
-      <% end %>
-    </div>
+  <div class="start-journey form-section">
+    <h1 class= "title">Looking for the perfect houseplant? Take this quiz and we'll point you in the right direction!</h1>
+    <%= image_tag("plant-journey.png",
+        width: 200, height: 200, crop: :fill, align: :middle) %>
+    <div class = "next checkout-btn">START NOW</div>
   </div>
-  <div class = "next checkout-btn">NEXT</div>
-</div>
-
-<div class="sun form-section default-hidden">
-  <h1 class="title">How much sunlight does your space get? </h1>
-
-  <div class="selectors">
-    <div class="selector">
-      <%= radio_button_tag(:sun, 3) %>
-      <%= label_tag(:sun_3, "Lots of sun!") do %>
-      <div>
-        <%= image_tag "sun.png"%>
+  <div class="size form-section default-hidden">
+    <h1 class= "title">Which plant best suits your needs?</h1>
+    <div class="selectors">
+      <div class = "selector">
+        <%= radio_button_tag(:size, 3) %>
+        <%= label_tag(:size_3, "Large") do %>
+          <div>
+            <%= image_tag "floor_lamp.png" %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <div class="selector">
-      <%= radio_button_tag(:sun, 2) %>
-      <%= label_tag(:sun_2, "A bit of sun.") do %>
-      <div>
-        <%= image_tag "sun-and-cloud.png"%>
+      <div class = "selector">
+        <%= radio_button_tag(:size, 2) %>
+        <%= label_tag(:size_2, "Medium") do %>
+          <div>
+            <%= image_tag "shelf.png"  %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <div class="selector">
-      <%= radio_button_tag(:sun, 1) %>
-      <%= label_tag(:sun_1, "No sun") do %>
-      <div>
-        <%= image_tag "cloud.png"%>
+      <div class = "selector">
+        <%= radio_button_tag(:size, 1) %>
+        <%= label_tag(:size_1, "Small") do %>
+          <div>
+            <%= image_tag "desk.png" %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
+      <div class = "selector">
+        <%= radio_button_tag(:size, "nil") %>
+        <%= label_tag(:size_nil, "Hanging") do %>
+          <div>
+            <%= image_tag "hanging_plant.png" %>
+          </div>
+        <% end %>
+      </div>
+      <div class = "selector">
+        <%= radio_button_tag(:size, 0) %>
+        <%= label_tag(:size_0, "Don't Care") do %>
+          <div>
+            <%= image_tag "homepage-question.png" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
     <div class = "next checkout-btn">NEXT</div>
-</div>
-
-<div class="care form-section default-hidden">
-  <h1 class="title">How good you are at taking care of your plants?</h1>
-
-  <div class="selectors">
-    <div class= "selector">
-      <div>
-       <%= image_tag "knife.png" %>
-        <%= label_tag "Plant Killer" %>
-      </div>
-    </div>
-    <div id="slidecontainer">
-      <input name="slider" type="range" min="1" max="100" value="50" class="slider" id="†">
-    </div>
-    <div class= "selector">
-      <div>
-        <%= image_tag "heart.png" %>
-        <%= label_tag "Plant Lover" %>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div>
-      <%= f.submit "SEE OUR RECOMMENDATION(S)", class: "next checkout-btn" %>
-    <% end %>
-    </div>
   </div>
-</div>
 
-<!-- We need to render results  -->
-<div id="results"></div>
+  <div class="sun form-section default-hidden">
+    <h1 class="title">How much sunlight does your space get? </h1>
+
+    <div class="selectors">
+      <div class="selector">
+        <%= radio_button_tag(:sun, 3) %>
+        <%= label_tag(:sun_3, "Lots of sun!") do %>
+        <div>
+          <%= image_tag "sun.png"%>
+        </div>
+        <% end %>
+      </div>
+      <div class="selector">
+        <%= radio_button_tag(:sun, 2) %>
+        <%= label_tag(:sun_2, "A bit of sun.") do %>
+        <div>
+          <%= image_tag "sun-and-cloud.png"%>
+        </div>
+        <% end %>
+      </div>
+      <div class="selector">
+        <%= radio_button_tag(:sun, 1) %>
+        <%= label_tag(:sun_1, "No sun") do %>
+        <div>
+          <%= image_tag "cloud.png"%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+      <div class = "next checkout-btn">NEXT</div>
+  </div>
+
+  <div class="care form-section default-hidden">
+    <h1 class="title">How good you are at taking care of your plants?</h1>
+
+    <div class="selectors">
+      <div class= "selector">
+        <div>
+         <%= image_tag "knife.png" %>
+          <%= label_tag "Plant Killer" %>
+        </div>
+      </div>
+      <div id="">
+        <input name="slider" type="range" min="1" max="100" value="50" class="slider" id="†">
+      </div>
+      <div class= "selector">
+        <div>
+          <%= image_tag "heart.png" %>
+          <%= label_tag "Plant Lover" %>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <%= f.submit "SEE OUR RECOMMENDATIONS", class: "next checkout-btn", id: "recommendation-btn" %>
+  </div>
+  <!-- We need to render results  -->
+  <div id="results"></div>
+<% end %>
 
 <script>
   const buttons = document.body.querySelectorAll('.next');

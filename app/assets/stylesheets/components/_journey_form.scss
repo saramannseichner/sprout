@@ -13,7 +13,7 @@
   align-items: center;
   padding: 20px;
   label {
-    border: 1px solid rgba(darken($light-gray, 50%),.15);
+    border: 1px solid rgba(black, 0);
     box-sizing: border-box;
     display: block;
     height: 100%;
@@ -27,7 +27,8 @@
     justify-content: center;
     align-items: center;
     &:hover, &:focus, &:active {
-      border: 1px solid rgba(black,.8);
+      border: 1px solid rgba(black, .5);
+      opacity: 1;
     }
     div {
       width: 100%;
@@ -49,16 +50,6 @@
     border: 1px solid black;
   }
 }
-
-// .next {
-//   margin-left: 45% !important;
-//   text-align: center !important;
-//   font-weight: lighter;
-//   color: $dark-gray;
-//   &:hover {
-//     color: $dark-gray;
-//   }
-// }
 
 .title {
   color: $dark-gray;
@@ -112,4 +103,8 @@
 #slidecontainer {
   width: 60%;
   margin: auto;
+}
+
+.modal-footer {
+  display: none;
 }

@@ -12,6 +12,9 @@
         <div class="checkout-step" id="step-2">
           <h4 class="title-3">Payment</h4>
         </div>
+        <div class="checkout-step" id="step-3">
+          <h4 class="title-3">Confirmation</h4>
+        </div>
       </div>
       <div class="checkout-form form-login" id="address-form">
         <h3 class="title-2">Enter Shipping Address</h3>
@@ -19,14 +22,24 @@
         <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
       </div>
       <div class="checkout-form form-login hidden" id="payment-form">
-        <h3>Enter Payment Information</h3>
-        <%= render "payment_form" %>
-        <%= link_to "Place Order", orders_path, method: :post, class: "sprout-btn" %>
+        <h3 class="title-2">Enter Payment Information</h3>
+        <%= render "payment_form", order: current_order %>
+        <button class="sprout-btn sprout-cta" id="order-btn">Order</button>
+      </div>
+      <div class="checkout-form form-login hidden" id="order-form">
+          <h3> Thanks for shopping with us, <%= current_user[:first_name] %>! </h3>
+          <h4> Your order will arrive in up to 5 business days and will be shipped to: </h4>
+          <br>
+          <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
+          <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
+          <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
         <div class="order-summary-box">
-          <%= render 'mini_cart', order_items: current_order.order_items %>
+          <div class="box-card">
+            <%= render 'mini_cart', order_items: current_order.order_items %>
+          </div>
           <%= render 'order_totals_table', order: current_order %>
         </div>
       </div>
@@ -34,17 +47,50 @@
   </div>
 </div>
 </div>
+<%= content_for(:after_js) do%>
+  <script>
+    paymentBtn = document.getElementById("payment-btn");
+    paymentBtn.addEventListener('click', (event) => {
+    console.log('/orders/<%= current_order.id%>/addresses');
+      let data = { address: {
+                  street_address: $('#address_street_address').val(),
+                  city: $('#address_city').val(),
+                  country: $('#address_country').val(),
+                  postal_code: $('#address_postal_code').val(),
+                  phone_number: $('#address_phone_number').val(),
+                  first_name: $('#address_first_name').val(),
+                  last_name: $('#address_last_name').val()
+                  } }
+        $.ajax({
+         url: '/orders/<%= current_order.id%>/addresses',
+         data,
+         type: 'POST'
+        });
 
-<%= javascript_tag do %>
-  paymentBtn = document.getElementById("payment-btn");
-  addressForm = document.getElementById("address-form");
-  paymentForm = document.getElementById("payment-form");
-  step1 = document.getElementById("step-1");
-  step2 = document.getElementById("step-2");
-  paymentBtn.addEventListener('click', (event) => {
-    addressForm.classList.add("hidden");
-    paymentForm.classList.remove("hidden");
-    step1.classList.remove("active");
-    step2.classList.add("active");
-  });
+      document.getElementById("street").innerHTML = data.address.street_address;
+      document.getElementById("city-country").innerHTML = data.address.city + ", " + data.address.city;
+      document.getElementById("postal").innerHTML = data.address.postal_code.toUpperCase();
+
+      orderBtn = document.getElementById("order-btn");
+      paymentForm = document.getElementById("payment-form");
+      orderForm = document.getElementById("order-form");
+      step2 = document.getElementById("step-2");
+      step3 = document.getElementById("step-3");
+      orderBtn.addEventListener('click', (event) => {
+        paymentForm.classList.add("hidden");
+        orderForm.classList.remove("hidden");
+        step2.classList.remove("active");
+        step3.classList.add("active");
+      })
+    });
+  </script>
 <% end %>
+
+
+
+
+
+
+
+
+

@@ -2,31 +2,23 @@
   <tbody>
     <tr class="order-subtotal">
       <td>Subtotal</td>
-      <td>$ <%= order.subtotal %></td>
+      <td>$ <%= number_with_precision(order.subtotal, :precision => 2) %></td>
     </tr>
     <tr class="order-shipping">
       <td>Shipping</td>
       <td>
-        <% if current_order.address_id %>
-          $ <%= order.shipping %>
-        <% else %>
-          -
-        <% end %>
+        $ <%= number_with_precision(order.shipping, :precision => 2) %>
       </td>
     </tr>
     <tr class="order-sales-tax">
-      <td>Estimated sales tax</td>
+      <td>Tax</td>
       <td>
-       <% if current_order.address_id %>
-          $ <%= order.tax %>
-        <% else %>
-          -
-        <% end %>
+          $ <%= number_with_precision(order.tax, :precision => 2) %>
       </td>
     </tr>
     <tr class="order-total">
-      <td>Estimated total</td>
-      <td class="order-value">$<%= order.total %></td>
+      <td>Total</td>
+      <td class="order-value">$ <%= number_with_precision(order.total, :precision => 2) %></td>
     </tr>
   </tbody>
 </table>

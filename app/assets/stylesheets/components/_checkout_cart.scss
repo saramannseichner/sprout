@@ -1,9 +1,8 @@
 .navbar-cart-summary {
-  display: block;
+  display: none;
   position: fixed;
   width: 280px;
   height: 100%;
-  transition: all .5s cubic-bezier(.645,.045,.355,1);
   background: $light-gray;
   top: 0;
   right: 0;
@@ -11,6 +10,19 @@
   min-height: 500px;
   z-index: 99;
   margin-top: 0!important;
+}
+
+#shadow-layer {
+  position: fixed;
+  display: none;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+  visibility: visible;
+  cursor: pointer;
 }
 
 .on-click {

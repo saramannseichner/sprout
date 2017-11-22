@@ -13,3 +13,12 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+.spacer {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  span {
+    font-size: 12px;
+  }
+}

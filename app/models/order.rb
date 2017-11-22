@@ -6,6 +6,9 @@ class Order < ApplicationRecord
 
   before_create :set_order_status
   before_save :update_subtotal
+  # validates :address, presence: true
+  # monetize :amoun
+
 
   def num_of_items
     order_items.collect { |oi| oi.valid? ? oi.quantity : 0 }.sum
@@ -24,7 +27,7 @@ class Order < ApplicationRecord
   end
 
   def total
-    order_items.collect { |oi| oi.valid? ? oi.total_price : 0 }.sum
+    order_items.collect { |oi| oi.valid? ? oi.total_price : 0 }.sum + shipping + tax
   end
 
 

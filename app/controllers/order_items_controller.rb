@@ -5,7 +5,12 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     @order_item.plant = Plant.find(params[:plant_id])
     @order_item.order = current_order
-    @order_item.save!
+    if @order_item.save
+      respond_to do |format|
+        format.html { redirect_to plant_path(@order_item.plant) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    end
   end
 
   def update

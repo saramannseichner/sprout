@@ -25,6 +25,7 @@ gem 'omniauth-facebook'
 gem 'messenger-bot', :git => 'git://github.com/MatthiasRMS/messenger-bot-rails'
 gem 'rest-client'
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -33,3 +34,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'money-rails'
+gem 'stripe'

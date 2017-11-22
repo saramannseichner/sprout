@@ -1,5 +1,5 @@
 <%= link_to plant_path(plant, pos: pos) do %>
-  <div class="card" style=" height: <%= card_height %>;">
+  <div class="card" style="display: inline-block; height: <%= card_height %>;">
     <div class="card-img" id="img" style="background-image: url('<%= cl_image_path plant.photo.path, height: img_height , crop: :fill %>');" >
     </div>
     <span class="card-content">

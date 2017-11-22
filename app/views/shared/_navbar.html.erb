@@ -1,11 +1,4 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
-    <span class="navbar-title">sprout</span>
-  <% end %>
-
-  <!-- Right Navigation -->
+<div class="navbar-wagon" id="main-nav">
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
@@ -13,7 +6,7 @@
         <div class="dropdown">
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -33,12 +26,25 @@
         </div>
       </div>
     <% else %>
-      <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-    <!-- shopping cart logo -->
-    <%= render "components/shopping_cart", cart_id: 'shopping-cart-closed', hidden: "", on_click: "" %>
   </div>
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+    <span class="navbar-title">sprout</span>
+  <% end %>
+  <div class="navbar-right">
+    <div id="navbar-plants" class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Plants', plants_path %>
+    </div>
+    <div id="navbar-shopping-cart">
+      <%= render "components/shopping_cart", cart_id: 'shopping-cart-closed', hidden: "", on_click: "" %>
+    </div>
+  </div>
+  <!-- Right Navigation -->
+      <!-- Login link (when logged out) -->
+    <!-- shopping cart logo -->
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -52,39 +58,25 @@
     </div>
   </div>
   <!-- cart summary appear -->
-  <div class="navbar-cart-summary hidden", id="cart-summary">
+  <div class="navbar-cart-summary", id="cart-summary">
     <div class="shopping-cart-icon">
       <%= render "components/shopping_cart", cart_id: 'shopping-cart-opened', hidden: "hidden", on_click: "on-click"  %>
     </div>
     <div class="navbar-cart-content">
-      <div class="navbar-cart-scroll">
+      <div class="navbar-cart-scroll" id="cart-summary-content">
         <%= render "orders/mini_cart", order_items: current_order.order_items %>
       </div>
     </div>
     <div class="navbar-cart-footer">
       SUB-TOTAL
-      <span>$ <%= current_order.subtotal %></span>
+      <span id="cart-summary-total">$ <%= number_with_precision(current_order.subtotal, :precision => 2) %></span>
     </div>
     <%= link_to "CHECKOUT", new_order_path, class: "checkout-btn" %>
   </div>
 </div>
 
-
 <script>
-  shoppingCartClosed = document.getElementById("shopping-cart-closed");
-  shoppingCartOpened = document.getElementById("shopping-cart-opened");
-  cartSummary = document.getElementById("cart-summary");
-  shoppingCartClosed.addEventListener("click", (event) => {
-      shoppingCartClosed.classList.add("hidden");
-      cartSummary.classList.remove("hidden");
-      shoppingCartOpened.classList.remove("hidden");
-  });
-  shoppingCartOpened.addEventListener("click", (event) => {
-      shoppingCartClosed.classList.remove("hidden");
-      cartSummary.classList.add("hidden");
-      shoppingCartOpened.classList.add("hidden");
-  });
+  <%= render 'shared/cart.js.erb' %>
 </script>
-
 
 
