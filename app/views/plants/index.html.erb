@@ -54,53 +54,34 @@
     <% end %>
   </div>
   <div class="col-md-1 offset-md-11 no-gutters nav-container filter-container">
-    <ul class="filters">
+    <ul class="filters" id="filters">
       <%= form_tag(plants_path, method: :get) do %>
 
-        <li class="">
-          <div class= "filter-checkboxes default-hidden">
-            <%= check_box_tag(:size_level, 1) %>
-            <%= label_tag(:size_level, "small") %>
-            <%= check_box_tag(:size_level, 2) %>
-            <%= label_tag(:size_level, "medium") %>
-            <%= check_box_tag(:size_level, 3) %>
-            <%= label_tag(:size_level, "large") %>
+
+        <li class="filter-category">
+          <div class= "filter-checkboxes">
+            <div class="inner-filter-content">
+               <%= select_tag(:size, options_for_select([['small', 1],['medium', 3],['large', 3]])) %>
+            </div>
           </div>
           <span><%= label_tag "size" %></span>
         </li>
 
-        <li class="">
-          <div class= "filter-checkboxes default-hidden">
-            <%= check_box_tag(:care_level, 1) %>
-            <%= label_tag(:care_level_1) do %>
-              <div>
-                <i class="fa fa-heart"></i>
-              </div>
-             <% end %>
-            <%= check_box_tag(:care_level, 2) %>
-            <%= label_tag(:care_level_2) do %>
-              <div>
-                <i class="fa fa-heart"></i>
-              </div>
-             <% end %>
-            <%= check_box_tag(:care_level, 3) %>
-            <%= label_tag(:care_level_3) do %>
-              <div>
-                <i class="fa fa-heart"></i>
-              </div>
-             <% end %>
+
+        <li class="filter-category">
+          <div class= "filter-checkboxes">
+            <div class="inner-filter-content">
+              <%= select_tag(:care_level, options_for_select([['easy', 1],['medium', 2],['hard', 3]])) %>
+            </div>
           </div>
           <span><%= label_tag "care" %></span>
         </li>
 
-        <li class=" ">
-          <div class= "filter-checkboxes default-hidden">
-            <%= check_box_tag(:sun_level, 1) %>
-            <%= label_tag(:sun_level, "sun") %>
-            <%= check_box_tag(:sun_level, 2) %>
-            <%= label_tag(:sun_level, "partial") %>
-            <%= check_box_tag(:sun_level, 3) %>
-            <%= label_tag(:sun_level, "shade") %>
+        <li class="filter-category">
+          <div class= "filter-checkboxes">
+            <div class="inner-filter-content">
+               <%= select_tag(:sun_level, options_for_select([['full sun', 1],['partial', 2],['shade', 3]])) %>
+            </div>
           </div>
           <span><%= label_tag "sun" %></span>
         </li>

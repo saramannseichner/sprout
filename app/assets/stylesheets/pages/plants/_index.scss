@@ -113,6 +113,7 @@
   color: $green;
   top: 20%;
   right: 5%;
+  height: 90vh;
 }
 
 .filters li {
@@ -120,20 +121,18 @@
   min-height: 50px;
   position: relative;
   padding-right: 10px;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 80px;
   height: 17%;
   vertical-align: baseline;
   list-style: none;
-  &:hover .filter-checkboxes {
-      display: flex;
-  }
 }
 
 .filters li span {
   position: absolute;
   padding-left: 3px;
   width: 50px;
-  height: 30px;
+  height: 44px;
   color: $green;
   opacity: 0.5;
   font-size: 14px;
@@ -141,66 +140,92 @@
   text-align: center;
   right: -30px;
   transform: rotate(90deg);
-  border-bottom: 3px solid rgba($green , 1);
+}
+
+.filter-category {
+  position: relative;
 }
 
 .filter-checkboxes {
-  right: 0px;
-  font-size: 10px;
-  font-weight: 400;
-  width: 150px;
-  color: black;
-  display: block;
   height: 100%;
   padding: 3px;
   color: black;
   position: absolute;
-  color: rgba(0,0,0,0);
-  text-decoration: none;
-  text-transform: uppercase;
+  right: 0px;
+  border-right: 2px solid rgba($green ,0.8);
+}
+
+
+.inner-filter-content {
+  width: 1px;
+  visibility: hidden;
+  transition: all 1.2s;
+  overflow: hidden;
+}
+
+#size {
+  height: 44px;
+}
+
+#care_level {
+  height: 44px;
+}
+
+#sun_level {
+  height: 44px;
 }
 
 .filters .btn {
   margin-top: 10px;
 }
 
-.filter-checkboxes {
-  background-color: $green;
-  display: none;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  label {
-    box-sizing: border-box;
-    color: black;
-    display: block;
-    height: 100%;
-    width: 100%;
-    padding: 1vh;
-    cursor: pointer;
-    opacity: .8;
-    transition: all .5s ease-in-out;
-    display: flex;
-    flex: 0;
-    justify-content: center;
-    align-items: center;
-    &:hover, &:focus, &:active {
-      color: $red;
-    }
-    div {
-      width: 100%;
+li:hover {
+  .filter-checkboxes  {
+    background-color: white;
+    border-bottom: 2px solid darken(white, 10%);
+    .inner-filter-content {
+      visibility: visible;
+      width: 200px;
     }
   }
-
-
-  input[type="checkbox"] {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  &:after {
+    .filter-checkboxes  {
+      background-color: white;
+      border-bottom: 2px solid darken(white, 10%);
+      .inner-filter-content {
+        visibility: visible;
+        width: 200px;
+      }
+    }
   }
+}
 
-  input[type="checkbox"]:checked ~ label {
-    color: $green;
-  }
+
+
+select {
+  margin: 0 auto;
+  font-size: 14px;
+  color: $green;
+  width: 200px;
+  padding: 15px;
+  height: 30px;
+  cursor: pointer;
+  background: url(http://sharpik.com/wip/cuteselect/arrow.png) 295px 12px no-repeat white;
+}
+
+
+select option {
+  background-color: white;
+  color: gray;
+  width: 200px;
+  padding: 15px 5px 20px 25px;
+  height: 33px;
+  cursor: pointer;
+  align: center;
+}
+
+select option:hover {
+  padding-left: 25px;
+  width: 190px;
+  color: $green;
 }
