@@ -124,6 +124,9 @@
   height: 17%;
   vertical-align: baseline;
   list-style: none;
+  &:hover .filter-checkboxes {
+      display: flex;
+  }
 }
 
 .filters li span {
@@ -198,6 +201,7 @@
   margin-top: 10px;
 }
 
+
 li:hover {
   .filter-checkboxes  {
     background-color: $green;
@@ -205,5 +209,45 @@ li:hover {
     .inner-filter-content {
       visibility: visible;
     }
-  }
-}
+// =======
+// .filter-checkboxes {
+//   background-color: $green;
+//   display: none;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 50px;
+//   label {
+//     box-sizing: border-box;
+//     color: black;
+//     display: block;
+//     height: 100%;
+//     width: 100%;
+//     padding: 1vh;
+//     cursor: pointer;
+//     opacity: .8;
+//     transition: all .5s ease-in-out;
+//     display: flex;
+//     flex: 0;
+//     justify-content: center;
+//     align-items: center;
+//     &:hover, &:focus, &:active {
+//       color: $red;
+//     }
+//     div {
+//       width: 100%;
+//     }
+//   }
+
+
+//   input[type="checkbox"] {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//   }
+
+//   input[type="checkbox"]:checked ~ label {
+//     color: $green;
+// >>>>>>> master
+//   }
+// }

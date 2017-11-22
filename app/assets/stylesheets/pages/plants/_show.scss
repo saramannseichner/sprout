@@ -10,14 +10,15 @@
 
 .left-image-container {
   left: 0;
+  z-index: -1;
 }
 
 .right-image-container {
   right: 0;
+  z-index: -1;
 }
 
 .inner-plant-container {
-  display: block;
   width: 50vw;
   height: 700px;
   display: flex;
@@ -26,15 +27,17 @@
 }
 
 .left-content-container {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .right-content-container {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
+  z-index: 1;
 }
 
 .plant-content {
@@ -112,8 +115,12 @@ hr {
   justify-content: space-around;
   border-left: 2px solid $green;
   i {
+    font-weight: 100;
+    font-size: 1em;
+  }
+  h4 {
     font-weight: 300;
-    font-size: 1  em;
+    font-size: 1em;
   }
 }
 

@@ -1,5 +1,5 @@
 <div>
-  <%= simple_form_for([order, address]) do |f| %>
+  <%= simple_form_for([order, address], remote: true) do |f| %>
     <%= f.error_notification %>
     <div class="col-sm-6">
       <%= f.input :first_name, placeholder: 'First Name' %>
