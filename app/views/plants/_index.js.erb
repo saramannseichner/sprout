@@ -46,20 +46,7 @@ function checkOffset() {
         $('#navScroll').css('position', 'fixed'); // restore when you scroll up
 }
 
-// $("#navScroll li a").on("click", function() {
-//     $("#navScroll li").removeClass("active");
-//     $(this).parent().addClass("active");
-// });
-
-
-// $('#sunlight-slider').on(input, function() {
-//   #sunlight-slider.value.innerHTML = this.value;
-// })
-
-// $('#care-slider').on(input, function() {
-//   #care-slider.value.innerHTML = this.value;
-// })
-
-// $('#size-slider').on(input, function() {
-//   #size-slider.value.innerHTML = this.value;
-// })
+$("#navScroll li a").on("click", function() {
+    $("#navScroll li").removeClass("active");
+    $(this).parent().addClass("active");
+});

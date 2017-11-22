@@ -127,36 +127,83 @@
 }
 
 .filters li span {
-    position: absolute;
-    padding-left: 3px;
-    width: 50px;
-    height: 30px;
-    color: $green;
-    opacity: 0.5;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    text-align: center;
-    right: -30px;
-    transform: rotate(90deg);
+  position: absolute;
+  padding-left: 3px;
+  width: 50px;
+  height: 30px;
+  color: $green;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  right: -30px;
+  transform: rotate(90deg);
 }
 
 .filter-checkboxes {
-  right: 0px;
-  font-size: 10px;
-  font-weight: 400;
-  width: 150px;
-  color: black;
-  display: block;
   height: 100%;
   padding: 3px;
   color: black;
   position: absolute;
+  right: 0px;
   border-right: 2px solid rgba($green ,0.8);
-  color: rgba(0,0,0,0);
-  text-decoration: none;
-  text-transform: uppercase;
 }
+
+
+.inner-filter-content {
+  width: 200px;
+  visibility: hidden;
+  // Need transition effect here
+  select {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.8) translate3d(-20px, 0px, 0);
+    transition: opacity 0.1s ease, transform 0.3s ease;
+    transform-origin: 0 100%;
+    z-index: 1;
+    &.open {
+      opacity: 1;
+      transform: scale(1) translate3d(0, 0, 0);
+      z-index: 5;
+    }
+    li {
+            display: inline-block;
+            a {
+               text-decoration: none;
+               display: inline-block;
+               padding: 10px 16px;
+               color: $green;
+
+               &:hover {
+                  color: darken($green, 5%);
+               }
+
+               &.active {
+                  border-bottom: 2px solid black;
+                  color: black;
+                  &:hover {
+                     color: black;
+                  }
+               }
+            }
+          }
+
+  }
+}
+
 
 .filters .btn {
   margin-top: 10px;
+}
+
+li:hover {
+  .filter-checkboxes  {
+    background-color: $green;
+    border-bottom: 2px solid darken($green, 10%);
+    .inner-filter-content {
+      visibility: visible;
+    }
+  }
 }
