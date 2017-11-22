@@ -1,12 +1,3 @@
-.title {
-  h1 {
-    z-index: -10;
-    text-align: center;
-    font-weight: lighter;
-    font-size: 60px;
-  }
-}
-
 .plants-container {
   max-width: 90vw;
   margin-left: auto;
@@ -14,30 +5,32 @@
 }
 
 .card-row {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
-  align-content: bottom;
+  align-content: top;
 }
 
 // Navigation Bar
 .nav-container {
-  height: 100vh;
+  height: 100%;
 }
 
 #navScroll {
   position: fixed;
   color: $green;
   top: 20%;
+  left: 5%;
+  height: auto;
 }
 
 #navScroll li {
-  max-height: 150px;
+  max-height: 100px;
   min-height: 50px;
   position: relative;
   padding-left: 10px;
   margin-top: 15px;
-  height: 17%;
+  height: auto;
   vertical-align: baseline;
   list-style: none;
 }
@@ -46,6 +39,7 @@
   a {
     padding-left: 23px;
     color: rgba(0,0,0,1);
+    background-color: $light-gray;
   }
 }
 #navScroll li em {
@@ -55,17 +49,16 @@
     width: 4px;
     background: white;
     opacity: 0;
-    z-index: 3;
     max-height: 100% !important;
-    height: 0;
-    transition: height, opacity ease-out 0.3s;
 }
 
 #navScroll li a {
   left: 0px;
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 300;
   width: 150px;
+  overflow: visible;
+  z-index: 3 !important;
   color: black;
   display: block;
   height: 100%;
@@ -111,5 +104,103 @@
     &:hover{
       color: $green;
     }
+  }
+}
+
+
+.filters {
+  position: fixed;
+  color: $green;
+  top: 20%;
+  right: 5%;
+}
+
+.filters li {
+  max-height: 150px;
+  min-height: 50px;
+  position: relative;
+  padding-right: 10px;
+  margin-top: 15px;
+  height: 17%;
+  vertical-align: baseline;
+  list-style: none;
+  &:hover .filter-checkboxes {
+      display: flex;
+  }
+}
+
+.filters li span {
+  position: absolute;
+  padding-left: 3px;
+  width: 50px;
+  height: 30px;
+  color: $green;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  right: -30px;
+  transform: rotate(90deg);
+  border-bottom: 3px solid rgba($green , 1);
+}
+
+.filter-checkboxes {
+  right: 0px;
+  font-size: 10px;
+  font-weight: 400;
+  width: 150px;
+  color: black;
+  display: block;
+  height: 100%;
+  padding: 3px;
+  color: black;
+  position: absolute;
+  color: rgba(0,0,0,0);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.filters .btn {
+  margin-top: 10px;
+}
+
+.filter-checkboxes {
+  background-color: $green;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  label {
+    box-sizing: border-box;
+    color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1vh;
+    cursor: pointer;
+    opacity: .8;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex: 0;
+    justify-content: center;
+    align-items: center;
+    &:hover, &:focus, &:active {
+      color: $red;
+    }
+    div {
+      width: 100%;
+    }
+  }
+
+
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    color: $green;
   }
 }

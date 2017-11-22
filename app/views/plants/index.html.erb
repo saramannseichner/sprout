@@ -11,6 +11,7 @@
         <% elsif index == -1%>
           <li aria-label="<%= index + 1 %>">
             <%= link_to "#{plants.last.common_name}", plants_path + "#plants_row_#{index + 1}"%>
+            <em style="height: 22.9679%;"></em>
             <span><%= index + 1 %></span>
           </li>
         <% else %>
@@ -52,15 +53,60 @@
       </div>
     <% end %>
   </div>
-  <div class="col-md-1 offset-md-11 no-gutters">
-    <%= form_tag(plants_path, method: :get) do %>
-      <%= label_tag "size" %>
-      <%= text_field_tag :size %>
-      <%= label_tag "sunlight" %>
-      <%= text_field_tag :sun_level %>
-      <%= label_tag "care" %>
-      <%= text_field_tag :care_level %>
-      <%= submit_tag 'Filter', class: "sprout-btn sprout-secondary" %>
+  <div class="col-md-1 offset-md-11 no-gutters nav-container filter-container">
+    <ul class="filters">
+      <%= form_tag(plants_path, method: :get) do %>
+
+        <li class="">
+          <div class= "filter-checkboxes default-hidden">
+            <%= check_box_tag(:size_level, 1) %>
+            <%= label_tag(:size_level, "small") %>
+            <%= check_box_tag(:size_level, 2) %>
+            <%= label_tag(:size_level, "medium") %>
+            <%= check_box_tag(:size_level, 3) %>
+            <%= label_tag(:size_level, "large") %>
+          </div>
+          <span><%= label_tag "size" %></span>
+        </li>
+
+        <li class="">
+          <div class= "filter-checkboxes default-hidden">
+            <%= check_box_tag(:care_level, 1) %>
+            <%= label_tag(:care_level_1) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
+            <%= check_box_tag(:care_level, 2) %>
+            <%= label_tag(:care_level_2) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
+            <%= check_box_tag(:care_level, 3) %>
+            <%= label_tag(:care_level_3) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
+          </div>
+          <span><%= label_tag "care" %></span>
+        </li>
+
+        <li class=" ">
+          <div class= "filter-checkboxes default-hidden">
+            <%= check_box_tag(:sun_level, 1) %>
+            <%= label_tag(:sun_level, "sun") %>
+            <%= check_box_tag(:sun_level, 2) %>
+            <%= label_tag(:sun_level, "partial") %>
+            <%= check_box_tag(:sun_level, 3) %>
+            <%= label_tag(:sun_level, "shade") %>
+          </div>
+          <span><%= label_tag "sun" %></span>
+        </li>
+        <%= button_tag(type: "submit", class: "btn btn-success") do %>
+            <i class='fa fa-search' aria-hidden='true'></i>
+        <% end %>
     <% end %>
   </div>
 </div>
