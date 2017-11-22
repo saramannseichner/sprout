@@ -132,7 +132,7 @@
   position: absolute;
   padding-left: 3px;
   width: 50px;
-  height: 30px;
+  height: 44px;
   color: $green;
   opacity: 0.5;
   font-size: 14px;
@@ -159,10 +159,21 @@
 .inner-filter-content {
   width: 1px;
   visibility: hidden;
-  transition: all 1s;
+  transition: all 1.2s;
   overflow: hidden;
 }
 
+#size {
+  height: 44px;
+}
+
+#care_level {
+  height: 44px;
+}
+
+#sun_level {
+  height: 44px;
+}
 
 .filters .btn {
   margin-top: 10px;
@@ -177,7 +188,18 @@ li:hover {
       width: 200px;
     }
   }
+  &:after {
+    .filter-checkboxes  {
+      background-color: white;
+      border-bottom: 2px solid darken(white, 10%);
+      .inner-filter-content {
+        visibility: visible;
+        width: 200px;
+      }
+    }
+  }
 }
+
 
 
 select {
