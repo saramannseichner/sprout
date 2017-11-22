@@ -47,7 +47,8 @@
 .similar-collection-results {
   height: calc(50vh-100px);
   display: flex;
-  overflow: scroll;
+  background-color: $light-gray;
+  overflow: hidden;
   a {
     width: 25%;
   }
