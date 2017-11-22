@@ -69,7 +69,7 @@
     </div>
     <div class="navbar-cart-footer">
       SUB-TOTAL
-      <span id="cart-summary-total">$ <%= current_order.subtotal %></span>
+      <span id="cart-summary-total">$ <%= number_with_precision(current_order.subtotal, :precision => 2) %></span>
     </div>
     <%= link_to "CHECKOUT", new_order_path, class: "checkout-btn" %>
   </div>

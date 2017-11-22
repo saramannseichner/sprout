@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  #before_action :find_order_address, only: [:create]
+  before_action :find_order_address, only: [:create]
 
   def create
 
