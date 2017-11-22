@@ -3,7 +3,7 @@
     <div class="inner-plant-container left-content-container col-md-6 col-xs-12 no-gutters">
       <%= render partial: 'components/plant_content', locals: { plant: @plant, order_item: @order_item } %>
     </div>
-    <div class="inner-plant-container right-image-container plant-image-lg col-md-6 col-xs-12 no-gutters ">
+    <div class="inner-plant-container right-image-container plant-image-lg col-md-6 col-xs-12 offset-md-6 no-gutters ">
       <div class="card-img" id="img" style="background-image: url('<%= cl_image_path @plant.photo.path, crop: :fill %>'); height: 700px">
       </div>
     </div>
