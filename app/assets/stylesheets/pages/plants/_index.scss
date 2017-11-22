@@ -21,12 +21,12 @@
   color: $green;
   top: 20%;
   left: 5%;
-  height: auto;
+  max-height: 80vh;
 }
 
 #navScroll li {
   max-height: 100px;
-  min-height: 50px;
+  min-height: 20px;
   position: relative;
   padding-left: 10px;
   margin-top: 15px;

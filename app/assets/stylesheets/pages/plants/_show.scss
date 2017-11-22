@@ -5,7 +5,6 @@
   .plant-image-lg {
     position: absolute;
     top: 0;
-    left: 0;
   }
 }
 
@@ -17,6 +16,7 @@
 .right-image-container {
   right: 0;
   z-index: -1;
+  float: right;
 }
 
 .inner-plant-container {
