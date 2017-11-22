@@ -58,4 +58,24 @@
   border-bottom: 3px solid darken($light-gray, 10%);
   margin-bottom: 64px;
   padding: 30px;
+  .box-card {
+    display: flex;
+    overflow: scroll;
+    justify-content: space-between;
+  }
+  .mini-cart {
+    margin-right: 10px;
+  }
+  .order-totals-table {
+    align-self: flex-end;
+  }
+  .order-total {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  td {
+    padding: 0 15px;
+    text-align: right;
+  }
 }
+

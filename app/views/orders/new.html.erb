@@ -37,7 +37,9 @@
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
         <div class="order-summary-box">
-          <%= render 'mini_cart', order_items: current_order.order_items %>
+          <div class="box-card">
+            <%= render 'mini_cart', order_items: current_order.order_items %>
+          </div>
           <%= render 'order_totals_table', order: current_order %>
         </div>
       </div>
