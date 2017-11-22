@@ -29,15 +29,21 @@
     </div>
     <div class="content-descriptors">
       <div class="content-height">
-        <h4><i class="fa fa-arrows-v" aria-hidden="true"> <%= plant.height.to_i %> inches</i>
- </h4>
+        <h4><i class="fa fa-arrows-v" aria-hidden="true"></i>
+          <%= plant.height.to_i %> inches
+        </h4>
       </div>
       <div class="content-sun">
-        <h4><i class="fa fa-sun-o" aria-hidden="true"> <%= plant.show_sun_level %></i>
-      </h4>
+        <h4>
+          <i class="fa fa-sun-o" aria-hidden="true"></i>
+          <%= plant.show_sun_level %>
+        </h4>
       </div>
       <div class="content-water">
-        <h4><i class="fa fa-tint" aria-hidden="true"> <%= plant.show_water_level %></i> </h4>
+        <h4>
+          <i class="fa fa-tint" aria-hidden="true"></i>
+          <%= plant.show_water_level %>
+        </h4>
       </div>
     </div>
     <% if plant.special_care %>

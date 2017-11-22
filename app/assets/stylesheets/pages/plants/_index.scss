@@ -124,20 +124,24 @@
   height: 17%;
   vertical-align: baseline;
   list-style: none;
+  &:hover .filter-checkboxes {
+      display: flex;
+  }
 }
 
 .filters li span {
-    position: absolute;
-    padding-left: 3px;
-    width: 50px;
-    height: 30px;
-    color: $green;
-    opacity: 0.5;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    text-align: center;
-    right: -30px;
-    transform: rotate(90deg);
+  position: absolute;
+  padding-left: 3px;
+  width: 50px;
+  height: 30px;
+  color: $green;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  right: -30px;
+  transform: rotate(90deg);
+  border-bottom: 3px solid rgba($green , 1);
 }
 
 .filter-checkboxes {
@@ -151,7 +155,6 @@
   padding: 3px;
   color: black;
   position: absolute;
-  border-right: 2px solid rgba($green ,0.8);
   color: rgba(0,0,0,0);
   text-decoration: none;
   text-transform: uppercase;
@@ -159,4 +162,45 @@
 
 .filters .btn {
   margin-top: 10px;
+}
+
+.filter-checkboxes {
+  background-color: $green;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  label {
+    box-sizing: border-box;
+    color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1vh;
+    cursor: pointer;
+    opacity: .8;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex: 0;
+    justify-content: center;
+    align-items: center;
+    &:hover, &:focus, &:active {
+      color: $red;
+    }
+    div {
+      width: 100%;
+    }
+  }
+
+
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    color: $green;
+  }
 }

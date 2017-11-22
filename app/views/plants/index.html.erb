@@ -58,7 +58,7 @@
       <%= form_tag(plants_path, method: :get) do %>
 
         <li class="">
-          <div class= "filter-checkboxes">
+          <div class= "filter-checkboxes default-hidden">
             <%= check_box_tag(:size_level, 1) %>
             <%= label_tag(:size_level, "small") %>
             <%= check_box_tag(:size_level, 2) %>
@@ -70,19 +70,31 @@
         </li>
 
         <li class="">
-          <div class= "filter-checkboxes">
+          <div class= "filter-checkboxes default-hidden">
             <%= check_box_tag(:care_level, 1) %>
-            <%= label_tag(:care_level, "heart") %>
+            <%= label_tag(:care_level_1) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
             <%= check_box_tag(:care_level, 2) %>
-            <%= label_tag(:care_level, "heart") %>
+            <%= label_tag(:care_level_2) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
             <%= check_box_tag(:care_level, 3) %>
-            <%= label_tag(:care_level, "heart") %>
+            <%= label_tag(:care_level_3) do %>
+              <div>
+                <i class="fa fa-heart"></i>
+              </div>
+             <% end %>
           </div>
           <span><%= label_tag "care" %></span>
         </li>
 
-        <li class="">
-          <div class= "filter-checkboxes">
+        <li class=" ">
+          <div class= "filter-checkboxes default-hidden">
             <%= check_box_tag(:sun_level, 1) %>
             <%= label_tag(:sun_level, "sun") %>
             <%= check_box_tag(:sun_level, 2) %>
