@@ -19,6 +19,15 @@
       <div class="checkout-form form-login" id="address-form">
         <h3 class="title-2">Enter Shipping Address</h3>
         <%= render "addresses/form", address: @address, order: current_order %>
+        <div class="fb-messenger-checkbox"
+          origin=<%= ENV['PAGE_DOMAIN'] %>
+          page_id=<%= ENV['FB_PAGE_ID'] %>
+          messenger_app_id=<%= ENV['FB_APP_ID'] %>
+          user_ref=<%= rand(1..100000) %>
+          prechecked="true"
+          allow_login="true"
+          size="xlarge">
+        </div>
         <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
       </div>
       <div class="checkout-form form-login hidden" id="payment-form">
@@ -49,6 +58,7 @@
 </div>
 <%= content_for(:after_js) do%>
   <script>
+    // checkout flow
     paymentBtn = document.getElementById("payment-btn");
     paymentBtn.addEventListener('click', (event) => {
     console.log('/orders/<%= current_order.id%>/addresses');
