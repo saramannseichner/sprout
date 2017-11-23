@@ -28,9 +28,9 @@ class Plant < ApplicationRecord
   def show_water_level
     case self[:water_level]
     when 1
-      "Every 12 to 15 days"
+      "Every 25 days"
     when 2
-      "Every 7 to 10 days"
+      "Every 15 days"
     when 3
       "Once a week"
     when 4

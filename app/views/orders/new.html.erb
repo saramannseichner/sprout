@@ -30,9 +30,23 @@
           <h3> Thanks for shopping with us, <%= current_user[:first_name] %>! </h3>
           <h4> Your order will arrive in up to 5 business days and will be shipped to: </h4>
           <br>
-          <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
-          <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
-          <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
+          <div class="order-confirmation-details">
+            <div class="address-details">
+              <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
+              <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
+              <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
+            </div>
+            <div class="messenger-reminders">
+              <h5>Get watering reminders with messenger:</h5>
+              <div class="fb-send-to-messenger"
+               messenger_app_id=<%= ENV['FB_APP_ID'] %>
+               page_id= <%= ENV['FB_PAGE_ID'] %>
+               data-ref= <%= current_user.id %>
+               color="blue"
+               size="xlarge">
+              </div>
+            </div>
+          </div>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
@@ -49,6 +63,29 @@
 </div>
 <%= content_for(:after_js) do%>
   <script>
+      window.fbAsyncInit = function() {
+     FB.init({
+     appId: <%= ENV['FB_APP_ID'] %>,
+     xfbml: true,
+     version: "v2.6"
+     });
+
+     FB.Event.subscribe('send_to_messenger', function(e) {
+     // callback for events triggered by the plugin
+
+     });
+
+     };
+
+     (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) { return; }
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+    // checkout flow
     paymentBtn = document.getElementById("payment-btn");
     paymentBtn.addEventListener('click', (event) => {
     console.log('/orders/<%= current_order.id%>/addresses');
