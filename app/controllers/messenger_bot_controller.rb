@@ -1,6 +1,6 @@
 class MessengerBotController < ActionController::Base
-  # skip_before_action :authenticate_user!
-  # skip_before_action :verify_authenticity_token
+  #skip_before_action :authenticate_user!
+  #skip_before_action :verify_authenticity_token
 
   def message(event, sender)
    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
@@ -20,6 +20,13 @@ class MessengerBotController < ActionController::Base
     sender.reply(quickreply.get_message)
   end
 
+  def optin(event, sender)
+    # trouve moi ou cree moi le user avec sender id
+     message_json = {
+        "text": "♥️ from Steph"
+        }
+      SendRequest.send(message_json,sender.sender_id)
+  end
 
   def postback(event, sender)
     payload = event["postback"]["payload"]
@@ -33,11 +40,12 @@ class MessengerBotController < ActionController::Base
 
   private
 
-  def find_or_create_user(first_name, last_name, sender_id)
+  def find_or_create_user(sender_id)
     if User.find_by(facebook_id: sender_id)
       User.find_by(facebook_id: sender_id)
     else
-      User.create(email: "#{sender_id}@fakeemail.com",first_name: first_name, last_name: last_name,password: sender_id,facebook_id: sender_id)
+      current_user.facebook_id = sender_id
+      current_user.save
     end
   end
 

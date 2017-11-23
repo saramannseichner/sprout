@@ -19,16 +19,14 @@
       <div class="checkout-form form-login" id="address-form">
         <h3 class="title-2">Enter Shipping Address</h3>
         <%= render "addresses/form", address: @address, order: current_order %>
-        <div class="fb-messenger-checkbox"
-          origin=<%= ENV['PAGE_DOMAIN'] %>
-          page_id=<%= ENV['FB_PAGE_ID'] %>
-          messenger_app_id=<%= ENV['FB_APP_ID'] %>
-          user_ref=<%= rand(1..100000) %>
-          prechecked="true"
-          allow_login="true"
-          size="xlarge">
-        </div>
         <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
+      </div>
+      <div class="fb-send-to-messenger"
+         messenger_app_id=<%= ENV['FB_APP_ID'] %>
+         page_id= <%= ENV['FB_PAGE_ID'] %>
+         data-ref= "Hello"
+         color="blue"
+         size="standard">
       </div>
       <div class="checkout-form form-login hidden" id="payment-form">
         <h3 class="title-2">Enter Payment Information</h3>
@@ -58,6 +56,27 @@
 </div>
 <%= content_for(:after_js) do%>
   <script>
+      window.fbAsyncInit = function() {
+     FB.init({
+     appId: <%= ENV['FB_APP_ID'] %>,
+     xfbml: true,
+     version: "v2.6"
+     });
+
+     FB.Event.subscribe('send_to_messenger', function(e) {
+     // callback for events triggered by the plugin
+     });
+
+     };
+
+     (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) { return; }
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
     // checkout flow
     paymentBtn = document.getElementById("payment-btn");
     paymentBtn.addEventListener('click', (event) => {
