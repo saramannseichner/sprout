@@ -1,6 +1,7 @@
-class MessengerBotController < ApplicationController
-  skip_before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token
+class MessengerBotController < ActionController::Base
+  #skip_before_action :authenticate_user!
+  #skip_before_action :verify_authenticity_token
+
 
   def message(event, sender)
    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
