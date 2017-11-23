@@ -84,6 +84,7 @@ $("#navScroll li a").on("click", function() {
         for (var i = 0; i < cells.length; i++) {
           if(cells[i].hasAttribute('data-cuteselect-options')) {
             var parent = cells[i].parentNode;
+            cells[i].style.transition = "all 1000";
             cells[i].style.opacity = '0';
             cells[i].style.display = 'none';
           }
