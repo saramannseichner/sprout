@@ -10,9 +10,15 @@
     <br>
 
     <div class="banner-buttons">
-      <button type="button" class="sprout-btn sprout-cta" id="journey" data-toggle="modal" data-target="#exampleModal">DISCOVER</button>
+      <div class="sprout-cta">
+        <div class="layer"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <button type="button" class="sprout-btn sprout-cta" id="journey" data-toggle="modal" data-target="#exampleModal">DISCOVER</button>
+      </div>
 
-      <%= link_to '<button type="button" class="sprout-btn sprout-secondary">PLANTS</button>'.html_safe, plants_path %>
+      <div class="sprout-secondary">
+        <div class="layer"><%= image_tag ("plant.png") %></div>
+        <%= link_to '<button type="button" class="sprout-btn sprout-secondary">PLANTS</button>'.html_safe, plants_path %>
+      </div>
     </div>
   </div>
 </div>

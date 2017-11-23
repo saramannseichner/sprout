@@ -58,10 +58,12 @@
 .navbar-wagon-link {
   color: darken($dark-gray, 20%);
   font-size: 20px;
+  transition: all 0.2s;
 }
 .navbar-wagon-link:hover {
   color: $green;
   text-decoration: none !important;
+  margin: 0;
   border-bottom: 2px solid $green;
 }
 
@@ -73,6 +75,7 @@
 .navbar-sprout-link {
   color: $green;
   font-size: 14px;
+  transition: all 0.2s;
   i {
     font-size: 22px;
   }

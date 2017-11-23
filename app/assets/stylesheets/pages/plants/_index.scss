@@ -151,7 +151,6 @@
 
 .filter-checkboxes {
   height: 100%;
-  padding: 3px;
   color: black;
   position: absolute;
   right: 0px;
@@ -204,16 +203,6 @@ li:hover {
     overflow: hidden;
   }
   }
-  &:after {
-    .filter-checkboxes  {
-      background-color: white;
-      border-bottom: 2px solid darken(white, 10%);
-      .inner-filter-content {
-        visibility: visible;
-        width: 200px;
-      }
-    }
-  }
 }
 
 #filter {
@@ -234,15 +223,10 @@ li:hover {
   select option {
     background-color: white;
     color: gray;
-    width: 1px;
-    padding: 15px 5px 20px 25px;
-    height: 40px;
+    width: 200px;
+    padding: 1px 5px 20px 25px;
+    height: 30px;
     cursor: pointer;
-    align: top;
-    opacity: 0;
-    visibility: hidden;
-    display: none;
-    overflow: hidden;
   }
 
   select option:hover {
