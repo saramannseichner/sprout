@@ -24,7 +24,7 @@
       <div class="fb-send-to-messenger"
          messenger_app_id=<%= ENV['FB_APP_ID'] %>
          page_id= <%= ENV['FB_PAGE_ID'] %>
-         data-ref= "Hello"
+         data-ref= <%= current_user.id %>
          color="blue"
          size="standard">
       </div>
@@ -65,6 +65,7 @@
 
      FB.Event.subscribe('send_to_messenger', function(e) {
      // callback for events triggered by the plugin
+
      });
 
      };
