@@ -22,7 +22,7 @@ class MessengerBotController < ApplicationController
     plants = find_user_plants(user)
 
     if plants.size == 1
-      quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when to water your new plant?")
+      quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when to water your new #{plants.first.common_name}?")
       quickreply.add_postback('Yes', 'callback_yes')
       quickreply.add_postback('No', 'callback_no')
     else
@@ -31,17 +31,6 @@ class MessengerBotController < ApplicationController
       quickreply.add_postback('No', 'callback_no')
     end
 
-    # if plants.size == 1
-    #  message_json = {
-    #     "text": "Hi #{user.first_name}, let's set up some watering reminders for the plant you bought today."
-    #     }
-    #   SendRequest.send(message_json,sender.sender_id)
-    # else
-    #   message_json = {
-    #     "text": "Hi #{user.first_name}, let's set up some watering reminders for the #{plants.size} plants you bought today."
-    #     }
-    #   SendRequest.send(message_json,sender.sender_id)
-    # end
     message_json = quickreply.get_message
     SendRequest.send(message_json,sender.sender_id)
   end
@@ -49,15 +38,22 @@ class MessengerBotController < ApplicationController
   def postback(event, sender)
     user = find_or_create_user(sender.sender_id)
     plants = find_user_plants(user)
-
     payload = event["postback"]["payload"]
 
     if payload == 'callback_yes'
       if plants.size == 1
-        sender.reply({text: "Awesome, we'll send you water reminders #{plants.first.show_water_level.downcase}"})
+        sender.reply({
+          text: "Great, we'll send you water reminders #{plants.first.show_water_level.downcase} once your #{plants.first.common_name} has been delivered.",
+          })
+      else
+        sender.reply({
+          text: "Great, we'll send you water reminders #{plants.first.show_water_level.downcase} once your #{plants.first.common_name} have been delivered.",
+          })
       end
     elsif payload == 'callback_no'
       sender.reply({text: "Ok, maybe next time :)"})
+    else
+      sender.reply({text: "♥️ from sprout"})
     end
   end
 
