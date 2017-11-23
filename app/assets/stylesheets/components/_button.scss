@@ -104,33 +104,63 @@
   }
 }
 
+
 .sprout-cta {
-  border-color: $green;
-  border-bottom: 2px solid darken($green, 10%);
+  position: relative;
+  overflow: hidden;
+  width: 184px;
+  height: 44px;
   background-color: $green;
-  transition: box-shadow .45s ease;
+  button {
+    border-color: $green;
+    border-bottom: 2px solid darken($green, 10%);
+    background: $green;
+    color: white;
+    transition: all .45s ease;
+  }
+  .layer {
+    position:absolute;
+    margin-bottom: 10px;
+    padding: 4px 24px 24px 24px;
+    margin-left: 4px;
+    top: -44px;
+    width:184px;
+    height: 44px;
+    text-align: center;
+    left:-5px;
+    padding:20px 0;
+    color: white;
+    background-color: $green;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .layer {
+      top:-10px;
+      cursor: pointer;
+    }
+    button {
+      background: transparent;
+      color: transparent;
+    }
+  }
+  &:hover::after {
+    transition: all 0.3s ease;
+    .layer {
+      top: -44px;
+    }
+  }
+  &:focus {
+    background: $green;
+  }
+  &:visited {
+    background: $green;
+  }
+
+  &:active {
+    background: $green;
+  }
 }
 
-.sprout-cta:hover {
-  box-shadow:  0 8px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.sprout-cta:focus {
-  border-color: $green;
-  color: $green;
-  background: none;
-}
-
-.sprout-cta:visited {
-  border-color: $green;
-  color: $green;
-  background: none;
-}
-
-.sprout-cta:active {
-  background: none;
-  border-color: $green;
-}
 
 .sprout-secondary {
   position: relative;
