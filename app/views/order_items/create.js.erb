@@ -15,4 +15,4 @@ cartContent.innerHTML = "<%= j render 'orders/mini_cart', order_items: current_o
 
 // update the cart total
 cartTotal = document.getElementById("cart-summary-total");
-cartTotal.innerHTML = "$ <%= current_order.subtotal %>";
+cartTotal.innerHTML = "$ <%= number_with_precision(current_order.subtotal, :precision => 2) %>";

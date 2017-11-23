@@ -4,7 +4,7 @@ document.querySelector("[data-order-item-id='<%= @order_item.id %>']")
 
 // update the cart total
 cartTotal = document.getElementById("cart-summary-total");
-cartTotal.innerHTML = "$ <%= current_order.subtotal %>";
+cartTotal.innerHTML = "$ <%= number_with_precision(current_order.subtotal, :precision => 2) %>";
 
 // update cart item numbers
 const navbarCart = document.getElementById('shopping-cart-closed');
