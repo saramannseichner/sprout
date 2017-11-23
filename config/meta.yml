@@ -3,4 +3,4 @@
 meta_product_name: "sprout"
 meta_title: "sprout - Find your perfect plant."
 meta_description: "sprout is a web application created to find the perfect plant for your home."
-meta_image: "sprout-background.png"                       # should exist in `app/assets/images/`
+meta_image: "sprout-background.jpg"                       # should exist in `app/assets/images/`
