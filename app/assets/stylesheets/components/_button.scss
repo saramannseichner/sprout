@@ -10,7 +10,6 @@
   color: $light-gray;
   font-weight: 300;
   letter-spacing: .08em;
-  margin: 10px;
   body {
     margin: 0;
   }
@@ -134,28 +133,61 @@
 }
 
 .sprout-secondary {
-  border-color: white;
-  border-bottom: 2px solid darken($light-gray, 20%);
-  background: white;
-  color: $green;
-  transition: box-shadow .45s ease;
+  position: relative;
+  overflow: hidden;
+  width: 184px;
+  height: 44px;
+  background-color: white;
+  button {
+    border-color: white;
+    border-bottom: 2px solid darken($light-gray, 20%);
+    background: white;
+    color: $green;
+    transition: all .45s ease;
+  }
+  .layer {
+    position:absolute;
+    margin-bottom: 10px;
+    padding: 4px 24px 24px 24px;
+    margin-left: 4px;
+    top: -44px;
+    width:184px;
+    height: 44px;
+    text-align: center;
+    left:-5px;
+    padding:20px 0;
+    background-color:white;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .layer {
+      top:-10px;
+      cursor: pointer;
+    }
+    button {
+      background: transparent;
+      color: transparent;
+    }
+  }
+  &:hover::after {
+    transition: all 0.3s ease;
+    .layer {
+      top: -44px;
+    }
+  }
+  &:focus {
+    background: white;
+  }
+  &:visited {
+    background: white;
+  }
+
+  &:active {
+    background: white;
+  }
 }
 
-.sprout-secondary:hover {
-  box-shadow:  0 8px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
 
-.sprout-secondary:focus {
-  background: white;
-}
-
-.sprout-secondary:visited {
-  background: white;
-}
-
-.sprout-secondary:active {
-  background: white;
-}
 
 #recommendation-btn {
   border: none;
