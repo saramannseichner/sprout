@@ -21,13 +21,6 @@
         <%= render "addresses/form", address: @address, order: current_order %>
         <button class="sprout-btn sprout-cta" id="payment-btn">Continue to Payment</button>
       </div>
-      <div class="fb-send-to-messenger"
-         messenger_app_id=<%= ENV['FB_APP_ID'] %>
-         page_id= <%= ENV['FB_PAGE_ID'] %>
-         data-ref= <%= current_user.id %>
-         color="blue"
-         size="standard">
-      </div>
       <div class="checkout-form form-login hidden" id="payment-form">
         <h3 class="title-2">Enter Payment Information</h3>
         <%= render "payment_form", order: current_order %>
@@ -37,9 +30,23 @@
           <h3> Thanks for shopping with us, <%= current_user[:first_name] %>! </h3>
           <h4> Your order will arrive in up to 5 business days and will be shipped to: </h4>
           <br>
-          <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
-          <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
-          <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
+          <div class="order-confirmation-details">
+            <div class="address-details">
+              <h5 id="street"><%= current_order.address[:street_address].titleize rescue "" %>. </h5>
+              <h5 id="city-country"><%= current_order.address[:city].titleize rescue ""  %>, <%= current_order.address[:country].titleize  rescue "" %></h5>
+              <h5 id="postal"><%= current_order.address[:postal_code].upcase rescue ""  %></h5>
+            </div>
+            <div class="messenger-reminders">
+              <h5>Get watering reminders with messenger:</h5>
+              <div class="fb-send-to-messenger"
+               messenger_app_id=<%= ENV['FB_APP_ID'] %>
+               page_id= <%= ENV['FB_PAGE_ID'] %>
+               data-ref= <%= current_user.id %>
+               color="blue"
+               size="xlarge">
+              </div>
+            </div>
+          </div>
       </div>
       <div class="order-summary">
           <h4 class="order-header title-2">Order Summary</h4>
