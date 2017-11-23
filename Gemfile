@@ -22,6 +22,9 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'omniauth-facebook'
+gem 'messenger-bot', :git => 'git://github.com/MatthiasRMS/messenger-bot-rails'
+gem 'rest-client'
+
 
 group :development, :test do
   gem 'pry-byebug'

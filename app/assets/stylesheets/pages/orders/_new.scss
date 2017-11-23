@@ -89,3 +89,27 @@
     margin-left: 15px;
   }
 }
+
+.order-confirmation-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messenger-reminders {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 3px solid darken($light-gray, 10%);
+  h5 {
+    margin: 10px 10px;
+  }
+}
+
+#u_0_1 {
+  margin-left: 150px;
+}
+
+.fb-send-to-messenger {
+  margin:  10px 20px;
+}

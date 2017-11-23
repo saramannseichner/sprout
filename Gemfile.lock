@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/MatthiasRMS/messenger-bot-rails
+  revision: 45e793b5bd781f3def4087f366be84dd780de7be
+  specs:
+    messenger-bot (1.0.3.1)
+
+GIT
   remote: git://github.com/assembler/attachinary.git
   revision: 98a895be22edc74b1928ffa3ae116d24bd9818fd
   specs:
@@ -279,6 +285,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
+  messenger-bot!
   money-rails
   omniauth-facebook
   pg
@@ -287,6 +294,7 @@ DEPENDENCIES
   puma
   rails (= 5.1.4)
   redis
+  rest-client
   sass-rails
   simple_form
   spring
