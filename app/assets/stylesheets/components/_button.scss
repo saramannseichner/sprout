@@ -16,11 +16,53 @@
   }
 }
 
-.cart-btn {
+
+#cart-btn {
   width: 100%;
   margin: 0 10px;
   height: 54px;
   padding: 4px 24px;
+  position: relative;
+  overflow: hidden;
+  background-color: $green;
+  transition: all 0.3s ease;
+  .layer {
+    color: $light-gray;
+    position:absolute;
+    top:-54px;
+    width:100%;
+    height: 54px;
+    text-align: center;
+    left:-5px;
+    padding:20px 0;
+    background-color:$green;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .layer {
+      top:0;
+      cursor: pointer;
+    }
+    .cart-btn {
+      background: transparent;
+      color: transparent;
+    }
+  }
+  &:hover::after {
+    transition: all 0.3s ease;
+    .layer {
+      top: -54px;
+    }
+  }
+}
+
+.cart-btn {
+  position: absolute;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   border-width: 1.0px;
   color: $light-gray;
   font-weight: 300;
@@ -29,6 +71,13 @@
   border-color: $green;
   border-bottom: 2px solid darken($green, 10%);
   background-color: $green;
+  &:active {
+    background-color: $green;
+  }
+  &:focus {
+    background-color: darken($green, 10%);
+    color: $light-gray;
+  }
 }
 
 .checkout-btn {

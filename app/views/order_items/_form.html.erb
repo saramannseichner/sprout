@@ -10,7 +10,9 @@
         <div id="minus-one" class="text-center">-</div>
       </div>
     </div>
-    <%= f.button :submit, value: "add to cart", id: "cartItem_add", class: "cart-btn" %>
+    <div id="cart-btn">
+      <%= f.button :submit, value: "add to cart", id: "cartItem_add", class: "cart-btn" %>
+    </div>
   </div>
 <% end %>
 
@@ -30,3 +32,9 @@
     cartItemQty.value = value.toString();
   });
 <% end %>
+
+<script>
+  $("document").ready(function() {
+    $("#cart-btn").prepend("<div class='layer'><i class='fa fa-shopping-cart' aria-hidden='true'></i></div>");
+  });
+</script>
