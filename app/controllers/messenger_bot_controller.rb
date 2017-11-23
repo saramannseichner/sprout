@@ -6,11 +6,8 @@ class MessengerBotController < ActionController::Base
    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
     # sender.reply({ text: "Reply: #{event['message']['text']}" })
     msg = event["message"]["text"]
-    # sender_id = event["sender"]["id"].to_i
-    # first_name = sender.get_profile[:body]["first_name"]
-    # last_name = sender.get_profile[:body]["last_name"]
-    # binding.pry
-    # user = find_or_create_user(first_name, last_name, sender_id)
+    sender_id = event["sender"]["id"].to_i
+    user = find_or_create_user(sender_id)
     # plants = find_user_plants(user)
     quickreply = QuickReplyTemplate.new("Would you like us to remind you when you water your plant(s)?")
 
@@ -23,7 +20,7 @@ class MessengerBotController < ActionController::Base
   def optin(event, sender)
     # trouve moi ou cree moi le user avec sender id
      message_json = {
-        "text": "♥️ from Steph"
+        "text": "♥️ from sprout"
         }
       SendRequest.send(message_json,sender.sender_id)
   end
@@ -32,7 +29,7 @@ class MessengerBotController < ActionController::Base
     payload = event["postback"]["payload"]
 
     if payload == 'callback_yes'
-      sender.reply({text: "Great, let's nickname your new friend?"})
+      sender.reply({text: "Awesome, we'll send you water reminders!"})
     elsif payload == 'callback_no'
       sender.reply({text: "Ok, maybe next time :)"})
     end
