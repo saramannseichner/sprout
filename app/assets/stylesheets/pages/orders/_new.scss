@@ -64,7 +64,7 @@
   padding: 30px;
   .box-card {
     display: flex;
-    overflow: scroll;
+    overflow: hidden;
     justify-content: space-between;
   }
   .mini-cart {
