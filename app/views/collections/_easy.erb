@@ -7,7 +7,7 @@
   <% end %>
   <div class="collection-header">
     <h3>IMPOSSIBLE TO KILL</h3>
-    <%= link_to  "SEE ALL >", '#'%>
+    <%= link_to  "SEE ALL >", plants_path %>
   </div>
   <div class="collection-results">
     <%= render partial: 'components/plant', collection: results.sample(4), as: :plant, locals: { card_height: "400px", img_height: 300, pos: "1" } %>

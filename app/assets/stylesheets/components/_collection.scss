@@ -29,7 +29,9 @@
 }
 
 .similar-collection-container {
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .similar-collection-header {
