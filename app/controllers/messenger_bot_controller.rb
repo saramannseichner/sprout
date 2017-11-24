@@ -7,13 +7,28 @@ class MessengerBotController < ActionController::Base
    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
     # sender.reply({ text: "Reply: #{event['message']['text']}" })
     msg = event["message"]["text"]
-    # plants = find_user_plants(user)
-    # quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when you water your plant(s)?")
-
-    # quickreply.add_postback('Yes', 'callback_yes')
-    # quickreply.add_postback('No', 'callback_no')
-
-    # sender.reply(quickreply.get_message)
+    # sender.reply(text: 'Hello, human!')
+    # sender.reply(
+    #   attachment: {
+    #     type: 'template',
+    #     payload: {
+    #       template_type: 'button',
+    #       text: 'Human, do you like me?',
+    #       buttons: [
+    #         { type: 'postback', title: 'Yes', payload: 'HARMLESS' },
+    #         { type: 'postback', title: 'No', payload: 'EXTERMINATE' }
+    #       ]
+    #     }
+    #   }
+    # )
+    # sender.reply(
+    #   attachment: {
+    #     type: 'image',
+    #     payload: {
+    #       url: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'
+    #     }
+    #   }
+    # )
     sender.reply({text: "♥️ from sprout"})
   end
 
@@ -21,16 +36,41 @@ class MessengerBotController < ActionController::Base
     user_id = event["optin"]["ref"].to_i
     user = find_or_create_user(sender.sender_id, user_id)
     plants = find_user_plants(user)
+    plant = plants.first
+    plant_url = Cloudinary::Utils.cloudinary_url(plant.photo.public_id ,:width => 120, :height => 170, :crop => :fill)
 
-    if plants.size == 1
-      quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when to water your new #{plants.first.common_name}?")
+    sender.reply(text: "Hello, #{user.first_name}! sprout is here to help you make sure you won't kill your new #{plant.common_name} :)")
+    sender.reply(
+      attachment: {
+        type: 'image',
+        payload: {
+          url: plant_url
+        }
+      }
+    )
+    # sender.reply(
+    #   attachment: {
+    #     type: 'template',
+    #     payload: {
+    #       template_type: 'button',
+    #       text: 'What do you say, would you like our help?',
+    #       buttons: [
+    #         { type: 'postback', title: 'Yes', payload: 'callback_yes' },
+    #         { type: 'postback', title: 'No', payload: 'callback_no' }
+    #       ]
+    #     }
+    #   }
+    # )
+
+    # if plants.size == 1
+      quickreply = QuickReplyTemplate.new("What do you say, would you like our help?")
       quickreply.add_postback('Yes', 'callback_yes')
       quickreply.add_postback('No', 'callback_no')
-    else
-      quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when to water your new plants?")
-      quickreply.add_postback('Yes', 'callback_yes')
-      quickreply.add_postback('No', 'callback_no')
-    end
+    # else
+    #   quickreply = QuickReplyTemplate.new("Hi #{user.first_name}, would you like us to remind you when to water your new plants?")
+    #   quickreply.add_postback('Yes', 'callback_yes')
+    #   quickreply.add_postback('No', 'callback_no')
+    # end
 
     message_json = quickreply.get_message
     SendRequest.send(message_json,sender.sender_id)
@@ -61,6 +101,7 @@ class MessengerBotController < ActionController::Base
   private
 
   def find_or_create_user(sender_id, user_id = nil)
+
     if User.find_by(facebook_id: sender_id)
       User.find_by(facebook_id: sender_id)
     else
