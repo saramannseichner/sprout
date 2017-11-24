@@ -241,7 +241,7 @@ attributes = [
     [{
       common_name: "Moose horn containing cylindrical",
       scientific_name: "Platycerium bifurcatum",
-      description: "Just like a trophy, this beautiful fern beautifully embellishes a room. Its foliage is covered with pruine, a powdery substance that retains moisture and gives a silvery aspect to its fronds. The moose horn enjoys abundant light, but in summer, spare the direct sun of the afternoon. She tolerates half shade. Let this fern dry between waterings. ",
+      description: "Just like a trophy, this beautiful fern beautifully embellishes a room. Its foliage is covered with pruine, a powdery substance that retains moisture and gives a silvery aspect to its fronds. She tolerates half shade.",
       height: 16,
       price_cents: 7000,
       sun_level: 2,
@@ -254,7 +254,7 @@ attributes = [
     [{
       common_name: "Senecio in terrarium Paz",
       scientific_name: "senecio stapeliiformis",
-      description: "This succulent with erect stems denotes a simple appearance, but weird. It stirs our curiosity ... The glass container is stowed like stained glass. It is deposited and suspended thanks to a delicate chain. For senecio, find a place for it to relax and let its soil dry between waterings.",
+      description: "This succulent with erect stems denotes a simple appearance, but weird. It stirs our curiosity ... The glass container is stowed like stained glass. It is deposited and suspended thanks to a delicate chain.",
       height: 13,
       price_cents: 9500,
       sun_level: 2,
@@ -277,19 +277,6 @@ attributes = [
       suspended: 0
     },
     "https://cdn.monpanierdachat.com/1821/manipulated/ver_produit_site_27_v2_6d7a41c9-11f3-472e-8627-2d261555074d_680X680cropresize.jpg" ],
-    [{
-      common_name: "Crassula",
-      scientific_name: "Crassula ovata 'Hobbit",
-      description: "The crassula enjoys a good light. In summer, to prevent its foliage from burning, remove it from the direct sun of the afternoon. Like all plants of this type, it is necessary to let its soil dry between waterings.",
-      height: 16,
-      price_cents: 6500,
-      sun_level: 1,
-      water_level: 1,
-      care_level: 1,
-      size: 2,
-      suspended: 0
-    },
-    "https://cdn.monpanierdachat.com/1821/manipulated/produit_12_shoot2_99270e61-1843-4b5b-85b5-90cbcb5050a1_680X680cropresize.jpg" ],
     [{
       common_name: "Alocasia",
       scientific_name: "Alocasia micholitziana",
@@ -332,7 +319,7 @@ attributes = [
     [{
       common_name: "Euphorbia",
       scientific_name: "Euphorbia trigona",
-      description: "Here is a beautiful vegetable dichotomy ... Euphorbia looks like a cactus, but it is not a plant of this kind. Nevertheless, it is maintained just like a cactus, that is to say by placing it in a luminous or even sunny environment and by watering it every four to six weeks. ",
+      description: "Euphorbia looks like a cactus, but it is not a plant of this kind. Nevertheless, it is maintained just like a cactus, that is to say by placing it in a luminous or even sunny environment and by watering it every four to six weeks. ",
       height: 11,
       price_cents: 2900,
       sun_level: 3,
